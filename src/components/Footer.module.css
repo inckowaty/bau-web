@@ -1,0 +1,26 @@
+/* components/Footer.module.css */
+
+.footer {
+    margin-top: 1rem;
+    border-top: 1px solid var(--neutral-400);
+    background: var(--neutral-100);
+    padding: 2rem 0;
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--primary-900); /* lub inny odcień dla tekstu */
+  }
+  
+  .footer p + p {
+    margin-top: 0.25rem;
+  }
+  
+  .footer a {
+    text-decoration: underline;
+    color: inherit;
+    transition: color 0.2s ease;
+  }
+  
+  .footer a:hover {
+    color: var(--accent);
+  }
+  

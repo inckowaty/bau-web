@@ -1,0 +1,4 @@
+/* LocaleSwitch.module.css  (minimalne style) */
+.switch    { display:flex; gap:.5rem; }
+.flagLink  { display:block; }
+.flag      { width:32px; height:32px; border-radius:50%; }

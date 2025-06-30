@@ -1,0 +1,375 @@
+/* components/NavbarSpirit.module.css */
+.navbar {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 6rem;
+    background: var(--accent);
+    padding: 0 2rem;
+    overflow: visible;
+    border: 2px solid #000;
+    /* trapezoidal cutout at bottom center */
+    clip-path: polygon(
+    /* 1: lewy górny */
+    0% 0%,
+    /* 2: prawy górny */
+    100% 0%,
+    /* 3: prawy dolny */
+    100% 100%,
+    /* 4: prawy koniec dolnej podstawy trapezu (50% + 8rem) */
+    calc(50% + 5rem) 100%,
+    /* 5: prawy wierzchołek górnej podstawy trapezu (50% + 5rem, 100% - 2rem) */
+    calc(50% + 4.2rem) calc(100% - 1.05rem),
+    /* 6: lewy wierzchołek górnej podstawy trapezu (50% - 5rem, 100% - 2rem) */
+    calc(50% - 4.2rem) calc(100% - 1.05rem),
+    /* 7: lewy koniec dolnej podstawy trapezu (50% - 8rem) */
+    calc(50% - 5rem) 100%,
+    /* 8: lewy dolny */
+    0% 100%
+  );
+  }
+
+  /* end caps on left/right */
+  .navbar::before,
+  .navbar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 1rem;
+    height: 100%;
+    background: #12111f;
+    z-index: 1;
+  }
+  .navbar::before { left: 0; }
+  .navbar::after { right: 0; }
+
+  .firstHalf {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .secondHalf {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .logo { 
+    z-index: 2; 
+    }
+
+  .linksLeft,
+  .linksRight { 
+    display: flex; 
+    gap: 0.2rem; 
+    list-style: none; 
+    margin: 0; 
+    padding: 0; 
+    z-index: 2; 
+   }
+
+   /* .linksLeft {
+    margin-left: 5rem;
+   } */
+
+  .link { 
+    color: var(--neutral); 
+    text-decoration: none; 
+    font-weight: 500; 
+    z-index: 2; 
+    }
+
+  .flags { 
+    /* display: flex;  */
+    /* flex-direction: row;  */
+    position: absolute;
+    top: 5;
+    left: calc(50% - 50px);
+    z-index: 2;
+    width: 100px;
+    }
+
+    .insideFlags {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+  
+  .bubbleH {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2rem;
+    height: 0.5rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    z-index: 1;
+    width: 1.5rem; 
+    height: 0.8rem;
+    top: 20%;
+    transform: translateY(-50%);
+  }
+
+
+  .navbar ul li a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color:#12111f;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+    font-size: 14px;
+  }
+  
+  .navbar ul li a,
+  .navbar ul li a::after,
+  .navbar ul li a::before {
+    transition: all .5s;
+    vertical-align: middle;
+  }
+  
+  .navbar ul li a::after {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    width: 95%;
+    height: 1px;
+    content: '';
+    /* color: transparent; */
+    /* background: #F1C40F; */
+    background: #12111f;
+    visibility: none;
+    opacity: 0; 
+    z-index: -1;
+  }
+  
+  .navbar ul li a:hover {
+    color: #fff;
+  }
+  
+  .navbar ul li a:hover::after {
+    opacity: 1;
+    visibility: visible;
+    height: 100px;
+  }
+
+  /* horizontal libella */
+  .level {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-52%);
+    width: 8rem;
+    height: 1rem;
+    z-index: 0;
+  }
+  .tubeH {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid #000;
+    border-radius: 0.3rem;
+    overflow: hidden;
+  }
+  .tubeH::before {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    background: rgba(180,255,180,0.9);
+  }
+  .tick {
+    position: absolute;
+    top: 50%;
+    width: 2px;
+    height: 1rem;
+    background: #000;
+    transform: translateY(-50%);
+    z-index: 3;
+  }
+
+  /* mobile drawer hidden by default */
+  .mobileDrawer {
+    display: none;
+    position: fixed;
+  }
+  .drawerList {
+    padding: 2rem;
+    list-style: none;
+    margin: 0;
+  }
+  .drawerItem {
+    margin-bottom: 1rem;
+  }
+  
+  /* vertical libella / hamburger only on mobile */
+  .sideLevel { 
+        display: flex;
+        right: 2rem;
+        width: 3.5rem;
+        height: 3.5rem;
+        background: white;
+        border: 2px solid #000;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        z-index: 2;
+        pointer-events: none
+    }
+    
+      .tubeV {
+        position: relative;
+        width: 0.5rem;
+        height: 95%;
+        background: rgba(180,255,180,0.9);
+        border: 2px solid #000;
+        border-radius: 0.2rem;
+      }
+      .tubeV::before,
+      .tubeV::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        width: 2px;
+        height: 0.5rem;
+        background: #000;
+        transform: translateX(-50%) translateY(-50%) rotate(90deg);
+      }
+      .tubeV::before { top: 25%; }
+      .tubeV::after  { top: 75%; }
+
+      .outerSideLevel {
+        display: flex;
+        right: 2rem;
+        width: 4.5rem;
+        height: 4.5rem;
+        background: var(--primary);
+        border: 2px solid #000;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        z-index: 2;
+        pointer-events: none
+      }
+      
+
+
+
+  @media (max-width: 978px) {
+    .linksLeft, .linksRight, .flags { display: none; }
+    .sideLevel {
+      display: flex;
+      right: 2rem;
+      top: 50%;
+      /* transform: translateY(-50%); */
+      width: 3.5rem;
+      height: 3.5rem;
+      background: white;
+      border: 2px solid #000;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      z-index: 2;
+      pointer-events: auto;
+    }  
+
+    .outerSideLevel {
+        display: flex;
+        right: 2rem;
+        width: 4.5rem;
+        height: 4.5rem;
+        background: var(--primary);
+        border: 2px solid #000;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        z-index: 2;
+        pointer-events: none
+      }
+
+    .secondHalf {
+        margin-right: 0.5rem;
+    }
+
+    .mobileDrawer {
+        display: block;
+        font-size: 26px;
+    }
+    .logo {
+        width: 100px;
+        height: 64px;
+    }
+    .navbar {
+        padding: 0 1.3rem;
+        clip-path: polygon(
+        /* 1: lewy górny */
+        0% 0%,
+        /* 2: prawy górny */
+        100% 0%,
+        /* 3: prawy dolny */
+        100% 100%,
+        /* 4: prawy koniec dolnej podstawy trapezu (50% + 8rem) */
+        calc(50% + 3rem) 100%,
+        /* 5: prawy wierzchołek górnej podstawy trapezu (50% + 5rem, 100% - 2rem) */
+        calc(50% + 2.6rem) calc(100% - 0.5rem),
+        /* 6: lewy wierzchołek górnej podstawy trapezu (50% - 5rem, 100% - 2rem) */
+        calc(50% - 2.6rem) calc(100% - 0.5rem),
+        /* 7: lewy koniec dolnej podstawy trapezu (50% - 8rem) */
+        calc(50% - 3rem) 100%,
+        /* 8: lewy dolny */
+        0% 100%
+      );
+      }
+      .level {
+        position: absolute;
+        bottom: 0.5rem;
+        left: 50%;
+        transform: translateX(-53%);
+        width: 5rem;
+        height: 0.5rem;
+        z-index: 0;
+      }
+      .bubbleH {
+        width: 0.9rem; 
+        height: 0.5rem;
+        top: 15%;
+        transform: translateY(-50%);
+      }
+      .mobileFlags {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin-top: 1rem;
+      }
+      .mobileList ul {
+        padding-left: 2rem;
+        list-style: none;
+        font-weight: bold;
+        color: #12111f;
+      }
+      .mobileList ul li {
+        margin-bottom: 2rem;
+        width: max-content;
+      }
+  }
+
+
+  

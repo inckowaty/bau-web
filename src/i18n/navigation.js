@@ -1,6 +1,11 @@
+// src/i18n/navigation.js
 import {createNavigation} from 'next-intl/navigation';
-import {routing} from './routing';
+import {locales} from './routing';      // patrz punkt 2
 
-// Exportujemy wrappery, które będziemy używać w komponentach klienta
-export const {Link, usePathname, useRouter, redirect, getPathname} =
-  createNavigation(routing);
+export const {
+  Link,
+  usePathname,
+  useRouter,
+  redirect,
+  getPathname
+} = createNavigation({locales});

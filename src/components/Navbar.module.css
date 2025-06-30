@@ -1,0 +1,85 @@
+/* ----- HEADER WRAPPER ----- */
+.header{
+  background:#12111f;
+  color:#fff;
+  position:sticky;
+  top:0;
+  z-index:40;
+}
+
+/* ----- FLEX ROW ----- */
+.row{
+  max-width:1240px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0.75rem 1rem;
+}
+
+/* ----- LOGO ----- */
+.logo img{ display:block;height:auto; }
+
+/* ----- DESKTOP NAV (>=768) ----- */
+.navDesktop{
+  display:flex;
+  align-items:center;
+  gap:2rem;
+}
+.navDesktop a{
+  text-decoration:none;
+  color:#fff;
+}
+.navDesktop a:hover{ color:#feb81a; }
+
+/* ----- BURGER ----- */
+.burger{
+  background:none;
+  border:none;
+  color:#fff;
+  display:none;          /* default hidden; shown via media query */
+  cursor:pointer;
+}
+
+/* ----- OVERLAY (20 %) ----- */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  z-index:50;
+}
+
+/* ----- DRAWER (80 %) ----- */
+.drawer{
+  position:fixed;
+  top:0;right:0;
+  width:80%;
+  max-width:320px;
+  height:100dvh;
+  background:#12111f;
+  padding:2rem 1.5rem;
+  display:flex;
+  flex-direction:column;
+  gap:1.5rem;
+  z-index:60;
+}
+.drawer a{
+  text-decoration:none;
+  color:#fff;
+  font-size:1.25rem;
+}
+.drawer a:hover{ color:#feb81a; }
+
+.close{
+  position:absolute;
+  top:1rem; right:1rem;
+  background:none;
+  border:none;
+  color:#fff;
+}
+
+/* ----- MEDIA QUERY <768px ----- */
+@media (max-width:768px){
+  .navDesktop{ display:none; }
+  .burger{ display:block; }
+}

@@ -1,3 +1,22 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* ---------- kolory projektu ---------- */
+:root {
+  --color-primary-900: #12111f;   /* granat */
+  --color-accent-500 : #feb81a;   /* żółty  */
+  --color-neutral-50 : #ffffff;
+  font-family: "Poppins", system-ui, sans-serif;
+  --primary: #12111f;
+  --accent: #feb81a;
+  --neutral: #ffffff;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-primary-900);
+  color: var(--color-neutral-50);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

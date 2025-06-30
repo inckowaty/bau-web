@@ -1,29 +1,20 @@
-import {Link, usePathname} from '@/i18n/navigation';
+'use client';
 
-const locales = ['de', 'pl', 'en'];
-const icons   = {
+const icons = {
   de: '/flags/de.svg',
   pl: '/flags/pl.svg',
   en: '/flags/gb.svg'
 };
 
-export default function LocaleSwitch() {
-  const pathnameWithLocale = usePathname();               // np. /pl/leistungen
-  const internalPathname    =
-    pathnameWithLocale.replace(/^\/(de|pl|en)(?=\/|$)/, '') || '/';
-    //       ^^^^^^^^^^^^^^^^^  zdejmuje pierwszy segment, jeżeli jest locale
+export default function LocaleSwitch({langUrls}) {
+  if (!langUrls) return null;
 
   return (
-    <div className="flex gap-2">
-      {locales.map(l => (
-        <Link key={l} href={internalPathname} locale={l}>
-          <img
-            src={icons[l]}
-            alt={l}
-            className="h-6 w-6 rounded-full shadow ring-1 ring-neutral-400
-                       transition hover:ring-accent-500"
-          />
-        </Link>
+    <div style={{display:'flex',gap:'.5rem',marginRight:'auto'}}>
+      {Object.entries(langUrls).map(([l,url])=>(
+        <a key={l} href={url}>
+          <img src={icons[l]} alt={l} width={24} height={16}/>
+        </a>
       ))}
     </div>
   );

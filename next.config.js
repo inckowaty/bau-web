@@ -1,9 +1,10 @@
-// next.config.js (lub next.config.mjs)
+// next.config.js
 const createNextIntlPlugin = require('next-intl/plugin');
 
-const withNextIntl = createNextIntlPlugin();
-
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
-
-module.exports = withNextIntl(nextConfig);
+module.exports = createNextIntlPlugin({
+  locales: ['de', 'pl', 'en'],
+  defaultLocale: 'de',
+  localePrefix: 'as-needed',   //  /     → de   |   /pl … /en …
+  localeDetection: false       //  NIE przekierowuje wg Accept-Language
+})();
