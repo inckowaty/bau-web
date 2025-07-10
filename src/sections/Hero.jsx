@@ -3,7 +3,7 @@ import styles from "./Hero.module.css";
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
 
-export default function Hero({ title, subtitle_one, subtitle_two, subtitle_three, button_lang, url }) {
+export default function Hero({ title, subtitle_one, subtitle_two, subtitle_three, button_lang, url, lang }) {
   return (
     <section className={styles.hero}>
       <div
@@ -33,15 +33,14 @@ export default function Hero({ title, subtitle_one, subtitle_two, subtitle_three
             }}
           />
         </div>
-        <motion.button
-          className={styles.cta}
-          onClick={() => document.getElementById("oferta").scrollIntoView({ behavior: "smooth" })}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          transition={{ type: "spring", stiffness: 300 }}
-        >
-          {button_lang}
-        </motion.button>
+        <motion.a
+             href={`/${lang}/${lang==="de"?"leistungen":lang==="pl"?"uslugi":"services"}`}
+             className={styles.cta}
+             whileHover={{ scale:1.05 }}
+             transition={{ repeat:Infinity, repeatDelay:3, duration:0.5 }}
+           >
+             { lang==='de'?'Angebot anfragen': lang==='pl'?'Poproś o wycenę':'Request a quote' }
+        </motion.a>
       </div>
     </section>
   );

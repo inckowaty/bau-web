@@ -115,6 +115,7 @@ export default async function Page({ params }) {
           subtitle_three={hero.subtitle_three}
           button_lang={hero.button_lang}
           url={hero.url}
+          lang={lang}
         />
         <Footer />
       </>
