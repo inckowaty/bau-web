@@ -40,7 +40,7 @@
     width: 1rem;
     height: 100%;
     background: #12111f;
-    z-index: 1;
+    z-index: 14;
   }
   .navbar::before { left: 0; }
   .navbar::after { right: 0; }
@@ -90,7 +90,7 @@
     /* display: flex;  */
     /* flex-direction: row;  */
     position: absolute;
-    top: 5;
+    top: 25;
     left: calc(50% - 50px);
     z-index: 2;
     width: 100px;
@@ -311,33 +311,39 @@
 
     .mobileDrawer {
         display: block;
+        padding-top: 100px;
         font-size: 26px;
+        z-index: 2;
     }
     .logo {
         width: 100px;
-        height: 64px;
+        height: 80px;
     }
     .navbar {
+        z-index: 15;
         padding: 0 1.3rem;
-        clip-path: polygon(
-        /* 1: lewy górny */
-        0% 0%,
-        /* 2: prawy górny */
-        100% 0%,
-        /* 3: prawy dolny */
-        100% 100%,
-        /* 4: prawy koniec dolnej podstawy trapezu (50% + 8rem) */
-        calc(50% + 3rem) 100%,
-        /* 5: prawy wierzchołek górnej podstawy trapezu (50% + 5rem, 100% - 2rem) */
-        calc(50% + 2.6rem) calc(100% - 0.5rem),
-        /* 6: lewy wierzchołek górnej podstawy trapezu (50% - 5rem, 100% - 2rem) */
-        calc(50% - 2.6rem) calc(100% - 0.5rem),
-        /* 7: lewy koniec dolnej podstawy trapezu (50% - 8rem) */
-        calc(50% - 3rem) 100%,
-        /* 8: lewy dolny */
-        0% 100%
-      );
+        background-clip:border-box;
+            clip-path: polygon(
+            /* 1: lewy górny */
+            0% 0%,
+            /* 2: prawy górny */
+            100% 0%,
+            /* 3: prawy dolny */
+            100% 100%,
+            /* 4: prawy koniec dolnej podstawy trapezu (50% + 8rem) */
+            calc(50% + 3rem) 100%,
+            /* 5: prawy wierzchołek górnej podstawy trapezu (50% + 5rem, 100% - 2rem) */
+            calc(50% + 2.6rem) calc(100% - 0.5rem),
+            /* 6: lewy wierzchołek górnej podstawy trapezu (50% - 5rem, 100% - 2rem) */
+            calc(50% - 2.6rem) calc(100% - 0.5rem),
+            /* 7: lewy koniec dolnej podstawy trapezu (50% - 8rem) */
+            calc(50% - 3rem) 100%,
+            /* 8: lewy dolny */
+            0% 100%
+        );
       }
+
+
       .level {
         position: absolute;
         bottom: 0.5rem;

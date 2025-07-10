@@ -9,9 +9,12 @@
   --neutral: #ffffff;
 }
 
-html, body {
+* {
   margin: 0;
   padding: 0;
+}
+
+html, body {
   background: var(--color-primary-900);
   color: var(--color-neutral-50);
 }
