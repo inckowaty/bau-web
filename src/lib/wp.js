@@ -1,7 +1,6 @@
 // src/lib/wp.js
 
 // (opcjonalnie w dev/staging)
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 const API   = process.env.WP_API_URL;
 const DEBUG = process.env.DEBUG_WP === 'true';
