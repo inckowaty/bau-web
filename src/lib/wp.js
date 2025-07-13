@@ -5,7 +5,7 @@
 const API   = process.env.WP_API_URL;
 const DEBUG = process.env.DEBUG_WP === 'true';
 
-/*──────────────── HOME  (CPT “homepage”) ────────────────*/
+/*──────────────── HOME  (CPT “homepage") ────────────────*/
 export async function fetchHome(lang = 'de') {
   const url = `${API}/wp-json/wp/v2/homepage?lang=${lang}&per_page=1&acf_format=standard`;
   DEBUG && console.log('[WP] HOME url →', url);
@@ -16,7 +16,7 @@ export async function fetchHome(lang = 'de') {
   return data;
 }
 
-/*──────────────── ABOUT  (CPT “aboutuspage”) ──────────────────*/
+/*──────────────── ABOUT  (CPT “aboutuspage") ──────────────────*/
 export async function fetchAbout(lang = 'de') {
   const cptSlug = 'aboutuspage';  // Twój slug w CPT UI
   const url = `${API}/wp-json/wp/v2/${cptSlug}?lang=${lang}&per_page=1&acf_format=standard`;
@@ -49,7 +49,7 @@ export async function fetchPage(slug = 'home', lang = 'de') {
   return data;
 }
 
-/*──────────────── MENU (CPT “navitem”) ──────────────────*/
+/*──────────────── MENU (CPT “navitem") ──────────────────*/
 export async function fetchNav(lang = 'de') {
   const url =
     `${API}/wp-json/wp/v2/navitem?lang=${lang}&per_page=100&orderby=menu_order&order=asc&acf_format=standard`;
@@ -61,10 +61,24 @@ export async function fetchNav(lang = 'de') {
   return data;
 }
 
-/*──────────────── SERVICES  (CPT "leistung”) ──────────────────*/
+/*──────────────── SERVICES  (CPT "leistung") ──────────────────*/
 export async function fetchLeistungen(lang='de'){
   const url = `${API}/wp-json/wp/v2/leistung?lang=${lang}&per_page=100&acf_format=standard`;
   const res = await fetch(url,{cache:'force-cache'});
   if(!res.ok) throw new Error('Leistungen fetch failed');
   return await res.json();
+}
+
+/*──────────────── GALLERY  (CPT "galerie") ──────────────────*/
+export async function fetchGallery(lang = 'de') {
+  const url =
+    `${API}/wp-json/wp/v2/gallery?` +
+    // ?lang=${lang}` +                 // jeśli CPT jest przetłumaczony
+    `&per_page=100` +
+    `&acf_format=standard`;
+  DEBUG && console.log('[WP] GALLERY url →', url);
+
+  const res = await fetch(url, { cache: 'force-cache' });
+  if (!res.ok) throw new Error('Gallery fetch failed');
+  return await res.json();           // tablica wpisów CPT gallery
 }

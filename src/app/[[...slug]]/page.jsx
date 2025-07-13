@@ -1,11 +1,12 @@
 // src/app/[[...slug]]/page.jsx
 
-import { fetchHome, fetchPage, fetchNav, fetchAbout, fetchLeistungen, imgUrl } from '@/lib/wp';
+import { fetchHome, fetchPage, fetchNav, fetchAbout, fetchLeistungen, fetchGallery, imgUrl } from '@/lib/wp';
 import Hero from '@/sections/Hero';
 import About from '@/components/About';
 import Navbar from '@/components/NavbarSpirit';
 import Footer from '@/components/Footer';
 import Services from '@/components/Services';
+import GallerySection from '@/sections/GallerySection';
 
 export const revalidate = 600;
 const DEFAULT_SLUG = 'home';
@@ -24,11 +25,54 @@ function parse(params) {
   return { lang, slug, seg: segs };
 }
 
+const gallerySlugs = { de: 'galerie', pl: 'galeria', en: 'gallery' };
+
 export default async function Page({ params }) {
   const { lang, slug, seg } = parse(params);
 
   // zawsze potrzebujemy nav
   const nav = await fetchNav(lang);
+
+  // ------ GALERIA / GALLERY ------
+ if (slug === gallerySlugs[lang]) {
+     // fetch CPT gallery + menu
+     const [items, nav] = await Promise.all([
+       fetchGallery(lang),
+       fetchNav(lang)
+     ]);
+     const langUrls = {
+       de: `/de/${gallerySlugs.de}`,
+       pl: `/pl/${gallerySlugs.pl}`,
+       en: `/en/${gallerySlugs.en}`,
+     };
+  
+      // z każdego wpisu wypłaszczamy wszystkie pola gallery_img_N → ich .url
+      const images = items
+        .flatMap(item => {
+          const acf = item.acf || {};
+          return Object.entries(acf)
+            .filter(([key]) => /^gallery_img_\d+$/.test(key))
+            .map(([, val]) => {
+              if (!val) return null;
+              // jeśli obiekt z .url
+              if (typeof val === 'object' && val.url) return val.url;
+              // jeśli string
+              if (typeof val === 'string') return val;
+              // jeśli number (ID) → imgUrl
+              if (typeof val === 'number') return imgUrl(val);
+              return null;
+            });
+        })
+        .filter(Boolean);
+  
+     return (
+       <>
+         <Navbar items={nav} lang={lang} langUrls={langUrls} />
+         <GallerySection images={images} />
+         <Footer />
+       </>
+     );
+   }
 
   // ------ LEISTUNGEN (Usługi) ------
   // mapujemy slug per język

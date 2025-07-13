@@ -1,0 +1,48 @@
+/* src/sections/GallerySection.module.css */
+
+.gallery {
+    padding: 4rem 2rem;
+    min-height: 61vh;
+    background: var(--neutral-100);
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  
+  .item {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 0.5rem;
+  }
+  
+  .img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .item:hover .img {
+    transform: scale(1.1);
+  }
+  
+  .lightboxOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
+  
+  .lightboxImg {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 0.5rem;
+  }
+  
