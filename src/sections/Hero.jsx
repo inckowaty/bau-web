@@ -27,7 +27,7 @@ export default function Hero({ title, subtitle_one, subtitle_two, subtitle_three
               strings: [subtitle_one, subtitle_two, subtitle_three],
               autoStart: true,
               loop: true,
-              deleteSpeed: 100,
+              deleteSpeed: 5,
               delay: 15,
               pauseFor: 2500,
             }}
