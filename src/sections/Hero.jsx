@@ -29,7 +29,7 @@ export default function Hero({ title, subtitle_one, subtitle_two, subtitle_three
               loop: true,
               deleteSpeed: 5,
               delay: 15,
-              pauseFor: 2500,
+              pauseFor: 4000,
             }}
           />
         </div>
