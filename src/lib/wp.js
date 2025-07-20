@@ -73,12 +73,25 @@ export async function fetchLeistungen(lang='de'){
 export async function fetchGallery(lang = 'de') {
   const url =
     `${API}/wp-json/wp/v2/gallery?` +
-    // ?lang=${lang}` +                 // jeśli CPT jest przetłumaczony
+    `lang=${lang}` +                 // jeśli CPT jest przetłumaczony
     `&per_page=100` +
     `&acf_format=standard`;
   DEBUG && console.log('[WP] GALLERY url →', url);
 
   const res = await fetch(url, { cache: 'force-cache' });
   if (!res.ok) throw new Error('Gallery fetch failed');
+  return await res.json();           // tablica wpisów CPT gallery
+}
+/*──────────────── KONTAKT  (CPT "kontakt") ──────────────────*/
+export async function fetchKontakt(lang = 'de') {
+  const url =
+    `${API}/wp-json/wp/v2/kontakt?` +
+    `lang=${lang}` +                 // jeśli CPT jest przetłumaczony
+    `&per_page=100` +
+    `&acf_format=standard`;
+  DEBUG && console.log('[WP] KONTAKT url →', url);
+
+  const res = await fetch(url, { cache: 'force-cache' });
+  if (!res.ok) throw new Error('Kontakt fetch failed');
   return await res.json();           // tablica wpisów CPT gallery
 }

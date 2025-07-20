@@ -1,48 +1,148 @@
 /* src/sections/GallerySection.module.css */
 
 .gallery {
-    padding: 4rem 2rem;
-    min-height: 61vh;
+    padding: 2rem;
     background: var(--neutral-100);
+    min-height: 61vh;
   }
   
-  .grid {
+  .title {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+/* ---------------------- */
+/* GRID „cegiełkowy”      */
+/* ---------------------- */
+.grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-flow: dense;         /* upycha małe luki */
+    grid-template-columns: repeat(6, 1fr);
+    /* grid-auto-rows: 150px;         bazowy „kwadrat” */
     gap: 1rem;
   }
+
+
   
+/* ---------------------- */
+/* dwa typy kafelków      */
+/* ---------------------- */
   .item {
     position: relative;
-    cursor: pointer;
     overflow: hidden;
     border-radius: 0.5rem;
-  }
-  
-  .img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+    cursor: pointer;
     transition: transform 0.3s ease;
   }
-  
-  .item:hover .img {
-    transform: scale(1.1);
+  .item:hover {
+    transform: scale(1.03);
   }
   
-  .lightboxOverlay {
+/* pionowe: jedna kolumna, dwie jednostki wysokości */
+.vertical {
+    grid-column: span 1;
+    grid-row: span 2;      /* możesz zostawić lub usunąć, zależy czy chcesz większe pionowe */
+    aspect-ratio: 9 / 16;    /* 4:3 portrait */
+  }
+  
+  /* poziome: dwie kolumny, jedna jednostka wysokości */
+  .horizontal {
+    grid-column: span 2;
+    grid-row: span 1;
+    aspect-ratio: 16 / 9;   /* 16:9 landscape */
+  }
+  
+  /* --------------------------------------------------------------------- */
+  /* lekki zoom na hover                                                   */
+  /* --------------------------------------------------------------------- */
+  .item:hover {
+    transform: scale(1.03);
+  }
+  
+  /* --------------------------------------------------------------------- */
+  /* utrzymujemy aspect-ratio, żeby portrait vs landscape nie rozjeżdżały  */
+  /* layoutu (możesz zostawić swoje .landscape i .portrait lub zastąpić     */
+  /* globalnym aspect-ratio w item)                                        */
+  /* --------------------------------------------------------------------- */
+  /* .landscape {
+    aspect-ratio: 16 / 9;
+  }
+  .portrait {
+    aspect-ratio: 3 / 4;
+  } */
+
+/* ---------------------- */
+/* LIGHTBOX               */
+/* ---------------------- */
+.lightboxOverlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.85);
+    background: rgba(0,0,0,0.9);
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 999;
+    z-index: 1000;
+  }
+  .lightboxImgWrapper {
+    position: relative;
+    width: 95vw;
+    height: 95vh;
+  }
+  .navBtn {
+    position: absolute;
+    background: rgba(254,184,26,0.5);
+    border-radius: 20%;
+    border: none;
+    color: rgb(255, 255, 255);
+    font-size: 4rem;
+    padding: 0 1rem;
+    cursor: pointer;
+    z-index: 1001;
+  }
+  .closeBtn {
+    position: absolute;
+    background: rgba(254,184,26,0.5);
+    border-radius: 20%;
+    border: none;
+    color: #fff;
+    font-size: 3rem;
+    padding: 0 1rem;
+    cursor: pointer;
+    z-index: 1001;
+  }
+  .closeBtn {
+    top: 1rem;
+    right: 1rem;
+  }
+  .navBtn[data-side="left"] {
+    left: 1rem;
+    /* top: 50%;
+    transform: translateY(-50%); */
+  }
+  .navBtn[data-side="right"] {
+    right: 1rem;
+    /* top: 50%;
+    transform: translateY(-50%); */
   }
   
-  .lightboxImg {
-    max-width: 90vw;
-    max-height: 90vh;
-    border-radius: 0.5rem;
+/* ---------------------- */
+/* RESPONSYWNOŚĆ          */
+/* ---------------------- */
+  
+@media (max-width: 1200px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .navBtn {
+        font-size: 1rem;
+        padding: 0.8rem 0.8rem;
+      }
+    .closeBtn {
+        font-size: 1rem;
+        padding: 0.8rem 0.8rem;
+      }
   }
   

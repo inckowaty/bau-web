@@ -1,12 +1,13 @@
 // src/app/[[...slug]]/page.jsx
 
-import { fetchHome, fetchPage, fetchNav, fetchAbout, fetchLeistungen, fetchGallery, imgUrl } from '@/lib/wp';
+import { fetchHome, fetchPage, fetchNav, fetchAbout, fetchLeistungen, fetchGallery, fetchKontakt, imgUrl } from '@/lib/wp';
 import Hero from '@/sections/Hero';
 import About from '@/components/About';
 import Navbar from '@/components/NavbarSpirit';
 import Footer from '@/components/Footer';
 import Services from '@/components/Services';
 import GallerySection from '@/sections/GallerySection';
+import ContactSection from '@/sections/ContactSection';
 
 export const revalidate = 600;
 const DEFAULT_SLUG = 'home';
@@ -26,12 +27,61 @@ function parse(params) {
 }
 
 const gallerySlugs = { de: 'galerie', pl: 'galeria', en: 'gallery' };
+const contactSlugs = { de: 'kontakt', pl: 'kontakt', en: 'contact' };
+const servicesSlugs = { de: 'leistungen', pl: 'uslugi', en: 'services' };
+const aboutSlugs = { de: 'ueber-uns', pl: 'o-nas', en: 'about-us' };
 
 export default async function Page({ params }) {
   const { lang, slug, seg } = parse(params);
 
   // zawsze potrzebujemy nav
   const nav = await fetchNav(lang);
+
+  // ------ KONTAKT ------
+  if (slug === contactSlugs[lang]) {
+
+  // fetchKontakt zwraca tablicę, więc pierwszym elementem będzie 'kontaktItems'
+  const [kontaktItems, nav] = await Promise.all([
+    fetchKontakt(lang),
+    fetchNav(lang)
+  ]);
+  // można też pobrać ACF-owe intro z WP, ale jeśli nie masz, po prostu:
+  const intro = {
+    de: "<h2>Kontaktinformationen</h2>",
+    pl: "<h2>Informacje kontaktowe</h2>",
+    en: "<h2>Contact information</h2>"
+  }[lang];
+
+  const introForm = {
+    de: "<h2>Kontaktieren Sie uns:</h2>",
+    pl: "<h2>Skontaktuj się z nami:</h2>",
+    en: "<h2>Get in touch with us:</h2>"
+  }[lang];
+
+  // bierzemy pierwszy element; jeśli brak, pokaż 404
+  const kontaktPost = kontaktItems[0];
+  if (!kontaktPost) {
+    return <h1>404 – Not found</h1>;
+  }
+
+
+
+    const langUrls = {
+      de: `/de/${contactSlugs.de}`,
+      pl: `/pl/${contactSlugs.pl}`,
+      en: `/en/${contactSlugs.en}`,
+    };
+
+    return (
+      <>
+        <Navbar items={nav} lang={lang} langUrls={langUrls} />
+        <ContactSection introHtml={intro} introForm={introForm} lang={lang}/>
+        <Footer />
+      </>
+    );
+  }
+
+  
 
   // ------ GALERIA / GALLERY ------
  if (slug === gallerySlugs[lang]) {
@@ -48,27 +98,31 @@ export default async function Page({ params }) {
   
       // z każdego wpisu wypłaszczamy wszystkie pola gallery_img_N → ich .url
       const images = items
-        .flatMap(item => {
-          const acf = item.acf || {};
-          return Object.entries(acf)
-            .filter(([key]) => /^gallery_img_\d+$/.test(key))
-            .map(([, val]) => {
-              if (!val) return null;
-              // jeśli obiekt z .url
-              if (typeof val === 'object' && val.url) return val.url;
-              // jeśli string
-              if (typeof val === 'string') return val;
-              // jeśli number (ID) → imgUrl
-              if (typeof val === 'number') return imgUrl(val);
-              return null;
-            });
-        })
-        .filter(Boolean);
+         .flatMap(item => {
+             const acf = item.acf || {};
+             return Object.entries(acf)
+               .filter(([k]) => /^gallery_img_\d+$/.test(k))
+               .map(([, val]) => {
+                 if (!val) return null;
+                 if (typeof val === "object" && val.url) {
+                   return { url: val.url, width: val.width, height: val.height };
+                 }
+                 if (typeof val === "string") {
+                   return { url: val, width: undefined, height: undefined };
+                 }
+                 if (typeof val === "number") {
+                   // fetch media by ID client-side?
+                   return { url: imgUrl(val), width: undefined, height: undefined };
+                 }
+                 return null;
+               });
+           })
+           .filter(Boolean);
   
      return (
        <>
          <Navbar items={nav} lang={lang} langUrls={langUrls} />
-         <GallerySection images={images} />
+         <GallerySection images={images} lang={lang} />
          <Footer />
        </>
      );
@@ -76,7 +130,7 @@ export default async function Page({ params }) {
 
   // ------ LEISTUNGEN (Usługi) ------
   // mapujemy slug per język
-  const servicesSlugs = { de: 'leistungen', pl: 'uslugi', en: 'services' };
+  
   if (slug === servicesSlugs[lang]) {
     // pobieramy listę usług
     const services = await fetchLeistungen(lang);
@@ -99,7 +153,7 @@ export default async function Page({ params }) {
 
   // ------ O NAS (About) ------
   // nie hard-kodujemy slugów po jednej, tylko mapujemy per język:
-  const aboutSlugs = { de: 'ueber-uns', pl: 'o-nas', en: 'about-us' };
+  
   if (slug === aboutSlugs[lang]) {
     const about = await fetchAbout(lang);
     // rozbijamy punktowaną listę z Textarea
