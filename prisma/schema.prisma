@@ -1,0 +1,86 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id           Int    @id @default(autoincrement())
+  username     String @unique
+  passwordHash String
+
+  @@map("admins")
+}
+
+model HomePage {
+  id           Int    @id @default(autoincrement())
+  lang         String // de, pl, en
+  heroTitle    String
+  heroSubOne   String
+  heroSubTwo   String
+  heroSubThree String
+  buttonLang   String
+  heroBg       String // path to uploaded image
+
+  @@unique([lang])
+  @@map("home_pages")
+}
+
+model AboutPage {
+  id             Int    @id @default(autoincrement())
+  lang           String
+  aboutTitle     String
+  aboutIntro     String // HTML
+  aboutPointsRaw String // newline-separated
+  aboutCtaText   String
+
+  @@unique([lang])
+  @@map("about_pages")
+}
+
+model Service {
+  id          Int    @id @default(autoincrement())
+  lang        String
+  title       String
+  iconUrl     String // path to uploaded icon
+  excerpt     String
+  featuresRaw String // newline-separated
+  sortOrder   Int    @default(0)
+
+  @@map("services")
+}
+
+model GalleryImage {
+  id        Int    @id @default(autoincrement())
+  lang      String
+  url       String // path to uploaded image
+  width     Int?
+  height    Int?
+  sortOrder Int    @default(0)
+
+  @@map("gallery_images")
+}
+
+model NavItem {
+  id        Int    @id @default(autoincrement())
+  lang      String
+  title     String
+  path      String
+  sortOrder Int    @default(0)
+
+  @@map("nav_items")
+}
+
+model ContactMessage {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  message   String
+  lang      String   @default("de")
+  createdAt DateTime @default(now())
+
+  @@map("contact_messages")
+}

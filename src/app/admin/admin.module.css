@@ -1,0 +1,394 @@
+/* Admin Dashboard Styles */
+.adminLayout {
+  display: flex;
+  min-height: 100vh;
+  background: #0f0e1a;
+  color: #fff;
+}
+
+.sidebar {
+  width: 240px;
+  background: #1a1930;
+  border-right: 1px solid #2a2950;
+  padding: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebarLogo {
+  padding: 0 1.5rem 1.5rem;
+  border-bottom: 1px solid #2a2950;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #feb81a;
+}
+
+.sidebarLogo span {
+  font-size: 0.75rem;
+  color: #888;
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.navList {
+  list-style: none;
+  padding: 1rem 0;
+  flex: 1;
+}
+
+.navList li a {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  color: #ccc;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  font-size: 0.9rem;
+}
+
+.navList li a:hover,
+.navList li a.active {
+  background: #2a2950;
+  color: #feb81a;
+}
+
+.logoutBtn {
+  margin: 1rem 1.5rem;
+  padding: 0.5rem;
+  background: transparent;
+  border: 1px solid #555;
+  color: #ccc;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.logoutBtn:hover {
+  border-color: #feb81a;
+  color: #feb81a;
+}
+
+.main {
+  flex: 1;
+  padding: 2rem 3rem;
+  overflow-y: auto;
+}
+
+.pageTitle {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #feb81a;
+}
+
+/* Language tabs */
+.langTabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.langTab {
+  padding: 0.5rem 1.25rem;
+  border: 1px solid #2a2950;
+  background: transparent;
+  color: #ccc;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.langTab:hover {
+  border-color: #feb81a;
+}
+
+.langTabActive {
+  background: #feb81a;
+  color: #12111f;
+  border-color: #feb81a;
+  font-weight: 600;
+}
+
+/* Forms */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 700px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.field label {
+  font-size: 0.8rem;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.field input,
+.field textarea {
+  padding: 0.6rem 0.75rem;
+  background: #1a1930;
+  border: 1px solid #2a2950;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: #feb81a;
+}
+
+.field textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.saveBtn {
+  padding: 0.65rem 1.5rem;
+  background: #feb81a;
+  color: #12111f;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  align-self: flex-start;
+}
+
+.saveBtn:hover {
+  background: #e5a617;
+}
+
+.saveBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.successMsg {
+  color: #4caf50;
+  font-size: 0.85rem;
+}
+
+.errorMsg {
+  color: #f44336;
+  font-size: 0.85rem;
+}
+
+/* Cards / Items list */
+.itemList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.itemCard {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: #1a1930;
+  border: 1px solid #2a2950;
+  border-radius: 6px;
+}
+
+.itemCard img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.itemInfo {
+  flex: 1;
+}
+
+.itemInfo h4 {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.itemInfo p {
+  margin: 0.25rem 0 0;
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+.itemActions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.editBtn,
+.deleteBtn {
+  padding: 0.35rem 0.75rem;
+  border: 1px solid #555;
+  background: transparent;
+  color: #ccc;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.editBtn:hover {
+  border-color: #feb81a;
+  color: #feb81a;
+}
+
+.deleteBtn:hover {
+  border-color: #f44336;
+  color: #f44336;
+}
+
+.addBtn {
+  padding: 0.5rem 1.25rem;
+  background: transparent;
+  border: 1px dashed #feb81a;
+  color: #feb81a;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.addBtn:hover {
+  background: rgba(254, 184, 26, 0.1);
+}
+
+/* Gallery grid */
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.galleryItem {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #2a2950;
+}
+
+.galleryItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.galleryItem button {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 24px;
+  height: 24px;
+  background: rgba(0,0,0,0.7);
+  border: none;
+  color: #f44336;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* File upload */
+.uploadArea {
+  border: 2px dashed #2a2950;
+  border-radius: 6px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: border-color 0.2s;
+}
+
+.uploadArea:hover {
+  border-color: #feb81a;
+}
+
+.uploadArea input {
+  display: none;
+}
+
+/* Messages table */
+.msgTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.msgTable th,
+.msgTable td {
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #2a2950;
+}
+
+.msgTable th {
+  color: #aaa;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+/* Login page */
+.loginWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #0f0e1a;
+}
+
+.loginBox {
+  width: 360px;
+  padding: 2.5rem;
+  background: #1a1930;
+  border: 1px solid #2a2950;
+  border-radius: 8px;
+}
+
+.loginBox h1 {
+  font-size: 1.5rem;
+  color: #feb81a;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.loginBox .form {
+  max-width: none;
+}
+
+.loginBox .saveBtn {
+  width: 100%;
+  text-align: center;
+}
+
+/* Image preview in form */
+.imagePreview {
+  width: 200px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #2a2950;
+}
+
+.fileInput {
+  font-size: 0.85rem;
+}
+
+.inlineUpload {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}

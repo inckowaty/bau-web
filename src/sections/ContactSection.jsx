@@ -62,11 +62,11 @@ export default function ContactSection({ introHtml, introForm, lang }) {
     setServerError("");
     try {
       const res = await fetch(
-        "https://wp.grp-bau.de/wp-json/grp/v1/contact",
+        "/api/contact",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data)
+          body: JSON.stringify({ ...data, lang })
         }
       );
       if (!res.ok) {

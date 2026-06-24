@@ -1,6 +1,6 @@
 // src/app/[[...slug]]/page.jsx
 
-import { fetchHome, fetchPage, fetchNav, fetchAbout, fetchLeistungen, fetchGallery, fetchKontakt, imgUrl } from '@/lib/wp';
+import { fetchHome, fetchNav, fetchAbout, fetchLeistungen, fetchGallery, fetchKontakt } from '@/lib/db';
 import Hero from '@/sections/Hero';
 import About from '@/components/About';
 import Navbar from '@/components/NavbarSpirit';
@@ -31,7 +31,8 @@ const contactSlugs = { de: 'kontakt', pl: 'kontakt', en: 'contact' };
 const servicesSlugs = { de: 'leistungen', pl: 'uslugi', en: 'services' };
 const aboutSlugs = { de: 'ueber-uns', pl: 'o-nas', en: 'about-us' };
 
-export default async function Page({ params }) {
+export default async function Page({ params: paramsPromise }) {
+  const params = await paramsPromise;
   const { lang, slug, seg } = parse(params);
 
   // zawsze potrzebujemy nav
@@ -40,12 +41,10 @@ export default async function Page({ params }) {
   // ------ KONTAKT ------
   if (slug === contactSlugs[lang]) {
 
-  // fetchKontakt zwraca tablicę, więc pierwszym elementem będzie 'kontaktItems'
-  const [kontaktItems, nav] = await Promise.all([
+  const [kontaktItems, navItems] = await Promise.all([
     fetchKontakt(lang),
     fetchNav(lang)
   ]);
-  // można też pobrać ACF-owe intro z WP, ale jeśli nie masz, po prostu:
   const intro = {
     de: "<h2>Kontaktinformationen</h2>",
     pl: "<h2>Informacje kontaktowe</h2>",
@@ -58,13 +57,10 @@ export default async function Page({ params }) {
     en: "<h2>Get in touch with us:</h2>"
   }[lang];
 
-  // bierzemy pierwszy element; jeśli brak, pokaż 404
   const kontaktPost = kontaktItems[0];
   if (!kontaktPost) {
     return <h1>404 – Not found</h1>;
   }
-
-
 
     const langUrls = {
       de: `/de/${contactSlugs.de}`,
@@ -74,19 +70,18 @@ export default async function Page({ params }) {
 
     return (
       <>
-        <Navbar items={nav} lang={lang} langUrls={langUrls} />
+        <Navbar items={navItems} lang={lang} langUrls={langUrls} />
         <ContactSection introHtml={intro} introForm={introForm} lang={lang}/>
         <Footer />
       </>
     );
   }
 
-  
+
 
   // ------ GALERIA / GALLERY ------
  if (slug === gallerySlugs[lang]) {
-     // fetch CPT gallery + menu
-     const [items, nav] = await Promise.all([
+     const [images, navItems] = await Promise.all([
        fetchGallery(lang),
        fetchNav(lang)
      ]);
@@ -95,33 +90,10 @@ export default async function Page({ params }) {
        pl: `/pl/${gallerySlugs.pl}`,
        en: `/en/${gallerySlugs.en}`,
      };
-  
-      // z każdego wpisu wypłaszczamy wszystkie pola gallery_img_N → ich .url
-      const images = items
-         .flatMap(item => {
-             const acf = item.acf || {};
-             return Object.entries(acf)
-               .filter(([k]) => /^gallery_img_\d+$/.test(k))
-               .map(([, val]) => {
-                 if (!val) return null;
-                 if (typeof val === "object" && val.url) {
-                   return { url: val.url, width: val.width, height: val.height };
-                 }
-                 if (typeof val === "string") {
-                   return { url: val, width: undefined, height: undefined };
-                 }
-                 if (typeof val === "number") {
-                   // fetch media by ID client-side?
-                   return { url: imgUrl(val), width: undefined, height: undefined };
-                 }
-                 return null;
-               });
-           })
-           .filter(Boolean);
-  
+
      return (
        <>
-         <Navbar items={nav} lang={lang} langUrls={langUrls} />
+         <Navbar items={navItems} lang={lang} langUrls={langUrls} />
          <GallerySection images={images} lang={lang} />
          <Footer />
        </>
@@ -129,18 +101,15 @@ export default async function Page({ params }) {
    }
 
   // ------ LEISTUNGEN (Usługi) ------
-  // mapujemy slug per język
-  
+
   if (slug === servicesSlugs[lang]) {
-    // pobieramy listę usług
     const services = await fetchLeistungen(lang);
-    // linki do zmiany języka dla tej sekcji
     const langUrls = {
       de: `/de/${servicesSlugs.de}`,
       pl: `/pl/${servicesSlugs.pl}`,
       en: `/en/${servicesSlugs.en}`,
     };
-  
+
     return (
       <>
         <Navbar items={nav} lang={lang} langUrls={langUrls} />
@@ -152,17 +121,14 @@ export default async function Page({ params }) {
 
 
   // ------ O NAS (About) ------
-  // nie hard-kodujemy slugów po jednej, tylko mapujemy per język:
-  
+
   if (slug === aboutSlugs[lang]) {
     const about = await fetchAbout(lang);
-    // rozbijamy punktowaną listę z Textarea
     const points = about.about_points_raw
       .split(/\r?\n/)
       .map(s => s.trim())
       .filter(Boolean);
 
-    // linki do zmiany języka dla tej sekcji
     const langUrls = {
       de: `/de/${aboutSlugs.de}`,
       pl: `/pl/${aboutSlugs.pl}`,
@@ -184,7 +150,7 @@ export default async function Page({ params }) {
     );
   }
 
-  // ------ HOME ------  
+  // ------ HOME ------
   const isHome =
     seg.length === 0 ||
     (seg.length === 1 && ['de', 'pl', 'en'].includes(seg[0]));
@@ -198,7 +164,7 @@ export default async function Page({ params }) {
       subtitle_two  : acf.hero_sub_two ?? '',
       subtitle_three: acf.hero_sub_three ?? '',
       button_lang   : acf.button_lang ?? '',
-      url           : acf.hero_bg.url ?? '',
+      url           : acf.hero_bg?.url ?? '',
     };
 
     const langUrls = { de: '/de', pl: '/pl', en: '/en' };
@@ -220,22 +186,6 @@ export default async function Page({ params }) {
     );
   }
 
-  // ------ WP PAGES & FALLBACK 404 ------
-  const page = await fetchPage(slug, lang);
-  if (!page) return <h1>404 – Not found</h1>;
-
-  return (
-    <>
-      <Navbar
-        items={nav}
-        lang={lang}
-        langUrls={page._links.language_urls}
-      />
-      <main style={{ padding: '2rem' }}>
-        <h1 dangerouslySetInnerHTML={{ __html: page.title.rendered }} />
-        <article dangerouslySetInnerHTML={{ __html: page.content.rendered }} />
-      </main>
-      <Footer />
-    </>
-  );
+  // ------ FALLBACK 404 ------
+  return <h1>404 – Not found</h1>;
 }

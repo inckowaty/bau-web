@@ -4,7 +4,6 @@ const createNextIntlPlugin = require('next-intl/plugin');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    // domains: ['wp.grp-bau.de'],
     remotePatterns: [
       {
         protocol: 'https',
@@ -14,7 +13,7 @@ const nextConfig = {
       },
     ],
   },
-  // tu możesz w przyszłości dodać inne ustawienia Next.js
+  serverExternalPackages: ['@prisma/client', 'bcryptjs'],
 };
 
 module.exports = createNextIntlPlugin({

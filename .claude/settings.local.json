@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npx prisma:*)",
+      "Bash(node:*)",
+      "Bash(npx tsx:*)",
+      "Bash(mkdir -p \"src/app/api/admin/services/[id]\")",
+      "Bash(mkdir -p \"src/app/api/admin/gallery/[id]\")",
+      "Bash(mkdir -p \"src/app/api/admin/nav/[id]\")",
+      "Bash(npm run:*)",
+      "Bash(kill %1)",
+      "Bash(taskkill //F //IM node.exe)",
+      "Bash(taskkill //f //im node.exe)",
+      "Bash(npx next:*)",
+      "Bash(ls prisma/seed.*)"
+    ]
+  }
+}

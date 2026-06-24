@@ -1,4 +1,4 @@
-import {fetchNav} from '@/lib/wp';
+import {fetchNav} from '@/lib/db';
 const slugify = s => s.replace(/^\//,'');
 
 export default async function generateStaticParams() {
