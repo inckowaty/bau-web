@@ -13,7 +13,8 @@
       "Bash(taskkill //F //IM node.exe)",
       "Bash(taskkill //f //im node.exe)",
       "Bash(npx next:*)",
-      "Bash(ls prisma/seed.*)"
+      "Bash(ls prisma/seed.*)",
+      "Bash(npm uninstall:*)"
     ]
   }
 }

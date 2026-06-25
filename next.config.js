@@ -13,6 +13,7 @@ const nextConfig = {
       },
     ],
   },
+  output: 'standalone',
   serverExternalPackages: ['@prisma/client', 'bcryptjs'],
 };
 

@@ -1,69 +1,72 @@
-const Database = require('better-sqlite3');
+const { PrismaClient } = require('@prisma/client');
 const bcrypt = require('bcryptjs');
-const path = require('path');
 
-const db = new Database(path.join(__dirname, 'dev.db'));
+const prisma = new PrismaClient();
 
-// ── Admin user ──
-const hash = bcrypt.hashSync('GrzeIwo#2468', 10);
-db.prepare(`INSERT OR IGNORE INTO admins (username, passwordHash) VALUES (?, ?)`).run('admin', hash);
+async function main() {
+  // ── Admin user ──
+  const hash = bcrypt.hashSync('admin123', 10);
+  await prisma.admin.upsert({
+    where: { username: 'admin' },
+    update: {},
+    create: { username: 'admin', passwordHash: hash },
+  });
 
-// ── Nav Items ──
-const insertNav = db.prepare(`INSERT INTO nav_items (lang, title, path, sortOrder) VALUES (?, ?, ?, ?)`);
-const navData = [
-  ['de', 'Start', '/de/', 0],
-  ['de', 'Leistungen', '/de/leistungen', 1],
-  ['de', 'Über uns', '/de/ueber-uns', 2],
-  ['de', 'Galerie', '/de/galerie', 3],
-  ['de', 'Kontakt', '/de/kontakt', 4],
-  ['pl', 'Start', '/pl/', 0],
-  ['pl', 'Oferta', '/pl/uslugi', 1],
-  ['pl', 'O nas', '/pl/o-nas', 2],
-  ['pl', 'Galeria', '/pl/galeria', 3],
-  ['pl', 'Kontakt', '/pl/kontakt', 4],
-  ['en', 'Home', '/en/', 0],
-  ['en', 'Services', '/en/services', 1],
-  ['en', 'About us', '/en/about-us', 2],
-  ['en', 'Gallery', '/en/gallery', 3],
-  ['en', 'Contact', '/en/contact', 4],
-];
-for (const row of navData) insertNav.run(...row);
+  // ── Nav Items ──
+  const navData = [
+    ['de', 'Start', '/de/', 0],
+    ['de', 'Leistungen', '/de/leistungen', 1],
+    ['de', 'Über uns', '/de/ueber-uns', 2],
+    ['de', 'Galerie', '/de/galerie', 3],
+    ['de', 'Kontakt', '/de/kontakt', 4],
+    ['pl', 'Start', '/pl/', 0],
+    ['pl', 'Oferta', '/pl/uslugi', 1],
+    ['pl', 'O nas', '/pl/o-nas', 2],
+    ['pl', 'Galeria', '/pl/galeria', 3],
+    ['pl', 'Kontakt', '/pl/kontakt', 4],
+    ['en', 'Home', '/en/', 0],
+    ['en', 'Services', '/en/services', 1],
+    ['en', 'About us', '/en/about-us', 2],
+    ['en', 'Gallery', '/en/gallery', 3],
+    ['en', 'Contact', '/en/contact', 4],
+  ];
+  for (const [lang, title, path, sortOrder] of navData) {
+    await prisma.navItem.create({ data: { lang, title, path, sortOrder } });
+  }
 
-// ── Home Pages ──
-const insertHome = db.prepare(`INSERT INTO home_pages (lang, heroTitle, heroSubOne, heroSubTwo, heroSubThree, buttonLang, heroBg) VALUES (?, ?, ?, ?, ?, ?, ?)`);
-insertHome.run('de', 'GRP-BAU', 'Innenausbau & Trockenbau', 'Malerarbeiten & Tapezieren', 'Bodenbeläge & Fliesen', 'Angebot anfragen', '/uploads/hero-bg.jpg');
-insertHome.run('pl', 'GRP-BAU', 'Wykończenia wnętrz i zabudowy', 'Malowanie i tapetowanie', 'Podłogi i płytki', 'Poproś o wycenę', '/uploads/hero-bg.jpg');
-insertHome.run('en', 'GRP-BAU', 'Interior finishing & drywall', 'Painting & wallpapering', 'Flooring & tiles', 'Request a quote', '/uploads/hero-bg.jpg');
+  // ── Home Pages ──
+  const homes = [
+    { lang: 'de', heroTitle: 'GRP-BAU', heroSubOne: 'Innenausbau & Trockenbau', heroSubTwo: 'Malerarbeiten & Tapezieren', heroSubThree: 'Bodenbeläge & Fliesen', buttonLang: 'Angebot anfragen', heroBg: '/uploads/hero-bg.jpg' },
+    { lang: 'pl', heroTitle: 'GRP-BAU', heroSubOne: 'Wykończenia wnętrz i zabudowy', heroSubTwo: 'Malowanie i tapetowanie', heroSubThree: 'Podłogi i płytki', buttonLang: 'Poproś o wycenę', heroBg: '/uploads/hero-bg.jpg' },
+    { lang: 'en', heroTitle: 'GRP-BAU', heroSubOne: 'Interior finishing & drywall', heroSubTwo: 'Painting & wallpapering', heroSubThree: 'Flooring & tiles', buttonLang: 'Request a quote', heroBg: '/uploads/hero-bg.jpg' },
+  ];
+  for (const data of homes) await prisma.homePage.create({ data });
 
-// ── About Pages ──
-const insertAbout = db.prepare(`INSERT INTO about_pages (lang, aboutTitle, aboutIntro, aboutPointsRaw, aboutCtaText) VALUES (?, ?, ?, ?, ?)`);
-insertAbout.run('de', 'Über uns',
-  '<p>GRP-BAU ist ein zuverlässiges Bauunternehmen mit Sitz in Sulingen. Wir spezialisieren uns auf Innenausbau, Trockenbau, Malerarbeiten und Bodenbeläge.</p>',
-  'Erfahrenes Team mit langjähriger Praxis\nTermintreue und Zuverlässigkeit\nHohe Qualität zu fairen Preisen\nKostenlose Beratung und Angebotserstellung',
-  'Kontaktieren Sie uns');
-insertAbout.run('pl', 'O nas',
-  '<p>GRP-BAU to rzetelna firma budowlana z siedzibą w Sulingen. Specjalizujemy się w wykończeniach wnętrz, zabudowach z płyt g-k, malowaniu oraz układaniu podłóg.</p>',
-  'Doświadczony zespół z wieloletnią praktyką\nTerminowość i rzetelność\nWysoka jakość w uczciwych cenach\nBezpłatna wycena i doradztwo',
-  'Skontaktuj się z nami');
-insertAbout.run('en', 'About us',
-  '<p>GRP-BAU is a reliable construction company based in Sulingen. We specialize in interior finishing, drywall, painting, and flooring.</p>',
-  'Experienced team with years of practice\nPunctuality and reliability\nHigh quality at fair prices\nFree consultation and quotes',
-  'Get in touch');
+  // ── About Pages ──
+  const abouts = [
+    { lang: 'de', aboutTitle: 'Über uns', aboutIntro: '<p>GRP-BAU ist ein zuverlässiges Bauunternehmen mit Sitz in Sulingen.</p>', aboutPointsRaw: 'Erfahrenes Team\nTermintreue und Zuverlässigkeit\nHohe Qualität zu fairen Preisen\nKostenlose Beratung', aboutCtaText: 'Kontaktieren Sie uns' },
+    { lang: 'pl', aboutTitle: 'O nas', aboutIntro: '<p>GRP-BAU to rzetelna firma budowlana z siedzibą w Sulingen.</p>', aboutPointsRaw: 'Doświadczony zespół\nTerminowość i rzetelność\nWysoka jakość w uczciwych cenach\nBezpłatna wycena', aboutCtaText: 'Skontaktuj się z nami' },
+    { lang: 'en', aboutTitle: 'About us', aboutIntro: '<p>GRP-BAU is a reliable construction company based in Sulingen.</p>', aboutPointsRaw: 'Experienced team\nPunctuality and reliability\nHigh quality at fair prices\nFree consultation', aboutCtaText: 'Get in touch' },
+  ];
+  for (const data of abouts) await prisma.aboutPage.create({ data });
 
-// ── Services ──
-const insertService = db.prepare(`INSERT INTO services (lang, title, iconUrl, excerpt, featuresRaw, sortOrder) VALUES (?, ?, ?, ?, ?, ?)`);
-const services = [
-  ['de', 'Trockenbau', '/uploads/icons/trockenbau.png', 'Professioneller Trockenbau und Innenausbau', 'Wände und Decken\nDämmung\nSchallschutz\nBrandschutz', 0],
-  ['de', 'Malerarbeiten', '/uploads/icons/maler.png', 'Malerarbeiten und Tapezierarbeiten', 'Innenanstrich\nFassade\nTapezieren\nDekorative Techniken', 1],
-  ['de', 'Bodenbeläge', '/uploads/icons/boden.png', 'Verlegung von Bodenbelägen aller Art', 'Laminat\nParkett\nVinyl\nFliesen', 2],
-  ['pl', 'Zabudowy G-K', '/uploads/icons/trockenbau.png', 'Profesjonalne zabudowy z płyt gipsowo-kartonowych', 'Ściany i sufity\nIzolacja\nWygłuszenie\nOchrona przeciwpożarowa', 0],
-  ['pl', 'Malowanie', '/uploads/icons/maler.png', 'Malowanie i tapetowanie wnętrz', 'Malowanie wnętrz\nElewacje\nTapetowanie\nTechniki dekoracyjne', 1],
-  ['pl', 'Podłogi', '/uploads/icons/boden.png', 'Układanie podłóg wszelkiego rodzaju', 'Laminat\nParkiet\nWinyl\nPłytki', 2],
-  ['en', 'Drywall', '/uploads/icons/trockenbau.png', 'Professional drywall and interior finishing', 'Walls and ceilings\nInsulation\nSoundproofing\nFire protection', 0],
-  ['en', 'Painting', '/uploads/icons/maler.png', 'Painting and wallpapering services', 'Interior painting\nFacade\nWallpapering\nDecorative techniques', 1],
-  ['en', 'Flooring', '/uploads/icons/boden.png', 'Installation of all types of flooring', 'Laminate\nParquet\nVinyl\nTiles', 2],
-];
-for (const row of services) insertService.run(...row);
+  // ── Services ──
+  const services = [
+    { lang: 'de', title: 'Trockenbau', iconUrl: '/uploads/icons/trockenbau.png', excerpt: 'Professioneller Trockenbau und Innenausbau', featuresRaw: 'Wände und Decken\nDämmung\nSchallschutz\nBrandschutz', sortOrder: 0 },
+    { lang: 'de', title: 'Malerarbeiten', iconUrl: '/uploads/icons/maler.png', excerpt: 'Malerarbeiten und Tapezierarbeiten', featuresRaw: 'Innenanstrich\nFassade\nTapezieren\nDekorative Techniken', sortOrder: 1 },
+    { lang: 'de', title: 'Bodenbeläge', iconUrl: '/uploads/icons/boden.png', excerpt: 'Verlegung von Bodenbelägen aller Art', featuresRaw: 'Laminat\nParkett\nVinyl\nFliesen', sortOrder: 2 },
+    { lang: 'pl', title: 'Zabudowy G-K', iconUrl: '/uploads/icons/trockenbau.png', excerpt: 'Profesjonalne zabudowy z płyt g-k', featuresRaw: 'Ściany i sufity\nIzolacja\nWygłuszenie\nOchrona ppoż.', sortOrder: 0 },
+    { lang: 'pl', title: 'Malowanie', iconUrl: '/uploads/icons/maler.png', excerpt: 'Malowanie i tapetowanie wnętrz', featuresRaw: 'Malowanie wnętrz\nElewacje\nTapetowanie\nTechniki dekoracyjne', sortOrder: 1 },
+    { lang: 'pl', title: 'Podłogi', iconUrl: '/uploads/icons/boden.png', excerpt: 'Układanie podłóg wszelkiego rodzaju', featuresRaw: 'Laminat\nParkiet\nWinyl\nPłytki', sortOrder: 2 },
+    { lang: 'en', title: 'Drywall', iconUrl: '/uploads/icons/trockenbau.png', excerpt: 'Professional drywall and interior finishing', featuresRaw: 'Walls and ceilings\nInsulation\nSoundproofing\nFire protection', sortOrder: 0 },
+    { lang: 'en', title: 'Painting', iconUrl: '/uploads/icons/maler.png', excerpt: 'Painting and wallpapering services', featuresRaw: 'Interior painting\nFacade\nWallpapering\nDecorative techniques', sortOrder: 1 },
+    { lang: 'en', title: 'Flooring', iconUrl: '/uploads/icons/boden.png', excerpt: 'Installation of all types of flooring', featuresRaw: 'Laminate\nParquet\nVinyl\nTiles', sortOrder: 2 },
+  ];
+  for (const data of services) await prisma.service.create({ data });
 
-db.close();
-console.log('Seed completed successfully!');
+  console.log('Seed completed!');
+}
+
+main()
+  .catch((e) => { console.error(e); process.exit(1); })
+  .finally(() => prisma.$disconnect());
