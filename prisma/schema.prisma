@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -17,13 +17,13 @@ model Admin {
 
 model HomePage {
   id           Int    @id @default(autoincrement())
-  lang         String // de, pl, en
+  lang         String
   heroTitle    String
   heroSubOne   String
   heroSubTwo   String
   heroSubThree String
   buttonLang   String
-  heroBg       String // path to uploaded image
+  heroBg       String
 
   @@unique([lang])
   @@map("home_pages")
@@ -33,8 +33,8 @@ model AboutPage {
   id             Int    @id @default(autoincrement())
   lang           String
   aboutTitle     String
-  aboutIntro     String // HTML
-  aboutPointsRaw String // newline-separated
+  aboutIntro     String
+  aboutPointsRaw String
   aboutCtaText   String
 
   @@unique([lang])
@@ -45,9 +45,9 @@ model Service {
   id          Int    @id @default(autoincrement())
   lang        String
   title       String
-  iconUrl     String // path to uploaded icon
+  iconUrl     String
   excerpt     String
-  featuresRaw String // newline-separated
+  featuresRaw String
   sortOrder   Int    @default(0)
 
   @@map("services")
@@ -56,7 +56,7 @@ model Service {
 model GalleryImage {
   id        Int    @id @default(autoincrement())
   lang      String
-  url       String // path to uploaded image
+  url       String
   width     Int?
   height    Int?
   sortOrder Int    @default(0)
