@@ -20,7 +20,7 @@
   .imgTitleWrapper {
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content: flex-start;
     gap: 2rem;
     margin-bottom: 2rem;
     /* line-height: 25px; */

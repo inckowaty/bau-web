@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 const icons = {
   de: '/flags/de.svg',
   pl: '/flags/pl.svg',
@@ -13,7 +15,7 @@ export default function LocaleSwitch({langUrls}) {
     <div style={{display:'flex',gap:'.5rem',marginRight:'auto'}}>
       {Object.entries(langUrls).map(([l,url])=>(
         <a key={l} href={url}>
-          <img src={icons[l]} alt={l} width={24} height={16}/>
+          <Image src={icons[l]} alt={l} width={24} height={16}/>
         </a>
       ))}
     </div>
