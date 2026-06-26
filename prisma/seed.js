@@ -5,7 +5,8 @@ const prisma = new PrismaClient();
 
 async function main() {
   // ── Admin user ──
-  const hash = bcrypt.hashSync('admin123', 10);
+  const adminPass = process.env.ADMIN_PASSWORD || 'admin123';
+  const hash = bcrypt.hashSync(adminPass, 10);
   await prisma.admin.upsert({
     where: { username: 'admin' },
     update: {},
