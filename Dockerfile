@@ -20,6 +20,7 @@ ENV HOSTNAME="0.0.0.0"
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/standalone ./
+RUN rm -f .env .env.local .env.production .env.development
 COPY --from=builder /app/.next/static ./.next/static
 COPY --from=builder /app/prisma ./prisma
 COPY --from=builder /app/scripts/startup.js ./scripts/startup.js
