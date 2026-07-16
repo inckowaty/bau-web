@@ -1,8 +1,35 @@
 "use client";
+import { useState } from "react";
 import AdminShell from "./AdminShell";
 import styles from "./admin.module.css";
 
 export default function AdminDashboard() {
+  const [showPwForm, setShowPwForm] = useState(false);
+  const [currentPw, setCurrentPw] = useState("");
+  const [newPw, setNewPw] = useState("");
+  const [pwMsg, setPwMsg] = useState("");
+  const [pwSaving, setPwSaving] = useState(false);
+
+  const changePw = async (e) => {
+    e.preventDefault();
+    setPwSaving(true);
+    setPwMsg("");
+    const res = await fetch("/api/admin/password", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ currentPassword: currentPw, newPassword: newPw }),
+    });
+    const data = await res.json();
+    setPwSaving(false);
+    if (res.ok) {
+      setPwMsg("Hasło zmienione!");
+      setCurrentPw("");
+      setNewPw("");
+    } else {
+      setPwMsg(data.message || "Błąd");
+    }
+  };
+
   return (
     <AdminShell>
       <h1 className={styles.pageTitle}>Dashboard</h1>
@@ -40,6 +67,29 @@ export default function AdminDashboard() {
             <p style={{ color: "#aaa", fontSize: "0.8rem", margin: 0 }}>{card.desc}</p>
           </a>
         ))}
+      </div>
+
+      <div style={{ marginTop: "3rem" }}>
+        <button className={styles.editBtn} onClick={() => setShowPwForm(!showPwForm)}>
+          {showPwForm ? "Anuluj" : "Zmień hasło"}
+        </button>
+
+        {showPwForm && (
+          <form onSubmit={changePw} className={styles.form} style={{ marginTop: "1rem" }}>
+            <div className={styles.field}>
+              <label>Obecne hasło</label>
+              <input type="password" value={currentPw} onChange={(e) => setCurrentPw(e.target.value)} required />
+            </div>
+            <div className={styles.field}>
+              <label>Nowe hasło (min. 6 znaków)</label>
+              <input type="password" value={newPw} onChange={(e) => setNewPw(e.target.value)} required minLength={6} />
+            </div>
+            <button type="submit" disabled={pwSaving} className={styles.saveBtn}>
+              {pwSaving ? "..." : "Zmień hasło"}
+            </button>
+            {pwMsg && <p className={pwMsg.includes("!") ? styles.successMsg : styles.errorMsg}>{pwMsg}</p>}
+          </form>
+        )}
       </div>
     </AdminShell>
   );
