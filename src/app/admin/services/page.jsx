@@ -5,6 +5,7 @@ import styles from "../admin.module.css";
 
 const LANGS = ["de", "pl", "en"];
 const empty = { title: "", iconUrl: "", excerpt: "", featuresRaw: "", sortOrder: 0 };
+const toUrl = (p) => p?.startsWith('/uploads/') ? p.replace('/uploads/', '/api/files/') : p;
 
 export default function ServicesEditor() {
   const [lang, setLang] = useState("de");
@@ -82,7 +83,7 @@ export default function ServicesEditor() {
       <div className={styles.itemList}>
         {items.map((item) => (
           <div key={item.id} className={styles.itemCard}>
-            {item.iconUrl && <img src={item.iconUrl} alt="" />}
+            {item.iconUrl && <img src={toUrl(item.iconUrl)} alt="" />}
             <div className={styles.itemInfo}>
               <h4>{item.title}</h4>
               <p>{item.excerpt}</p>
@@ -109,7 +110,7 @@ export default function ServicesEditor() {
           <div className={styles.field}>
             <label>Ikona</label>
             <div className={styles.inlineUpload}>
-              {form.iconUrl && <img src={form.iconUrl} alt="" style={{ width: 48, height: 48 }} />}
+              {form.iconUrl && <img src={toUrl(form.iconUrl)} alt="" style={{ width: 48, height: 48 }} />}
               <input type="file" accept="image/*" onChange={uploadIcon} className={styles.fileInput} />
             </div>
           </div>

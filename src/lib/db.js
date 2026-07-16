@@ -3,6 +3,13 @@
 
 import prisma from './prisma';
 
+// Convert /uploads/... paths to /api/files/... for runtime serving
+function fileUrl(path) {
+  if (!path) return '';
+  if (path.startsWith('/uploads/')) return path.replace('/uploads/', '/api/files/');
+  return path;
+}
+
 /*──────────────── HOME  ────────────────*/
 export async function fetchHome(lang = 'de') {
   const row = await prisma.homePage.findUnique({ where: { lang } });
@@ -16,7 +23,7 @@ export async function fetchHome(lang = 'de') {
       hero_sub_two: row.heroSubTwo,
       hero_sub_three: row.heroSubThree,
       button_lang: row.buttonLang,
-      hero_bg: { url: row.heroBg },
+      hero_bg: { url: fileUrl(row.heroBg) },
     },
   };
 }
@@ -58,7 +65,7 @@ export async function fetchLeistungen(lang = 'de') {
     id: r.id,
     title: { rendered: r.title },
     acf: {
-      leistung_icon: { url: r.iconUrl },
+      leistung_icon: { url: fileUrl(r.iconUrl) },
       leistung_excerpt: r.excerpt,
       leistung_features_raw: r.featuresRaw,
     },
@@ -74,7 +81,7 @@ export async function fetchGallery(lang = 'de') {
   // Return as flat array of image objects (simplifies page.jsx processing)
   return rows.map(r => ({
     id: r.id,
-    url: r.url,
+    url: fileUrl(r.url),
     width: r.width,
     height: r.height,
   }));

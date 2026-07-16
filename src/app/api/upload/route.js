@@ -32,7 +32,7 @@ export async function POST(req) {
     const filePath = path.join(uploadDir, uniqueName);
     await writeFile(filePath, buffer);
 
-    const publicUrl = `/uploads/${subdir ? subdir + '/' : ''}${uniqueName}`;
+    const publicUrl = `/api/files/${subdir ? subdir + '/' : ''}${uniqueName}`;
     return NextResponse.json({ url: publicUrl });
   } catch (e) {
     console.error('Upload error:', e);

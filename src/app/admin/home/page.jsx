@@ -4,6 +4,7 @@ import AdminShell from "../AdminShell";
 import styles from "../admin.module.css";
 
 const LANGS = ["de", "pl", "en"];
+const toUrl = (p) => p?.startsWith('/uploads/') ? p.replace('/uploads/', '/api/files/') : p;
 
 export default function HomeEditor() {
   const [lang, setLang] = useState("de");
@@ -81,7 +82,7 @@ export default function HomeEditor() {
         <div className={styles.field}>
           <label>Tło Hero</label>
           <div className={styles.inlineUpload}>
-            {data.heroBg && <img src={data.heroBg} alt="" className={styles.imagePreview} />}
+            {data.heroBg && <img src={toUrl(data.heroBg)} alt="" className={styles.imagePreview} />}
             <input type="file" accept="image/*" onChange={uploadBg} className={styles.fileInput} />
           </div>
         </div>

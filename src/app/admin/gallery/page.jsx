@@ -4,6 +4,7 @@ import AdminShell from "../AdminShell";
 import styles from "../admin.module.css";
 
 const LANGS = ["de", "pl", "en"];
+const toUrl = (p) => p?.startsWith('/uploads/') ? p.replace('/uploads/', '/api/files/') : p;
 
 export default function GalleryEditor() {
   const [lang, setLang] = useState("de");
@@ -81,7 +82,7 @@ export default function GalleryEditor() {
       <div className={styles.galleryGrid}>
         {images.map((img) => (
           <div key={img.id} className={styles.galleryItem}>
-            <img src={img.url} alt="" />
+            <img src={toUrl(img.url)} alt="" />
             <button onClick={() => del(img.id)} title="Usuń">✕</button>
           </div>
         ))}
