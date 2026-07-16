@@ -9,7 +9,7 @@ import Services from '@/components/Services';
 import GallerySection from '@/sections/GallerySection';
 import ContactSection from '@/sections/ContactSection';
 
-export const revalidate = 600;
+export const dynamic = 'force-dynamic';
 const DEFAULT_SLUG = 'home';
 
 // helper – zawsze zwraca tablicę
