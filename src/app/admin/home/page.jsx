@@ -40,6 +40,20 @@ export default function HomeEditor() {
     const res = await fetch("/api/upload", { method: "POST", body: fd });
     const { url } = await res.json();
     setData((d) => ({ ...d, heroBg: url }));
+
+    // Apply same background to all languages
+    for (const l of LANGS) {
+      if (l === lang) continue;
+      const r = await fetch(`/api/admin/home?lang=${l}`);
+      const langData = await r.json();
+      if (langData) {
+        await fetch("/api/admin/home", {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ ...langData, lang: l, heroBg: url }),
+        });
+      }
+    }
   };
 
   if (!data) return <AdminShell><p>Ładowanie...</p></AdminShell>;
@@ -80,7 +94,7 @@ export default function HomeEditor() {
           <input value={data.buttonLang || ""} onChange={(e) => setData({ ...data, buttonLang: e.target.value })} />
         </div>
         <div className={styles.field}>
-          <label>Tło Hero</label>
+          <label>Tło Hero (wspólne dla wszystkich języków)</label>
           <div className={styles.inlineUpload}>
             {data.heroBg && <img src={toUrl(data.heroBg)} alt="" className={styles.imagePreview} />}
             <input type="file" accept="image/*" onChange={uploadBg} className={styles.fileInput} />
