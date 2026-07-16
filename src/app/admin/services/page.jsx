@@ -4,23 +4,41 @@ import AdminShell from "../AdminShell";
 import styles from "../admin.module.css";
 
 const LANGS = ["de", "pl", "en"];
-const empty = { title: "", iconUrl: "", excerpt: "", featuresRaw: "", sortOrder: 0 };
+const LANG_LABELS = { de: "Niemiecki", pl: "Polski", en: "Angielski" };
 const toUrl = (p) => p?.startsWith('/uploads/') ? p.replace('/uploads/', '/api/files/') : p;
 
+const emptySet = () => ({
+  iconUrl: "",
+  sortOrder: 0,
+  de: { title: "", excerpt: "", featuresRaw: "" },
+  pl: { title: "", excerpt: "", featuresRaw: "" },
+  en: { title: "", excerpt: "", featuresRaw: "" },
+});
+
 export default function ServicesEditor() {
-  const [lang, setLang] = useState("de");
-  const [items, setItems] = useState([]);
-  const [editing, setEditing] = useState(null);
-  const [form, setForm] = useState(empty);
+  const [groups, setGroups] = useState([]); // grouped by sortOrder
+  const [editing, setEditing] = useState(null); // null | 'new' | group
+  const [form, setForm] = useState(emptySet());
   const [saving, setSaving] = useState(false);
 
-  const load = () => {
-    fetch(`/api/admin/services?lang=${lang}`)
-      .then((r) => r.json())
-      .then(setItems);
+  const load = async () => {
+    // Fetch all languages and group by sortOrder
+    const all = {};
+    for (const l of LANGS) {
+      const res = await fetch(`/api/admin/services?lang=${l}`);
+      const items = await res.json();
+      for (const item of items) {
+        if (!all[item.sortOrder]) all[item.sortOrder] = { sortOrder: item.sortOrder, iconUrl: item.iconUrl, ids: {} };
+        all[item.sortOrder][l] = { id: item.id, title: item.title, excerpt: item.excerpt, featuresRaw: item.featuresRaw };
+        all[item.sortOrder].ids[l] = item.id;
+        if (item.iconUrl) all[item.sortOrder].iconUrl = item.iconUrl;
+      }
+    }
+    const sorted = Object.values(all).sort((a, b) => a.sortOrder - b.sortOrder);
+    setGroups(sorted);
   };
 
-  useEffect(load, [lang]);
+  useEffect(() => { load(); }, []);
 
   const uploadIcon = async (e) => {
     const file = e.target.files[0];
@@ -33,121 +51,140 @@ export default function ServicesEditor() {
     setForm((f) => ({ ...f, iconUrl: url }));
   };
 
+  const startEdit = (group) => {
+    setEditing(group);
+    setForm({
+      iconUrl: group.iconUrl || "",
+      sortOrder: group.sortOrder,
+      de: group.de || { title: "", excerpt: "", featuresRaw: "" },
+      pl: group.pl || { title: "", excerpt: "", featuresRaw: "" },
+      en: group.en || { title: "", excerpt: "", featuresRaw: "" },
+    });
+  };
+
   const save = async (e) => {
     e.preventDefault();
     setSaving(true);
 
-    if (editing === "new") {
-      await fetch("/api/admin/services", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, lang }),
-      });
-    } else {
-      // Save current language
-      await fetch(`/api/admin/services/${editing.id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
+    for (const l of LANGS) {
+      const data = {
+        lang: l,
+        title: form[l].title,
+        excerpt: form[l].excerpt,
+        featuresRaw: form[l].featuresRaw,
+        iconUrl: form.iconUrl,
+        sortOrder: form.sortOrder,
+      };
 
-      // Sync icon to same service in other languages (match by sortOrder)
-      if (form.iconUrl !== editing.iconUrl) {
-        for (const l of LANGS) {
-          if (l === lang) continue;
-          const res = await fetch(`/api/admin/services?lang=${l}`);
-          const langItems = await res.json();
-          const match = langItems.find((i) => i.sortOrder === form.sortOrder);
-          if (match) {
-            await fetch(`/api/admin/services/${match.id}`, {
-              method: "PUT",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ ...match, iconUrl: form.iconUrl }),
-            });
-          }
-        }
+      if (editing === "new") {
+        await fetch("/api/admin/services", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+      } else if (editing.ids?.[l]) {
+        await fetch(`/api/admin/services/${editing.ids[l]}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+      } else {
+        // Language entry missing — create it
+        await fetch("/api/admin/services", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
       }
     }
 
     setSaving(false);
     setEditing(null);
-    setForm(empty);
+    setForm(emptySet());
     load();
   };
 
-  const del = async (id) => {
-    if (!confirm("Na pewno usunąć?")) return;
-    await fetch(`/api/admin/services/${id}`, { method: "DELETE" });
+  const del = async (group) => {
+    if (!confirm("Na pewno usunąć tę usługę ze wszystkich języków?")) return;
+    for (const l of LANGS) {
+      if (group.ids?.[l]) {
+        await fetch(`/api/admin/services/${group.ids[l]}`, { method: "DELETE" });
+      }
+    }
     load();
+  };
+
+  const setLangField = (lang, field, value) => {
+    setForm((f) => ({ ...f, [lang]: { ...f[lang], [field]: value } }));
   };
 
   return (
     <AdminShell>
       <h1 className={styles.pageTitle}>Usługi</h1>
-      <div className={styles.langTabs}>
-        {LANGS.map((l) => (
-          <button key={l} onClick={() => { setLang(l); setEditing(null); }}
-            className={`${styles.langTab} ${l === lang ? styles.langTabActive : ""}`}>
-            {l.toUpperCase()}
-          </button>
-        ))}
-      </div>
-
       <p style={{ color: "#aaa", marginBottom: "1rem", fontSize: "0.85rem" }}>
-        Ikony są wspólne dla wszystkich języków. Teksty edytujesz osobno per język.
+        Każda usługa ma wspólną ikonę i osobne teksty dla każdego języka.
       </p>
 
-      <button className={styles.addBtn} onClick={() => { setEditing("new"); setForm(empty); }}>
+      <button className={styles.addBtn} onClick={() => { setEditing("new"); setForm({ ...emptySet(), sortOrder: groups.length }); }}>
         + Dodaj usługę
       </button>
 
       <div className={styles.itemList}>
-        {items.map((item) => (
-          <div key={item.id} className={styles.itemCard}>
-            {item.iconUrl && <img src={toUrl(item.iconUrl)} alt="" />}
+        {groups.map((group) => (
+          <div key={group.sortOrder} className={styles.itemCard}>
+            {group.iconUrl && <img src={toUrl(group.iconUrl)} alt="" />}
             <div className={styles.itemInfo}>
-              <h4>{item.title}</h4>
-              <p>{item.excerpt}</p>
+              <h4>{group.de?.title || group.pl?.title || group.en?.title || "—"}</h4>
+              <p style={{ fontSize: "0.75rem", color: "#888" }}>
+                DE: {group.de?.title || "—"} | PL: {group.pl?.title || "—"} | EN: {group.en?.title || "—"}
+              </p>
             </div>
             <div className={styles.itemActions}>
-              <button className={styles.editBtn} onClick={() => { setEditing(item); setForm(item); }}>
-                Edytuj
-              </button>
-              <button className={styles.deleteBtn} onClick={() => del(item.id)}>
-                Usuń
-              </button>
+              <button className={styles.editBtn} onClick={() => startEdit(group)}>Edytuj</button>
+              <button className={styles.deleteBtn} onClick={() => del(group)}>Usuń</button>
             </div>
           </div>
         ))}
       </div>
 
       {editing && (
-        <form onSubmit={save} className={styles.form}>
+        <form onSubmit={save} className={styles.form} style={{ maxWidth: "900px" }}>
           <h3 style={{ color: "#feb81a" }}>{editing === "new" ? "Nowa usługa" : "Edycja usługi"}</h3>
+
           <div className={styles.field}>
-            <label>Nazwa</label>
-            <input value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} required />
-          </div>
-          <div className={styles.field}>
-            <label>Ikona (wspólna dla wszystkich języków)</label>
+            <label>Ikona (wspólna)</label>
             <div className={styles.inlineUpload}>
               {form.iconUrl && <img src={toUrl(form.iconUrl)} alt="" style={{ width: 48, height: 48 }} />}
               <input type="file" accept="image/*" onChange={uploadIcon} className={styles.fileInput} />
             </div>
           </div>
-          <div className={styles.field}>
-            <label>Opis</label>
-            <input value={form.excerpt} onChange={(e) => setForm({ ...form, excerpt: e.target.value })} />
-          </div>
-          <div className={styles.field}>
-            <label>Cechy (jedna na linię)</label>
-            <textarea value={form.featuresRaw} onChange={(e) => setForm({ ...form, featuresRaw: e.target.value })} rows={5} />
-          </div>
+
           <div className={styles.field}>
             <label>Kolejność</label>
             <input type="number" value={form.sortOrder} onChange={(e) => setForm({ ...form, sortOrder: parseInt(e.target.value) || 0 })} />
           </div>
-          <div style={{ display: "flex", gap: "0.5rem" }}>
+
+          {LANGS.map((l) => (
+            <fieldset key={l} style={{ border: "1px solid #2a2950", borderRadius: "6px", padding: "1rem", marginTop: "0.5rem" }}>
+              <legend style={{ color: "#feb81a", fontSize: "0.85rem", padding: "0 0.5rem" }}>
+                {LANG_LABELS[l]} ({l.toUpperCase()})
+              </legend>
+              <div className={styles.field}>
+                <label>Nazwa</label>
+                <input value={form[l].title} onChange={(e) => setLangField(l, "title", e.target.value)} required />
+              </div>
+              <div className={styles.field}>
+                <label>Opis</label>
+                <input value={form[l].excerpt} onChange={(e) => setLangField(l, "excerpt", e.target.value)} />
+              </div>
+              <div className={styles.field}>
+                <label>Cechy (jedna na linię)</label>
+                <textarea value={form[l].featuresRaw} onChange={(e) => setLangField(l, "featuresRaw", e.target.value)} rows={4} />
+              </div>
+            </fieldset>
+          ))}
+
+          <div style={{ display: "flex", gap: "0.5rem", marginTop: "1rem" }}>
             <button type="submit" disabled={saving} className={styles.saveBtn}>
               {saving ? "..." : "Zapisz"}
             </button>
