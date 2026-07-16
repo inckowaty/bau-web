@@ -7,18 +7,18 @@ const LANGS = ["de", "pl", "en"];
 const toUrl = (p) => p?.startsWith('/uploads/') ? p.replace('/uploads/', '/api/files/') : p;
 
 export default function GalleryEditor() {
-  const [lang, setLang] = useState("de");
   const [images, setImages] = useState([]);
   const [uploading, setUploading] = useState(false);
   const fileRef = useRef(null);
 
   const load = () => {
-    fetch(`/api/admin/gallery?lang=${lang}`)
+    // Gallery images are shared — just load DE
+    fetch(`/api/admin/gallery?lang=de`)
       .then((r) => r.json())
       .then(setImages);
   };
 
-  useEffect(load, [lang]);
+  useEffect(load, []);
 
   const upload = async (e) => {
     const files = e.target.files;
@@ -32,7 +32,6 @@ export default function GalleryEditor() {
       const upRes = await fetch("/api/upload", { method: "POST", body: fd });
       const { url } = await upRes.json();
 
-      // Try to get dimensions from the image
       const img = new Image();
       img.src = url;
       await new Promise((resolve) => {
@@ -40,17 +39,20 @@ export default function GalleryEditor() {
         img.onerror = resolve;
       });
 
-      await fetch("/api/admin/gallery", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          lang,
-          url,
-          width: img.naturalWidth || null,
-          height: img.naturalHeight || null,
-          sortOrder: images.length,
-        }),
-      });
+      // Add image for all languages
+      for (const l of LANGS) {
+        await fetch("/api/admin/gallery", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            lang: l,
+            url,
+            width: img.naturalWidth || null,
+            height: img.naturalHeight || null,
+            sortOrder: images.length,
+          }),
+        });
+      }
     }
 
     setUploading(false);
@@ -58,25 +60,32 @@ export default function GalleryEditor() {
   };
 
   const del = async (id) => {
-    await fetch(`/api/admin/gallery/${id}`, { method: "DELETE" });
+    // Find the image URL to delete across all languages
+    const img = images.find((i) => i.id === id);
+    if (!img) return;
+
+    // Delete from all languages by URL
+    for (const l of LANGS) {
+      const res = await fetch(`/api/admin/gallery?lang=${l}`);
+      const langImages = await res.json();
+      const match = langImages.find((i) => i.url === img.url);
+      if (match) {
+        await fetch(`/api/admin/gallery/${match.id}`, { method: "DELETE" });
+      }
+    }
     load();
   };
 
   return (
     <AdminShell>
       <h1 className={styles.pageTitle}>Galeria</h1>
-      <div className={styles.langTabs}>
-        {LANGS.map((l) => (
-          <button key={l} onClick={() => setLang(l)}
-            className={`${styles.langTab} ${l === lang ? styles.langTabActive : ""}`}>
-            {l.toUpperCase()}
-          </button>
-        ))}
-      </div>
+      <p style={{ color: "#aaa", marginBottom: "1rem", fontSize: "0.85rem" }}>
+        Zdjęcia są wspólne dla wszystkich języków.
+      </p>
 
       <div className={styles.uploadArea} onClick={() => fileRef.current?.click()}>
         <input ref={fileRef} type="file" accept="image/*" multiple onChange={upload} />
-        {uploading ? "Wysyłanie..." : "Kliknij lub przeciągnij zdjęcia aby dodać"}
+        {uploading ? "Wysyłanie..." : "Kliknij aby dodać zdjęcia"}
       </div>
 
       <div className={styles.galleryGrid}>
@@ -89,7 +98,7 @@ export default function GalleryEditor() {
       </div>
 
       {images.length === 0 && (
-        <p style={{ color: "#aaa", textAlign: "center" }}>Brak zdjęć w galerii dla tego języka.</p>
+        <p style={{ color: "#aaa", textAlign: "center" }}>Brak zdjęć w galerii.</p>
       )}
     </AdminShell>
   );

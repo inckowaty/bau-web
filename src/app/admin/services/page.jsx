@@ -10,10 +10,9 @@ const toUrl = (p) => p?.startsWith('/uploads/') ? p.replace('/uploads/', '/api/f
 export default function ServicesEditor() {
   const [lang, setLang] = useState("de");
   const [items, setItems] = useState([]);
-  const [editing, setEditing] = useState(null); // null | 'new' | item
+  const [editing, setEditing] = useState(null);
   const [form, setForm] = useState(empty);
   const [saving, setSaving] = useState(false);
-  const [msg, setMsg] = useState("");
 
   const load = () => {
     fetch(`/api/admin/services?lang=${lang}`)
@@ -37,7 +36,6 @@ export default function ServicesEditor() {
   const save = async (e) => {
     e.preventDefault();
     setSaving(true);
-    setMsg("");
 
     if (editing === "new") {
       await fetch("/api/admin/services", {
@@ -46,12 +44,31 @@ export default function ServicesEditor() {
         body: JSON.stringify({ ...form, lang }),
       });
     } else {
+      // Save current language
       await fetch(`/api/admin/services/${editing.id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
+
+      // Sync icon to same service in other languages (match by sortOrder)
+      if (form.iconUrl !== editing.iconUrl) {
+        for (const l of LANGS) {
+          if (l === lang) continue;
+          const res = await fetch(`/api/admin/services?lang=${l}`);
+          const langItems = await res.json();
+          const match = langItems.find((i) => i.sortOrder === form.sortOrder);
+          if (match) {
+            await fetch(`/api/admin/services/${match.id}`, {
+              method: "PUT",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ ...match, iconUrl: form.iconUrl }),
+            });
+          }
+        }
+      }
     }
+
     setSaving(false);
     setEditing(null);
     setForm(empty);
@@ -75,6 +92,10 @@ export default function ServicesEditor() {
           </button>
         ))}
       </div>
+
+      <p style={{ color: "#aaa", marginBottom: "1rem", fontSize: "0.85rem" }}>
+        Ikony są wspólne dla wszystkich języków. Teksty edytujesz osobno per język.
+      </p>
 
       <button className={styles.addBtn} onClick={() => { setEditing("new"); setForm(empty); }}>
         + Dodaj usługę
@@ -108,7 +129,7 @@ export default function ServicesEditor() {
             <input value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} required />
           </div>
           <div className={styles.field}>
-            <label>Ikona</label>
+            <label>Ikona (wspólna dla wszystkich języków)</label>
             <div className={styles.inlineUpload}>
               {form.iconUrl && <img src={toUrl(form.iconUrl)} alt="" style={{ width: 48, height: 48 }} />}
               <input type="file" accept="image/*" onChange={uploadIcon} className={styles.fileInput} />
