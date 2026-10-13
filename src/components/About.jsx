@@ -1,13 +1,20 @@
 "use client";
-import { motion } from "framer-motion";
-import * as LucideIcons from "lucide-react";
+import Link from "next/link";
+import { CircleCheck, ArrowRight } from "lucide-react";
+import RichText from "@/components/RichText";
 import styles from "./About.module.css";
 
-const LIST_TITLES = {
-    de: "Über uns",
-    pl: "O nas",
-    en: "About us",
-}
+const TITLES = {
+  de: "Über uns",
+  pl: "O nas",
+  en: "About us",
+};
+
+const CTA_FALLBACK = {
+  de: "Kontaktieren Sie uns",
+  pl: "Skontaktuj się z nami",
+  en: "Get in touch",
+};
 
 const LIST_HEADINGS = {
   de: "Warum wir? Weil:",
@@ -15,38 +22,56 @@ const LIST_HEADINGS = {
   en: "Why us? Because:",
 };
 
-export default function About({ intro, points, ctaText, langUrl, lang }) {
+// heading → H1, introMarkdown (CMS) ma pierwszeństwo przed starym intro.text (HTML)
+export default function About({ heading, intro, introMarkdown, body, points = [], ctaText, langUrl, lang }) {
+  const legacyIntro = intro?.text || "";
+  const cta = ctaText || CTA_FALLBACK[lang] || CTA_FALLBACK.de;
+
   return (
     <section className={styles.about}>
-      <h1 className={styles.title}>{LIST_TITLES[lang]}</h1>
+      <div className={styles.top}>
+        <header className={styles.head}>
+          <h1 className={styles.title}>{heading || intro?.title || TITLES[lang]}</h1>
 
-      {/* renderujemy cały HTML akapitu */}
-      <div
-        className={styles.intro}
-        dangerouslySetInnerHTML={{ __html: intro.text }}
-      />
+          {introMarkdown ? (
+            <RichText markdown={introMarkdown} className={styles.intro} />
+          ) : legacyIntro ? (
+            <div
+              className={styles.intro}
+              dangerouslySetInnerHTML={{ __html: legacyIntro }}
+            />
+          ) : null}
+        </header>
 
-      {/* Nagłówek listy */}
-      <h3 className={styles.listHeading}>{LIST_HEADINGS[lang]}</h3>
-
-      <ul className={styles.list}>
-        {points.map((p, i) => (
-          <li key={i} className={styles.listItem}>
-            <LucideIcons.CheckCircle size={20} className={styles.icon} />
-            <span className={styles.pointText}>{p}</span>
-          </li>
-        ))}
-      </ul>
-
-      <div className={styles.aboutCtaWrapper} >
-          <motion.a
-            href={langUrl}
-            className={styles.cta}
-            whileHover={{ scale: 1.05 }}
-          >
-            {ctaText}
-          </motion.a>
+        {points.length > 0 && (
+          <div className={styles.why}>
+            <h2 className={styles.listHeading}>{LIST_HEADINGS[lang] || LIST_HEADINGS.de}</h2>
+            <ul className={styles.list}>
+              {points.map((p, i) => (
+                <li key={i} className={styles.listItem}>
+                  <CircleCheck size={22} className={styles.icon} aria-hidden="true" />
+                  <span className={styles.pointText}>{p}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
+
+      {body && (
+        <div className={styles.body}>
+          <RichText markdown={body} className={styles.bodyText} />
+        </div>
+      )}
+
+      {langUrl && (
+        <div className={styles.aboutCtaWrapper}>
+          <Link href={langUrl} className={styles.cta}>
+            {cta}
+            <ArrowRight size={20} aria-hidden="true" />
+          </Link>
+        </div>
+      )}
     </section>
   );
 }

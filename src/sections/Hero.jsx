@@ -1,46 +1,72 @@
 "use client";
-import styles from "./Hero.module.css";
-import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
 import Typewriter from "typewriter-effect";
+import { pagePath } from "@/lib/seo";
+import styles from "./Hero.module.css";
 
-export default function Hero({ title, subtitle_one, subtitle_two, subtitle_three, button_lang, url, lang }) {
+const T = {
+  de: { quote: "Angebot anfragen", services: "Unsere Leistungen" },
+  pl: { quote: "Poproś o wycenę", services: "Nasze usługi" },
+  en: { quote: "Request a quote", services: "Our services" },
+};
+
+// h1 = nagłówek SEO z CMS, title = nazwa firmy (mała linia nad H1).
+// H1 jest w HTML z serwera i animuje się tylko przez CSS (bez opacity:0 inline).
+export default function Hero({ h1, title, subtitle_one, subtitle_two, subtitle_three, button_lang, url, lang }) {
+  const t = T[lang] || T.de;
+  const heading = h1 || title;
+  const eyebrow = h1 && title && title !== h1 ? title : "";
+  const subtitles = [subtitle_one, subtitle_two, subtitle_three].filter(Boolean);
+
   return (
     <section className={styles.hero}>
-      <div
-        className={styles.background}
-        style={{ backgroundImage: `url(${url})` }}
-      />
+      {url && (
+        <Image
+          src={url}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          // pełny adres spoza next.config (np. stary link) – bez optymalizacji, żeby nie wywrócić strony
+          unoptimized={/^https?:\/\//.test(url) && !url.includes("wp.grp-bau.de")}
+          className={styles.background}
+        />
+      )}
       <div className={styles.overlay} />
 
       <div className={styles.content}>
-        <motion.h1
-          className={styles.title}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0 }}
-        >
-          {title}
-        </motion.h1>
-        <div className={styles.subtitle}>
-          <Typewriter
-            options={{
-              strings: [subtitle_one, subtitle_two, subtitle_three],
-              autoStart: true,
-              loop: true,
-              deleteSpeed: 5,
-              delay: 15,
-              pauseFor: 4000,
-            }}
-          />
+        {eyebrow && <p className={styles.eyebrow}>{eyebrow}</p>}
+
+        <h1 className={styles.title}>{heading}</h1>
+
+        {subtitles.length > 0 && (
+          <>
+            {/* pełna lista dla czytników ekranu i wyszukiwarek – efekt maszynopisu jest tylko wizualny */}
+            <p className={styles.srOnly}>{subtitles.join(" · ")}</p>
+            <div className={styles.subtitle} aria-hidden="true">
+              <Typewriter
+                options={{
+                  strings: subtitles,
+                  autoStart: true,
+                  loop: true,
+                  deleteSpeed: 5,
+                  delay: 15,
+                  pauseFor: 4000,
+                }}
+              />
+            </div>
+          </>
+        )}
+
+        <div className={styles.actions}>
+          <Link href={pagePath("contact", lang)} className={styles.cta}>
+            {button_lang || t.quote}
+          </Link>
+          <Link href={pagePath("services", lang)} className={styles.ghost}>
+            {t.services}
+          </Link>
         </div>
-        <motion.a
-             href={`/${lang}/${lang==="de"?"leistungen":lang==="pl"?"uslugi":"services"}`}
-             className={styles.cta}
-             whileHover={{ scale:1.05 }}
-             transition={{ repeat:Infinity, repeatDelay:3, duration:0.5 }}
-           >
-             { lang==='de'?'Angebot anfragen': lang==='pl'?'Poproś o wycenę':'Request a quote' }
-        </motion.a>
       </div>
     </section>
   );

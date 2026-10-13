@@ -5,6 +5,7 @@ const font = Poppins({ subsets: ['latin'], weight: ['400', '500', '700'], displa
 
 export const metadata = {
   title: 'GRP-BAU Admin',
+  robots: { index: false, follow: false },
 };
 
 export default function AdminLayout({ children }) {

@@ -72,9 +72,13 @@ export default function HomeEditor() {
           </button>
         ))}
       </div>
+      <div className={styles.notice} style={{ maxWidth: "700px" }}>
+        Główny nagłówek strony (H1) oraz teksty pod sekcją hero edytujesz w zakładce{" "}
+        <a href="/admin/pages">Treści i SEO</a> → Strona główna.
+      </div>
       <form onSubmit={save} className={styles.form}>
         <div className={styles.field}>
-          <label>Tytuł Hero</label>
+          <label>Nazwa firmy (mały napis nad nagłówkiem)</label>
           <input value={data.heroTitle || ""} onChange={(e) => setData({ ...data, heroTitle: e.target.value })} />
         </div>
         <div className={styles.field}>

@@ -51,6 +51,13 @@ async function main() {
     await prisma.$disconnect();
   }
 
+  // Jednorazowe migracje treści (uzupełniają puste pola CMS, nie nadpisują zmian z panelu)
+  try {
+    execSync(`node ${path.join(ROOT, 'prisma', 'content-migrations.js')}`, { stdio: 'inherit', cwd: ROOT });
+  } catch (e) {
+    console.error('[startup] Content migrations failed – starting anyway');
+  }
+
   console.log('[startup] Starting server...');
   require(path.join(ROOT, 'server.js'));
 }

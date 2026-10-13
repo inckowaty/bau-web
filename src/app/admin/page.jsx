@@ -39,9 +39,10 @@ export default function AdminDashboard() {
       </p>
       <div style={{ marginTop: "2rem", display: "flex", gap: "1rem", flexWrap: "wrap" }}>
         {[
-          { href: "/admin/home", label: "Strona główna", desc: "Edytuj tytuł hero, podtytuły, tło" },
+          { href: "/admin/pages", label: "Treści i SEO", desc: "Nagłówki H1, teksty, FAQ oraz tytuły i opisy dla Google" },
+          { href: "/admin/home", label: "Strona główna", desc: "Edytuj nazwę firmy, podtytuły i tło hero" },
           { href: "/admin/about", label: "O nas", desc: "Edytuj sekcję O nas" },
-          { href: "/admin/services", label: "Usługi", desc: "Zarządzaj kartami usług" },
+          { href: "/admin/services", label: "Usługi", desc: "Karty usług, ich podstrony i SEO" },
           { href: "/admin/gallery", label: "Galeria", desc: "Zarządzaj zdjęciami galerii" },
           { href: "/admin/nav", label: "Nawigacja", desc: "Edytuj pozycje menu" },
           { href: "/admin/messages", label: "Wiadomości", desc: "Przegląd wiadomości kontaktowych" },
