@@ -7,9 +7,9 @@ import g from "./gallery-admin.module.css";
 const LANGS = ["de", "pl", "en"];
 const ALT_MAX = 125;
 const ALT_PLACEHOLDER = {
-  de: "z. B. Neu verlegter Vinylboden im Wohnzimmer in Sulingen",
-  pl: "np. Nowa podłoga winylowa w salonie w Sulingen",
-  en: "e.g. New vinyl flooring in a living room in Sulingen",
+  de: "z. B. Neu verlegter Vinylboden im Wohnzimmer",
+  pl: "np. Nowa podłoga winylowa w salonie",
+  en: "e.g. New vinyl flooring in a living room",
 };
 const CAPTION_PLACEHOLDER = {
   de: "z. B. Vinylboden im Wohnzimmer",
@@ -291,7 +291,7 @@ export default function GalleryEditor() {
       <div className={g.hint}>
         <p>
           <strong>Opis ALT</strong> (dla Google i czytników ekranu): opisz, co widać na zdjęciu, i naturalnie
-          wpleć usługę oraz „Sulingen”, np. <em>„Nowa podłoga winylowa w salonie w Sulingen”</em>. Maks. ok.{" "}
+          wpleć usługę, np. <em>„Nowa podłoga winylowa w salonie”</em>. Maks. ok.{" "}
           {ALT_MAX} znaków, bez „Zdjęcie…” na początku i bez upychania słów kluczowych.
         </p>
         <p>

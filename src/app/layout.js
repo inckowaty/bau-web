@@ -8,7 +8,7 @@ const font = Poppins({subsets:['latin'],weight:['400','500','700'],display:'swap
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: `${SITE_NAME} | Bau- und Innenausbau`,
-  description: 'GRP-BAU aus Sulingen: Trockenbau, Malerarbeiten und Bodenbeläge.'
+  description: 'GRP Bau aus Sulingen: Innenausbau, Renovierung, Trockenbau und Bodenleger im Umkreis von 100 km.'
 };
 
 export default async function RootLayout({children}) {

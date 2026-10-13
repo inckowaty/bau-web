@@ -5,6 +5,16 @@ import { SITE_URL, pagePath } from './seo';
 const BUSINESS_ID = `${SITE_URL}/#business`;
 const abs = path => (path?.startsWith('http') ? path : SITE_URL + (path === '/' ? '' : path));
 
+// obszar działania: okrąg ~100 km wokół Sulingen + przykładowe miasta
+const areaServed = () => [
+  {
+    '@type': 'GeoCircle',
+    geoMidpoint: { '@type': 'GeoCoordinates', latitude: COMPANY.geo.latitude, longitude: COMPANY.geo.longitude },
+    geoRadius: COMPANY.serviceRadiusKm * 1000,
+  },
+  ...COMPANY.areaServed.map(name => ({ '@type': 'City', name })),
+];
+
 export function localBusinessLd(lang) {
   return {
     '@context': 'https://schema.org',
@@ -25,7 +35,7 @@ export function localBusinessLd(lang) {
       addressRegion: COMPANY.region,
       addressCountry: COMPANY.country,
     },
-    areaServed: COMPANY.areaServed.map(name => ({ '@type': 'City', name })),
+    areaServed: areaServed(),
   };
 }
 
@@ -39,7 +49,7 @@ export function serviceLd({ name, description, path, image }) {
     url: abs(path),
     ...(image ? { image: abs(image) } : {}),
     provider: { '@id': BUSINESS_ID },
-    areaServed: COMPANY.areaServed.map(n => ({ '@type': 'City', name: n })),
+    areaServed: areaServed(),
   };
 }
 
