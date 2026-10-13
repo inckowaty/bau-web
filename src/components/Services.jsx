@@ -3,6 +3,7 @@
 import { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { pagePath } from "@/lib/seo";
 import Link from "next/link";
 import styles from "./Services.module.css";
 
@@ -78,7 +79,7 @@ export default function Services({ list, lang }) {
             </ul>
 
             <Link
-              href={`/${lang}/${lang==="de"?"kontakt":lang==="pl"?"kontakt":"contact"}`}
+              href={pagePath("contact", lang)}
               className={styles.more}
             >
               {lang==="de"?"Mehr erfahren":lang==="pl"?"Dowiedz się więcej":"Learn more"}
@@ -90,7 +91,7 @@ export default function Services({ list, lang }) {
       {/* CTA */}
        <div className={styles.ctaDiv}>
            <motion.a
-             href={`/${lang}/${lang==="de"?"kontakt":lang==="pl"?"kontakt":"contact"}`}
+             href={pagePath("contact", lang)}
              className={styles.cta}
              whileHover={{ scale:1.05 }}
              transition={{ repeat:Infinity, repeatDelay:3, duration:0.5 }}

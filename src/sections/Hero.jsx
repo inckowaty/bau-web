@@ -2,6 +2,7 @@
 import styles from "./Hero.module.css";
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
+import { pagePath } from "@/lib/seo";
 
 export default function Hero({ title, subtitle_one, subtitle_two, subtitle_three, button_lang, url, lang }) {
   return (
@@ -34,7 +35,7 @@ export default function Hero({ title, subtitle_one, subtitle_two, subtitle_three
           />
         </div>
         <motion.a
-             href={`/${lang}/${lang==="de"?"leistungen":lang==="pl"?"uslugi":"services"}`}
+             href={pagePath("services", lang)}
              className={styles.cta}
              whileHover={{ scale:1.05 }}
              transition={{ repeat:Infinity, repeatDelay:3, duration:0.5 }}

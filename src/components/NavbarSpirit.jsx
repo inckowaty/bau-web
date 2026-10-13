@@ -6,6 +6,7 @@ import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { extractSlugFromLink } from '@/lib/utils';
+import { publicHref } from '@/lib/seo';
 
 export default function NavbarSpirit({ items, lang, langUrls, logoSrc }) {
   const [open, setOpen] = useState(false);
@@ -71,7 +72,7 @@ export default function NavbarSpirit({ items, lang, langUrls, logoSrc }) {
             //  const href = isHome
             //    ? `${langPrefix}/`                          // "/" lub "/pl/" lub "/en/"
             //    : `${langPrefix}/${slug}`;                  // "/leistungen", "/pl/galeria" itd.
-            const href = item.acf.path;
+            const href = publicHref(item.acf.path);
              return (
                <li key={item.id}>
                  <Link href={href} className={styles.link}>
@@ -120,7 +121,7 @@ export default function NavbarSpirit({ items, lang, langUrls, logoSrc }) {
             //  const href = isHome
             //    ? `${langPrefix}/`                          // "/" lub "/pl/" lub "/en/"
             //    : `${langPrefix}/${slug}`;                  // "/leistungen", "/pl/galeria" itd.
-            const href = item.acf.path;
+            const href = publicHref(item.acf.path);
              return (
                <li key={item.id}>
                  <Link href={href} className={styles.link}>
@@ -212,7 +213,7 @@ export default function NavbarSpirit({ items, lang, langUrls, logoSrc }) {
             //  const href = isHome
             //    ? `${langPrefix}/`                          // "/" lub "/pl/" lub "/en/"
             //    : `${langPrefix}/${slug}`;                  // "/leistungen", "/pl/galeria" itd.
-            const href = item.acf.path;
+            const href = publicHref(item.acf.path);
              return (
                <li key={item.id}>
                  <Link href={href} className={styles.link}>
