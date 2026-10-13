@@ -9,6 +9,8 @@ const { PrismaClient } = require('@prisma/client');
 
 const content = require(path.join(__dirname, 'content', 'seo-content.js'));
 const galleryContent = require(path.join(__dirname, 'content', 'gallery-content.js'));
+// treści wdrożone 2026-10-13 (v1) – do rozpoznania tekstów, których nikt nie zmienił w panelu
+const contentV1 = require(path.join(__dirname, 'content', 'seo-content-v1.js'));
 
 const LANGS = ['de', 'pl', 'en'];
 
@@ -167,6 +169,59 @@ async function seoContent2026(prisma, log) {
   log(`gallery: checked ${images.length} rows`);
 }
 
+// Obszar działania ~100 km (Bremen, Hannover, …): podmieniamy teksty v1 na v2,
+// ale tylko te pola, które w bazie są nadal dokładnie takie jak v1 (albo puste).
+async function serviceArea2026(prisma, log) {
+  const swap = (row, oldData, newData, fields) => {
+    const upd = {};
+    for (const f of fields) {
+      const next = newData?.[f];
+      if (next === undefined || same(row[f], next)) continue;
+      if (!norm(row[f]) || same(row[f], oldData?.[f])) upd[f] = next;
+    }
+    return upd;
+  };
+
+  for (const [page, byLang] of Object.entries(content.pages || {})) {
+    for (const lang of LANGS) {
+      const row = await prisma.pageContent.findUnique({ where: { page_lang: { page, lang } } });
+      if (!row) continue;
+      const upd = swap(row, contentV1.pages?.[page]?.[lang], byLang[lang], PAGE_FIELDS);
+      if (Object.keys(upd).length) {
+        await prisma.pageContent.update({ where: { id: row.id }, data: upd });
+        log(`page ${page}/${lang}: ${Object.keys(upd).join(',')}`);
+      }
+    }
+  }
+
+  const SERVICE_TEXT = ['title', 'h1', 'excerpt', 'featuresRaw', 'body', 'faqRaw', 'metaTitle', 'metaDescription'];
+  for (const def of content.services || []) {
+    const old = (contentV1.services || []).find(s => s.key === def.key);
+    for (const lang of LANGS) {
+      const row = await prisma.service.findFirst({ where: { key: def.key, lang } });
+      if (!row) continue;
+      const upd = swap(row, old?.[lang], def[lang], SERVICE_TEXT);
+      if (Object.keys(upd).length) {
+        await prisma.service.update({ where: { id: row.id }, data: upd });
+        log(`service ${def.key}/${lang}: ${Object.keys(upd).join(',')}`);
+      }
+    }
+  }
+
+  for (const lang of LANGS) {
+    const home = await prisma.homePage.findUnique({ where: { lang } });
+    if (home) {
+      const upd = swap(home, contentV1.hero?.[lang], content.hero?.[lang], ['heroSubOne', 'heroSubTwo', 'heroSubThree']);
+      if (Object.keys(upd).length) await prisma.homePage.update({ where: { id: home.id }, data: upd });
+    }
+    const about = await prisma.aboutPage.findUnique({ where: { lang } });
+    if (about) {
+      const upd = swap(about, contentV1.about?.[lang], content.about?.[lang], ['aboutPointsRaw']);
+      if (Object.keys(upd).length) await prisma.aboutPage.update({ where: { id: about.id }, data: upd });
+    }
+  }
+}
+
 function pick(obj, fields) {
   const out = {};
   for (const f of fields) if (obj[f] !== undefined) out[f] = obj[f];
@@ -175,6 +230,7 @@ function pick(obj, fields) {
 
 const MIGRATIONS = [
   { id: '2026-10-13-seo-content', run: seoContent2026 },
+  { id: '2026-10-13-service-area', run: serviceArea2026 },
 ];
 
 async function main() {

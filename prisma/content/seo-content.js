@@ -1,1119 +1,350 @@
-// Treści startowe (DE/PL/EN) – wgrywane jednorazowo do pustych pól CMS
-// przez prisma/content-migrations.js i używane jako zapas dla meta tagów.
+// Treści startowe (DE/PL/EN) – wgrywane do pustych pól CMS przez prisma/content-migrations.js
+// i używane jako zapas dla meta tagów. Wersja v2: obszar działania ~100 km wokół Sulingen.
 // Format pól tekstowych: Markdown (## / ### nagłówki, akapity, listy "- ", **pogrubienie**, [link](/adres)).
-// faqRaw: bloki rozdzielone pustą linią, pierwsza linia = pytanie, reszta = odpowiedź (czysty tekst).
-
-// ---------------------------------------------------------------------------
-// STRONA GŁÓWNA
-// ---------------------------------------------------------------------------
-const home = {
-  de: {
-    h1: 'Innenausbau & Renovierung in Sulingen',
-    intro: `GRP Bau ist Ihr Ansprechpartner für Innenausbau und Renovierung in Sulingen und Umgebung. Wir bauen Räume um, ziehen Trockenbauwände ein, verlegen neue Böden und bringen Wände und Decken mit Malerarbeiten und Tapeten wieder in Form. Außerdem übernehmen wir die Leitungsverlegung im Hochbau: Kabel, Leerrohre und Kabelkanäle, sauber vorbereitet für den Anschluss durch einen Elektrofachbetrieb.
-
-Ob einzelnes Zimmer, komplette Wohnung oder ganzes Haus: Bei GRP Bau bekommen Sie mehrere Arbeiten aus einer Hand, sinnvoll aufeinander abgestimmt. Unser Leitsatz „Wir sind immer für Sie da“ beschreibt, wie wir arbeiten: erreichbar, pünktlich und zuverlässig. Erzählen Sie uns von Ihrem Vorhaben – die Beratung ist kostenlos.`,
-    body: `## Warum GRP Bau?
-
-Bei einem Umbau oder einer Renovierung zählt am Ende, dass die Arbeit gut gemacht ist und der Zeitplan hält. Darauf legen wir Wert:
-
-- **Erfahrenes Team:** Unsere Handwerker kennen den Innenausbau aus der täglichen Praxis. Trockenbau, Böden, Malerarbeiten und Leitungswege planen wir zusammen, damit die einzelnen Schritte sauber ineinandergreifen.
-- **Pünktlichkeit und Zuverlässigkeit:** Vereinbarte Termine halten wir ein. Sie wissen, wann wir kommen und wie lange die Arbeiten geplant sind.
-- **Hohe Qualität zu fairen Preisen:** Wir arbeiten sorgfältig und mit Blick fürs Detail. Den Preis kennen Sie vor dem Start aus unserem Angebot.
-- **Kostenlose Beratung:** Wir besprechen Ihr Vorhaben, zeigen Möglichkeiten auf und helfen Ihnen, die passende Lösung zu finden, ohne dass Ihnen dafür Kosten entstehen.
-
-## So arbeiten wir
-
-Jedes Projekt ist anders, der Ablauf bleibt aber übersichtlich:
-
-- **Beratung:** Sie beschreiben uns, was Sie vorhaben – am Telefon, per WhatsApp, per E-Mail oder bei einem Termin vor Ort. Wir klären Wünsche, Maße und offene Fragen.
-- **Angebot:** Auf dieser Grundlage erhalten Sie ein Angebot, das die geplanten Arbeiten beschreibt. So können Sie in Ruhe entscheiden.
-- **Ausführung:** Nach Ihrer Zusage stimmen wir den Termin ab und setzen die Arbeiten wie besprochen um. Bei Fragen sind wir für Sie erreichbar.
-- **Übergabe:** Zum Abschluss gehen wir die Räume gemeinsam mit Ihnen durch, damit alles so ist, wie Sie es sich vorgestellt haben.
-
-## Einsatzgebiet: Sulingen und Umgebung
-
-Unser Sitz ist In den Feldgärten 11D in 27232 Sulingen. Von hier aus sind wir für Kundinnen und Kunden in Sulingen und Umgebung im Einsatz. Die Nähe hat Vorteile: kurze Wege, schnelle Absprachen und ein Ansprechpartner, der gut erreichbar ist.
-
-Einen Überblick über alle Arbeiten finden Sie unter [Leistungen](/leistungen), Beispiele aus unserer Arbeit in der [Galerie](/galerie). Wenn Sie ein Projekt planen, [schreiben Sie uns](/kontakt) oder rufen Sie an – wir melden uns bei Ihnen.`,
-    faqRaw: `Welche Leistungen bietet GRP Bau an?
-Wir übernehmen Innenausbau, Renovierung mit Malerarbeiten und Tapezieren, Trockenbau, Bodenlegerarbeiten mit Laminat, Parkett, Vinyl- und Designböden, Teppich und PVC sowie die Leitungsverlegung im Hochbau.
-
-In welchem Gebiet sind Sie tätig?
-Wir arbeiten in Sulingen und Umgebung. Wenn Sie nicht sicher sind, ob Ihr Ort dazugehört, fragen Sie einfach kurz nach.
-
-Was kostet die Beratung?
-Die Beratung ist kostenlos. Nachdem wir den Umfang der Arbeiten besprochen haben, erhalten Sie ein Angebot, auf dessen Grundlage Sie in Ruhe entscheiden können.
-
-Wie erreiche ich Sie am schnellsten?
-Rufen Sie uns an oder schreiben Sie per WhatsApp an +49 1556 1013765, per E-Mail an info@grp-bau.de oder über das Kontaktformular. Fotos der Räume schicken Sie am einfachsten per WhatsApp.`,
-    metaTitle: 'Innenausbau & Renovierung in Sulingen | GRP Bau',
-    metaDescription: 'Innenausbau, Renovierung, Trockenbau, Bodenleger und Leitungsverlegung in Sulingen und Umgebung. Kostenlose Beratung – jetzt bei GRP Bau anfragen!',
-  },
-  pl: {
-    h1: 'Wykończenia wnętrz i remonty w Sulingen',
-    intro: `GRP Bau to firma z Sulingen, która zajmuje się wykończeniami wnętrz i remontami w Sulingen i okolicy. Stawiamy ścianki działowe i sufity z płyt g-k, układamy podłogi, malujemy i tapetujemy ściany oraz sufity. Wykonujemy też układanie przewodów w budynkach: kable, rury osłonowe i kanały kablowe, przygotowane do późniejszego podłączenia przez uprawnionego elektryka.
-
-Jeden pokój, całe mieszkanie czy dom – u nas otrzymują Państwo kilka prac z jednej ręki, dobrze ze sobą zgranych. Nasze motto „Wir sind immer für Sie da”, czyli „Zawsze jesteśmy do Państwa dyspozycji”, opisuje sposób, w jaki pracujemy: jesteśmy dostępni, punktualni i rzetelni. Prosimy opisać nam swój plan – wycena jest bezpłatna.`,
-    body: `## Dlaczego GRP Bau?
-
-Przy remoncie czy przebudowie najważniejsze jest, żeby praca była dobrze wykonana, a terminy dotrzymane. Na to stawiamy:
-
-- **Doświadczony zespół:** Nasi fachowcy znają wykończenia wnętrz z codziennej praktyki. Zabudowy g-k, podłogi, malowanie i prowadzenie przewodów planujemy razem, aby kolejne etapy dobrze się ze sobą łączyły.
-- **Terminowość i rzetelność:** Dotrzymujemy uzgodnionych terminów. Wiedzą Państwo, kiedy przyjedziemy i ile mają potrwać prace.
-- **Wysoka jakość w uczciwych cenach:** Pracujemy starannie i z dbałością o szczegóły. Cenę znają Państwo z naszej oferty jeszcze przed rozpoczęciem prac.
-- **Bezpłatna wycena:** Omawiamy Państwa plany, pokazujemy możliwe rozwiązania i przygotowujemy wycenę – bez żadnych kosztów po Państwa stronie.
-
-## Jak pracujemy
-
-Każdy projekt jest inny, ale przebieg współpracy pozostaje przejrzysty:
-
-- **Rozmowa:** Opisują nam Państwo swój plan – telefonicznie, przez WhatsApp, e-mailem lub podczas spotkania na miejscu. Ustalamy oczekiwania, wymiary i otwarte kwestie.
-- **Wycena:** Na tej podstawie otrzymują Państwo ofertę z opisem zaplanowanych prac i mogą spokojnie podjąć decyzję.
-- **Realizacja:** Po akceptacji ustalamy termin i wykonujemy prace zgodnie z ustaleniami. W razie pytań jesteśmy do dyspozycji.
-- **Odbiór:** Na koniec wspólnie oglądamy pomieszczenia, aby wszystko wyglądało tak, jak Państwo sobie tego życzyli.
-
-## Obszar działania: Sulingen i okolice
-
-Nasza siedziba mieści się przy In den Feldgärten 11D w 27232 Sulingen (Dolna Saksonia). Stąd obsługujemy klientów w Sulingen i okolicy. Bliskość ma swoje zalety: krótkie dojazdy, szybkie ustalenia i łatwy kontakt z wykonawcą.
-
-Przegląd wszystkich prac znajdą Państwo w zakładce [Usługi](/pl/uslugi), a przykłady naszej pracy w [galerii](/pl/galeria). Planują Państwo remont? [Prosimy o wiadomość](/pl/kontakt) lub telefon – odezwiemy się.`,
-    faqRaw: `Jakie usługi oferuje GRP Bau?
-Wykonujemy wykończenia wnętrz, remonty z malowaniem i tapetowaniem, zabudowy z płyt g-k, układanie podłóg (laminat, parkiet, panele winylowe, wykładzina dywanowa i PVC) oraz układanie przewodów w budynkach.
-
-Na jakim obszarze Państwo pracują?
-Działamy w Sulingen i okolicy. Jeśli nie są Państwo pewni, czy Państwa miejscowość się do niej zalicza, wystarczy krótko zapytać.
-
-Ile kosztuje wycena?
-Wycena jest bezpłatna. Po omówieniu zakresu prac otrzymują Państwo ofertę, na podstawie której mogą spokojnie podjąć decyzję.
-
-Jak najszybciej się z Państwem skontaktować?
-Telefonicznie lub przez WhatsApp pod numerem +49 1556 1013765, e-mailem na adres info@grp-bau.de albo przez formularz kontaktowy. Zdjęcia pomieszczeń najwygodniej przesłać przez WhatsApp.`,
-    metaTitle: 'Wykończenia wnętrz i remonty w Sulingen | GRP Bau',
-    metaDescription: 'Wykończenia wnętrz, remonty, zabudowy G-K, układanie podłóg i przewodów w Sulingen i okolicy. Bezpłatna wycena – zapraszamy do kontaktu z GRP Bau!',
-  },
-  en: {
-    h1: 'Interior Finishing & Renovation in Sulingen',
-    intro: `GRP Bau is your local contractor for interior finishing and renovation in Sulingen and the surrounding area. We remodel rooms, put up drywall partitions, lay new floors and bring walls and ceilings back into shape with painting and wallpapering. We also lay cables, conduits and cable ducts in buildings, neatly prepared for connection by a licensed electrician.
-
-Whether it is a single room, a whole flat or a house, you get several jobs done by one team, properly coordinated. Our motto, “Wir sind immer für Sie da” (“We are always there for you”), describes how we work: easy to reach, punctual and reliable. Tell us about your project – the consultation is free.`,
-    body: `## Why GRP Bau?
-
-When you remodel or renovate, what matters in the end is good workmanship and a schedule that holds. That is what we focus on:
-
-- **Experienced team:** Our tradespeople know interior finishing from everyday practice. We plan drywall, floors, painting and cable routes together so that each step fits neatly into the next.
-- **Punctuality and reliability:** We keep to the dates we agree. You know when we will arrive and how long the work is planned to take.
-- **High quality at fair prices:** We work carefully and with an eye for detail. You know the price from our quote before any work begins.
-- **Free consultation:** We talk through your plans, show you the options and help you find the right solution, at no cost to you.
-
-## How we work
-
-Every project is different, but the process stays simple:
-
-- **Consultation:** You tell us what you have in mind – by phone, WhatsApp, e-mail or during a visit on site. We clarify your wishes, measurements and any open questions.
-- **Quote:** Based on this, you receive a quote describing the planned work, so you can decide in your own time.
-- **Execution:** Once you give the go-ahead, we agree on a date and carry out the work as discussed. If questions come up, we are easy to reach.
-- **Handover:** Finally, we walk through the rooms with you to make sure everything is as you imagined.
-
-## Service area: Sulingen and the surrounding area
-
-We are based at In den Feldgärten 11D, 27232 Sulingen, Lower Saxony, and work for customers in Sulingen and the surrounding area. Being local has clear advantages: short journeys, quick arrangements and a contractor who is easy to reach.
-
-You will find an overview of everything we do under [Services](/en/services) and examples of our work in the [gallery](/en/gallery). Planning a project? [Get in touch](/en/contact) or give us a call and we will get back to you.`,
-    faqRaw: `What services does GRP Bau offer?
-We offer interior finishing, renovation including interior painting and wallpapering, drywall, flooring (laminate, parquet, vinyl and design floors, carpet and PVC) and cable laying in buildings.
-
-Which area do you cover?
-We work in Sulingen and the surrounding area. If you are not sure whether your location is included, just ask us.
-
-How much does a consultation cost?
-The consultation is free. Once we have discussed the scope of work, you receive a quote so you can decide in your own time.
-
-What is the quickest way to contact you?
-Call us or send a WhatsApp message to +49 1556 1013765, e-mail info@grp-bau.de or use the contact form. Photos of the rooms are easiest to send via WhatsApp.`,
-    metaTitle: 'Interior Finishing & Renovation in Sulingen | GRP Bau',
-    metaDescription: 'Interior finishing, renovation, drywall, flooring and cable laying in Sulingen and the surrounding area. Free consultation – contact GRP Bau today!',
-  },
-};
-
-// ---------------------------------------------------------------------------
-// LISTA USŁUG
-// ---------------------------------------------------------------------------
-const servicesPage = {
-  de: {
-    h1: 'Unsere Leistungen im Innenausbau in Sulingen',
-    intro: `Von der neuen Trennwand bis zum fertig gestrichenen Raum: GRP Bau übernimmt die zentralen Arbeiten im Innenausbau aus einer Hand. Hier finden Sie unsere fünf Leistungsbereiche im Überblick, jeweils mit kurzer Beschreibung und einem Link zu allen Details.
-
-Wir arbeiten in Sulingen und Umgebung und kombinieren die Leistungen so, wie es Ihr Vorhaben verlangt. Manchmal reicht ein frischer Anstrich, bei einem Umbau kommen dagegen Trockenbau, neuer Bodenbelag und Leitungsverlegung zusammen. Sie können jede Leistung einzeln beauftragen oder mehrere miteinander verbinden. Welche Arbeiten bei Ihnen sinnvoll sind, klären wir gemeinsam in einer kostenlosen Beratung. Danach erhalten Sie ein Angebot und wissen, womit Sie rechnen können.`,
-    body: `## Leistungen sinnvoll kombinieren
-
-Viele Projekte bestehen aus mehreren Schritten, die in der richtigen Reihenfolge ablaufen sollten. Bei einem Umbau entstehen zuerst neue Wände und Decken im [Trockenbau](/leistungen/trockenbau). Kabel und Leerrohre werden am besten verlegt, bevor die Wände geschlossen werden – dafür gibt es unsere [Leitungsverlegung](/leistungen/leitungsverlegung). Danach folgen Spachtel-, Maler- und Tapezierarbeiten aus dem Bereich [Renovierung](/leistungen/renovierung) und zum Schluss der neue Boden vom [Bodenleger](/leistungen/bodenleger).
-
-Wird alles zusammen geplant, sprechen wir vom [Innenausbau](/leistungen/innenausbau). Sie haben einen Ansprechpartner für alle Arbeiten, und die Termine sind von Anfang an aufeinander abgestimmt. [Fragen Sie uns an](/kontakt) – die Beratung ist kostenlos.`,
-    faqRaw: `Kann ich auch nur eine einzelne Leistung beauftragen?
-Ja. Jede Leistung können Sie einzeln anfragen, zum Beispiel nur das Streichen eines Zimmers oder nur einen neuen Bodenbelag. Wenn es sinnvoll ist, mehrere Arbeiten zu verbinden, sprechen wir das in der Beratung an.
-
-Schließen Sie die verlegten Leitungen auch an?
-Nein. Wir verlegen Kabel, Leerrohre, Kabelkanäle und Kabeltrassen. Den Anschluss übernimmt ein zugelassener Elektrofachbetrieb.
-
-Wie bekomme ich ein Angebot?
-Melden Sie sich per Telefon, WhatsApp, E-Mail oder über das Kontaktformular. Nach einer kostenlosen Beratung erhalten Sie ein Angebot für die geplanten Arbeiten.`,
-    metaTitle: 'Leistungen in Sulingen: Innenausbau & mehr | GRP Bau',
-    metaDescription: 'Alle Leistungen von GRP Bau im Überblick: Innenausbau, Renovierung, Trockenbau, Böden und Leitungsverlegung in Sulingen. Jetzt kostenlos beraten lassen!',
-  },
-  pl: {
-    h1: 'Nasze usługi wykończeniowe w Sulingen',
-    intro: `Od nowej ścianki działowej po świeżo pomalowane pomieszczenie: GRP Bau wykonuje najważniejsze prace wykończeniowe z jednej ręki. Na tej stronie znajdą Państwo przegląd naszych pięciu obszarów usług – z krótkim opisem i linkiem do szczegółów.
-
-Pracujemy w Sulingen i okolicy i łączymy usługi tak, jak wymaga tego Państwa projekt. Czasem wystarczy odświeżenie ścian, a przy przebudowie potrzebne są zabudowy g-k, nowa podłoga i ułożenie przewodów. Każdą usługę można zamówić osobno albo połączyć kilka. Jakie prace mają sens w Państwa przypadku, ustalimy wspólnie przy bezpłatnej wycenie. Potem otrzymują Państwo ofertę i wiedzą, z jakimi kosztami się liczyć.`,
-    body: `## Jak łączyć usługi
-
-Wiele projektów składa się z kilku etapów, które powinny następować we właściwej kolejności. Przy przebudowie najpierw powstają nowe ściany i sufity w ramach [zabudowy g-k](/pl/uslugi/zabudowy-gk). Kable i rury osłonowe najlepiej ułożyć, zanim ściany zostaną zamknięte – tym zajmuje się nasze [układanie przewodów](/pl/uslugi/ukladanie-przewodow). Następnie przychodzi czas na szpachlowanie, malowanie i tapetowanie w ramach [remontów](/pl/uslugi/remonty), a na końcu na nową podłogę w ramach usługi [układanie podłóg](/pl/uslugi/ukladanie-podlog).
-
-Gdy wszystkie prace są planowane razem, mówimy o [wykończeniu wnętrz](/pl/uslugi/wykonczenia-wnetrz). Mają Państwo jedną osobę kontaktową dla wszystkich etapów, a terminy są od początku do siebie dopasowane. [Zapraszamy do kontaktu](/pl/kontakt) – wycena jest bezpłatna.`,
-    faqRaw: `Czy mogę zlecić tylko jedną usługę?
-Tak. Każdą usługę można zamówić osobno, na przykład samo malowanie pokoju albo tylko nową podłogę. Jeśli połączenie kilku prac ma sens, powiemy o tym przy wycenie.
-
-Czy podłączają Państwo ułożone przewody?
-Nie. Układamy kable, rury osłonowe, kanały kablowe i korytka kablowe, natomiast podłączenie wykonuje uprawniony elektryk.
-
-Jak otrzymać wycenę?
-Wystarczy skontaktować się z nami telefonicznie, przez WhatsApp, e-mailem lub przez formularz kontaktowy. Po rozmowie przygotujemy bezpłatną wycenę planowanych prac.`,
-    metaTitle: 'Usługi wykończeniowe w Sulingen | GRP Bau',
-    metaDescription: 'Przegląd usług GRP Bau: wykończenia wnętrz, remonty, zabudowy G-K, układanie podłóg i przewodów w Sulingen i okolicy. Zapraszamy po bezpłatną wycenę!',
-  },
-  en: {
-    h1: 'Our Services in Sulingen',
-    intro: `From a new partition wall to a freshly painted room: GRP Bau handles the key interior finishing jobs as a single contractor. On this page you will find our five service areas at a glance, each with a short description and a link to the full details.
-
-We work in Sulingen and the surrounding area and combine our services to suit your project. Sometimes a fresh coat of paint is all a room needs, while a remodel may bring drywall, new flooring and cable laying together. You can book each service on its own or combine several. We will work out what makes sense for you during a free consultation. You then receive a quote and know exactly what to expect.`,
-    body: `## Combining services the right way
-
-Many projects involve several steps that should happen in the right order. In a remodel, new walls and ceilings are built first using [drywall](/en/services/drywall). Cables and empty conduits are best laid before the walls are closed – that is what our [cable laying](/en/services/cable-laying) service is for. Next come filling, painting and wallpapering as part of a [renovation](/en/services/renovation), and finally the new floor from our [flooring](/en/services/flooring) service.
-
-When everything is planned together, we call it [interior finishing](/en/services/interior-finishing). You have one point of contact for every stage, and the dates are coordinated from the start. [Contact us](/en/contact) for a free consultation.`,
-    faqRaw: `Can I book just one service?
-Yes. Each service can be booked on its own, for example painting a single room or laying a new floor. If combining several jobs makes sense, we will point this out during the consultation.
-
-Do you connect the cables you lay?
-No. We lay cables, empty conduits, cable ducts and cable trays. The connection is carried out by a licensed electrician.
-
-How do I get a quote?
-Contact us by phone, WhatsApp, e-mail or the contact form. After a free consultation, you receive a quote for the planned work.`,
-    metaTitle: 'Services in Sulingen: Drywall, Flooring & More | GRP Bau',
-    metaDescription: 'All GRP Bau services at a glance: interior finishing, renovation, drywall, flooring and cable laying in Sulingen. Book your free consultation now!',
-  },
-};
-
-// ---------------------------------------------------------------------------
-// GALERIA
-// ---------------------------------------------------------------------------
-const gallery = {
-  de: {
-    h1: 'Galerie: Einblicke in unsere Arbeiten',
-    intro: `In unserer Galerie zeigen wir Beispiele aus der Praxis von GRP Bau. Die Fotos zeigen Arbeiten aus unseren Leistungsbereichen, etwa Innenausbau, Renovierung mit Malerarbeiten und Tapezieren, Trockenbau sowie neue Böden und Treppenbeläge.
-
-Die Bilder geben Ihnen einen Eindruck von Oberflächen, Materialien und der Ausführung im Detail. So fällt es leichter, eigene Wünsche zu beschreiben, zum Beispiel welcher Boden zu Ihrem Raum passt oder wie eine neue Trennwand aussehen könnte. Wenn Sie ein ähnliches Vorhaben in Sulingen und Umgebung planen, sprechen Sie uns an. Die Beratung ist kostenlos, und Fotos Ihrer Räume können Sie uns gern per WhatsApp schicken.`,
-    body: '',
-    faqRaw: '',
-    metaTitle: 'Galerie: Innenausbau & Renovierung | GRP Bau',
-    metaDescription: 'Fotos aus der Praxis von GRP Bau: Innenausbau, Renovierung, Trockenbau, neue Böden und Treppenbeläge aus Sulingen. Jetzt Ideen sammeln und anfragen!',
-  },
-  pl: {
-    h1: 'Galeria: nasze prace wykończeniowe',
-    intro: `W galerii pokazujemy przykłady z praktyki GRP Bau. Zdjęcia przedstawiają prace z naszych obszarów usług, między innymi wykończenia wnętrz, remonty z malowaniem i tapetowaniem, zabudowy g-k oraz nowe podłogi i okładziny schodów.
-
-Zdjęcia dają wyobrażenie o powierzchniach, materiałach i jakości wykonania. Dzięki nim łatwiej opisać własne oczekiwania, na przykład jaka podłoga pasuje do Państwa pomieszczenia albo jak mogłaby wyglądać nowa ścianka działowa. Jeśli planują Państwo podobny projekt w Sulingen i okolicy, zapraszamy do kontaktu. Wycena jest bezpłatna, a zdjęcia pomieszczeń można przesłać nam przez WhatsApp.`,
-    body: '',
-    faqRaw: '',
-    metaTitle: 'Galeria: wykończenia wnętrz i remonty | GRP Bau',
-    metaDescription: 'Zdjęcia z realizacji GRP Bau: wykończenia wnętrz, remonty, zabudowy G-K, nowe podłogi i schody w Sulingen. Zapraszamy do kontaktu w sprawie wyceny!',
-  },
-  en: {
-    h1: 'Gallery: A Look at Our Work',
-    intro: `Our gallery shows examples of GRP Bau's work in practice. The photos cover our service areas, including interior finishing, renovation with painting and wallpapering, drywall, and new floors and stair coverings.
-
-The pictures give you an idea of surfaces, materials and the quality of the finish. They also make it easier to describe what you want, for example which floor suits your room or how a new partition wall might look. If you are planning a similar project in Sulingen or the surrounding area, get in touch. The consultation is free, and you are welcome to send us photos of your rooms via WhatsApp.`,
-    body: '',
-    faqRaw: '',
-    metaTitle: 'Gallery: Interior Finishing & Renovation | GRP Bau',
-    metaDescription: 'Photos of our work in Sulingen: interior finishing, renovation, drywall, new floors and stairs. Get ideas for your project and ask for a free consultation!',
-  },
-};
-
-// ---------------------------------------------------------------------------
-// O NAS
-// ---------------------------------------------------------------------------
-const aboutPage = {
-  de: {
-    h1: 'Über uns: GRP Bau aus Sulingen',
-    intro: `GRP Bau ist ein Unternehmen für Innenausbau aus Sulingen in Niedersachsen. Wir übernehmen die zentralen Arbeiten im Innenausbau: neue Wände und Decken im Trockenbau, Malerarbeiten und Tapezieren, Bodenbeläge von Laminat bis Teppich sowie das Verlegen von Kabeln, Leerrohren und Kabelkanälen.
-
-Unser Leitsatz lautet „Wir sind immer für Sie da“. Damit meinen wir ganz konkret: Wir sind gut erreichbar, hören zu, bevor wir planen, und halten Termine ein. Hinter GRP Bau steht ein erfahrenes Team, das Wert auf sorgfältige Arbeit zu fairen Preisen legt. Ob kleine Renovierung oder umfangreicher Innenausbau: Sie bekommen eine ehrliche Einschätzung und eine kostenlose Beratung.`,
-    body: `## Unsere Arbeitsweise
-
-Gute Arbeit beginnt mit einem klaren Plan. Bevor wir anfangen, besprechen wir mit Ihnen, was gemacht werden soll, welche Materialien infrage kommen und in welcher Reihenfolge die Arbeiten sinnvoll sind. Weil die Arbeiten bei uns in einer Hand liegen, können wir [Trockenbau](/leistungen/trockenbau), [Renovierung](/leistungen/renovierung), [Bodenbeläge](/leistungen/bodenleger) und [Leitungsverlegung](/leistungen/leitungsverlegung) direkt aufeinander abstimmen.
-
-Bei der Leitungsverlegung sagen wir offen, wo unsere Arbeit endet: Wir verlegen Kabel, Leerrohre und Kabelkanäle, den Anschluss übernimmt ein Elektrofachbetrieb. Diese klare Aufteilung gehört für uns zu einer ehrlichen Beratung.
-
-## Was uns wichtig ist
-
-Zuverlässigkeit ist für uns keine Floskel: Vereinbarte Termine gelten, und wenn sich etwas ändert, sprechen wir es an. Qualität heißt für uns, auch die Details sorgfältig auszuführen, also Anschlüsse, Kanten und Übergänge. Und faire Preise bedeuten, dass Sie vorab wissen, was Sie erwartet.
-
-## Zuhause in Sulingen
-
-Unser Sitz ist In den Feldgärten 11D in Sulingen, und hier liegt auch unser Einsatzgebiet: Sulingen und Umgebung. Beispiele unserer Arbeit finden Sie in der [Galerie](/galerie). Wenn Sie uns kennenlernen möchten, [nehmen Sie direkt Kontakt auf](/kontakt).`,
-    faqRaw: `Wo hat GRP Bau seinen Sitz?
-Unser Sitz ist In den Feldgärten 11D, 27232 Sulingen. Von dort aus arbeiten wir in Sulingen und Umgebung.
-
-Was bedeutet „Wir sind immer für Sie da“?
-Das ist unser Leitsatz. Sie erreichen uns per Telefon, WhatsApp, E-Mail oder Kontaktformular, und wir melden uns auf jede Anfrage zurück.
-
-Ist die Beratung wirklich kostenlos?
-Ja. Wir besprechen Ihr Vorhaben ohne Kosten für Sie. Einen Auftrag erteilen Sie erst, wenn Sie unser Angebot annehmen.`,
-    metaTitle: 'Über uns – Innenausbau aus Sulingen | GRP Bau',
-    metaDescription: 'GRP Bau aus Sulingen: erfahrenes Team für Innenausbau, pünktlich und zuverlässig, hohe Qualität zu fairen Preisen. Lernen Sie uns kennen – Beratung kostenlos!',
-  },
-  pl: {
-    h1: 'O nas: GRP Bau z Sulingen',
-    intro: `GRP Bau to firma zajmująca się wykończeniami wnętrz z siedzibą w Sulingen w Dolnej Saksonii. Zajmujemy się kluczowymi pracami wykończeniowymi: nowymi ścianami i sufitami z płyt g-k, malowaniem i tapetowaniem, podłogami od laminatu po wykładzinę oraz układaniem kabli, rur osłonowych i kanałów kablowych.
-
-Nasze motto brzmi „Wir sind immer für Sie da”, czyli „Zawsze jesteśmy do Państwa dyspozycji”. W praktyce oznacza to, że łatwo się z nami skontaktować, najpierw słuchamy, a dopiero potem planujemy, i dotrzymujemy terminów. GRP Bau to doświadczony zespół, który stawia na staranną pracę w uczciwych cenach. Niezależnie od tego, czy chodzi o drobny remont, czy o kompleksowe wykończenie, otrzymują Państwo rzetelną ocenę i bezpłatną wycenę.`,
-    body: `## Jak pracujemy
-
-Dobra praca zaczyna się od jasnego planu. Zanim zaczniemy, omawiamy z Państwem zakres prac, możliwe materiały i sensowną kolejność etapów. Ponieważ wszystkie prace są w jednych rękach, możemy bezpośrednio zgrać ze sobą [zabudowy g-k](/pl/uslugi/zabudowy-gk), [remonty](/pl/uslugi/remonty), [układanie podłóg](/pl/uslugi/ukladanie-podlog) i [układanie przewodów](/pl/uslugi/ukladanie-przewodow).
-
-Przy układaniu przewodów jasno mówimy, gdzie kończy się nasza praca: układamy kable, rury osłonowe i kanały kablowe, a podłączenie wykonuje uprawniony elektryk. Taki przejrzysty podział jest dla nas częścią uczciwego doradztwa.
-
-## Co jest dla nas ważne
-
-Rzetelność to dla nas nie pusty slogan: uzgodnione terminy obowiązują, a jeśli coś się zmienia, mówimy o tym otwarcie. Jakość oznacza staranne wykonanie także szczegółów, czyli połączeń, krawędzi i przejść. A uczciwa cena oznacza, że z góry wiedzą Państwo, czego się spodziewać.
-
-## Na miejscu w Sulingen
-
-Nasza siedziba znajduje się przy In den Feldgärten 11D w Sulingen i właśnie tu jest nasz obszar działania: Sulingen i okolice. Przykłady naszej pracy znajdą Państwo w [galerii](/pl/galeria), a najprościej poznać nas przez [formularz kontaktowy](/pl/kontakt) lub rozmowę telefoniczną.`,
-    faqRaw: `Gdzie znajduje się siedziba GRP Bau?
-Nasza siedziba mieści się przy In den Feldgärten 11D, 27232 Sulingen. Stąd obsługujemy klientów w Sulingen i okolicy.
-
-Co oznacza motto „Wir sind immer für Sie da”?
-To nasza dewiza, po polsku: „Zawsze jesteśmy do Państwa dyspozycji”. Można się z nami skontaktować telefonicznie, przez WhatsApp, e-mailem lub przez formularz, a my odpowiadamy na każde zapytanie.
-
-Czy wycena jest naprawdę bezpłatna?
-Tak. Omawiamy Państwa plany i przygotowujemy wycenę bez żadnych kosztów. Zlecenie powstaje dopiero wtedy, gdy zaakceptują Państwo naszą ofertę.`,
-    metaTitle: 'O nas – wykończenia wnętrz z Sulingen | GRP Bau',
-    metaDescription: 'GRP Bau z Sulingen: doświadczony zespół, terminowość i rzetelność, wysoka jakość w uczciwych cenach. Zapraszamy do kontaktu – wycena jest bezpłatna!',
-  },
-  en: {
-    h1: 'About Us: GRP Bau from Sulingen',
-    intro: `GRP Bau is an interior finishing company based in Sulingen, Lower Saxony. We handle the key interior finishing jobs: new walls and ceilings in drywall, painting and wallpapering, floor coverings from laminate to carpet, and the laying of cables, empty conduits and cable ducts.
-
-Our motto is “Wir sind immer für Sie da”, which means “We are always there for you”. In practice, this means we are easy to reach, we listen before we plan and we keep to agreed dates. Behind GRP Bau is an experienced team that values careful work at fair prices. Whether it is a small renovation or a larger interior fit-out, you get an honest assessment and a free consultation.`,
-    body: `## How we work
-
-Good work starts with a clear plan. Before we begin, we discuss with you what needs doing, which materials are suitable and in which order the work makes sense. Because all the work is in one pair of hands, we can coordinate [drywall](/en/services/drywall), [renovation](/en/services/renovation), [flooring](/en/services/flooring) and [cable laying](/en/services/cable-laying) directly with each other.
-
-When it comes to cable laying, we are open about where our work ends: we lay cables, empty conduits and cable ducts, and a licensed electrician makes the connection. This clear division is part of honest advice.
-
-## What matters to us
-
-Reliability is more than a word to us: agreed dates stand, and if something changes, we tell you. Quality means finishing the details carefully too, such as joints, edges and transitions. And fair prices mean you know in advance what to expect.
-
-## Based in Sulingen
-
-Our base is at In den Feldgärten 11D in Sulingen, and this is also where we work: Sulingen and the surrounding area. You can see examples of our work in the [gallery](/en/gallery) or [contact us](/en/contact) directly to get to know us.`,
-    faqRaw: `Where is GRP Bau based?
-Our base is at In den Feldgärten 11D, 27232 Sulingen. From there, we work for customers in Sulingen and the surrounding area.
-
-What does “Wir sind immer für Sie da” mean?
-It is our motto and translates as “We are always there for you”. You can reach us by phone, WhatsApp, e-mail or the contact form, and we reply to every enquiry.
-
-Is the consultation really free?
-Yes. We discuss your plans at no cost to you. You only commission us once you have accepted our quote.`,
-    metaTitle: 'About Us – Interior Finishing in Sulingen | GRP Bau',
-    metaDescription: 'GRP Bau in Sulingen: an experienced team, punctual and reliable, delivering high quality at fair prices. Get to know us and book a free consultation!',
-  },
-};
-
-// ---------------------------------------------------------------------------
-// KONTAKT
-// ---------------------------------------------------------------------------
-const contact = {
-  de: {
-    h1: 'Kontakt zu GRP Bau in Sulingen',
-    intro: `Sie planen eine Renovierung, einen Umbau oder einen neuen Boden? Schreiben Sie uns über das Kontaktformular, per E-Mail an info@grp-bau.de oder rufen Sie uns an: +49 1556 1013765. Unter dieser Nummer erreichen Sie uns auch per WhatsApp.
-
-Damit wir Ihre Anfrage schnell einschätzen können, helfen uns ein paar Angaben: um welchen Raum es geht, die ungefähre Größe in Quadratmetern, welche Arbeiten gewünscht sind und bis wann sie fertig sein sollen. Fotos der Räume schicken Sie am einfachsten per WhatsApp. Die Beratung ist kostenlos.`,
-    body: '',
-    faqRaw: `Welche Angaben braucht GRP Bau für ein Angebot?
-Hilfreich sind die Art der Arbeiten, der Raum und seine ungefähre Größe, Ihr Wunschtermin und, wenn möglich, ein paar Fotos. Alles Weitere klären wir in der kostenlosen Beratung.
-
-Kann ich Fotos per WhatsApp schicken?
-Ja. Unter +49 1556 1013765 erreichen Sie uns per WhatsApp. Fotos der Räume helfen uns, Ihr Vorhaben besser einzuschätzen.
-
-Wo befindet sich GRP Bau?
-Unser Sitz ist In den Feldgärten 11D, 27232 Sulingen. Wir arbeiten in Sulingen und Umgebung.`,
-    metaTitle: 'Kontakt in Sulingen – kostenlose Beratung | GRP Bau',
-    metaDescription: 'Kontakt zu GRP Bau in Sulingen: Telefon und WhatsApp +49 1556 1013765, E-Mail info@grp-bau.de. Schicken Sie uns Ihre Anfrage für eine kostenlose Beratung!',
-  },
-  pl: {
-    h1: 'Kontakt z GRP Bau w Sulingen',
-    intro: `Planują Państwo remont, przebudowę albo nową podłogę? Prosimy napisać do nas przez formularz kontaktowy, e-mailem na adres info@grp-bau.de lub zadzwonić pod numer +49 1556 1013765. Pod tym numerem jesteśmy dostępni także na WhatsAppie.
-
-Aby szybko ocenić zapytanie, przydadzą się nam podstawowe informacje: jakiego pomieszczenia dotyczy, jaka jest jego przybliżona powierzchnia w metrach kwadratowych, jakie prace są potrzebne i na kiedy mają być gotowe. Zdjęcia pomieszczeń najwygodniej przesłać przez WhatsApp. Wycena jest bezpłatna.`,
-    body: '',
-    faqRaw: `Jakie informacje są potrzebne do wyceny?
-Pomocne są: rodzaj prac, pomieszczenie i jego przybliżona powierzchnia, preferowany termin oraz, jeśli to możliwe, kilka zdjęć. Resztę ustalimy podczas bezpłatnej wyceny.
-
-Czy mogę wysłać zdjęcia przez WhatsApp?
-Tak. Pod numerem +49 1556 1013765 jesteśmy dostępni na WhatsAppie. Zdjęcia pomieszczeń pomagają nam lepiej ocenić zakres prac.
-
-Gdzie znajduje się GRP Bau?
-Nasza siedziba mieści się przy In den Feldgärten 11D, 27232 Sulingen. Pracujemy w Sulingen i okolicy.`,
-    metaTitle: 'Kontakt i bezpłatna wycena w Sulingen | GRP Bau',
-    metaDescription: 'Kontakt z GRP Bau w Sulingen: telefon i WhatsApp +49 1556 1013765, e-mail info@grp-bau.de. Prosimy o zapytanie – przygotujemy bezpłatną wycenę!',
-  },
-  en: {
-    h1: 'Contact GRP Bau in Sulingen',
-    intro: `Planning a renovation, a remodel or a new floor? Send us a message via the contact form, e-mail info@grp-bau.de or call us on +49 1556 1013765. You can also reach us on WhatsApp at the same number.
-
-To assess your enquiry quickly, a few details help: which room it concerns, its approximate size in square metres, what work you need and by when it should be finished. Photos of the rooms are easiest to send via WhatsApp. The consultation is free.`,
-    body: '',
-    faqRaw: `What information do you need for a quote?
-It helps to know the type of work, the room and its approximate size, your preferred date and, if possible, a few photos. We clarify everything else during the free consultation.
-
-Can I send photos via WhatsApp?
-Yes. You can reach us on WhatsApp at +49 1556 1013765. Photos of the rooms help us assess your project more accurately.
-
-Where is GRP Bau located?
-Our base is at In den Feldgärten 11D, 27232 Sulingen. We work in Sulingen and the surrounding area.`,
-    metaTitle: 'Contact & Free Consultation in Sulingen | GRP Bau',
-    metaDescription: 'Contact GRP Bau in Sulingen: phone and WhatsApp +49 1556 1013765, e-mail info@grp-bau.de. Send us your enquiry and book a free consultation today!',
-  },
-};
-
-// ---------------------------------------------------------------------------
-// USŁUGI (kolejność = sortOrder 0..4)
-// ---------------------------------------------------------------------------
-const innenausbau = {
-  key: 'innenausbau',
-  de: {
-    title: 'Innenausbau',
-    slug: 'innenausbau',
-    h1: 'Innenausbau in Sulingen',
-    excerpt: 'Innenausbau aus einer Hand: Wände, Decken, Böden, Oberflächen und Leitungswege.',
-    featuresRaw: 'Planung und Ausführung aus einer Hand\nTrockenbauwände und Decken\nMaler- und Tapezierarbeiten\nBodenbeläge verlegen\nLeitungswege vorbereiten\nAbgestimmte Termine aller Arbeiten',
-    body: `## Innenausbau: Was wir für Sie übernehmen
-
-Beim Innenausbau wird aus einem Rohbau oder einem bestehenden Raum ein fertiger, nutzbarer Wohn- oder Arbeitsraum. GRP Bau verbindet dafür mehrere Arbeiten: Wir ziehen Wände und Decken im Trockenbau ein, bereiten Leitungswege mit Kabeln, Leerrohren und Kabelkanälen vor, gestalten Wände und Decken mit Farbe oder Tapete und verlegen zum Schluss den passenden Bodenbelag.
-
-Der Vorteil: Sie müssen nicht mehrere Firmen koordinieren. Wir planen die Arbeitsschritte so, dass sie sinnvoll aufeinander aufbauen, und Sie haben einen Ansprechpartner vom ersten Gespräch bis zur Übergabe.
-
-## Typische Projekte
-
-- Ausbau eines Dachgeschosses zu Wohn- oder Arbeitsräumen
-- Neuaufteilung von Räumen mit zusätzlichen Trennwänden
-- Ausbau von Kellerräumen
-- Umgestaltung einer Wohnung vor dem Einzug
-- Herrichten von Büroräumen
-
-## So läuft ein Innenausbau ab
-
-Am Anfang steht eine kostenlose Beratung. Wir besprechen, wie die Räume später genutzt werden sollen, wo neue Wände entstehen, wo Leitungen verlaufen und welche Oberflächen und Böden Sie sich wünschen. Danach erhalten Sie ein Angebot mit den geplanten Arbeiten.
-
-Bei der Ausführung gilt eine klare Reihenfolge: zuerst Trockenbau und Leitungswege, dann Spachtel- und Malerarbeiten, zuletzt der Boden. So wird nichts doppelt gemacht, und jeder Arbeitsschritt beginnt auf einem gut vorbereiteten Untergrund. Die elektrischen Anschlüsse übernimmt anschließend ein Elektrofachbetrieb.
-
-## Warum GRP Bau?
-
-Unser erfahrenes Team kennt die Abläufe im Innenausbau und achtet auf saubere Details an Kanten, Anschlüssen und Übergängen. Wir sind pünktlich und zuverlässig, arbeiten in hoher Qualität zu fairen Preisen und haben in Sulingen und Umgebung kurze Wege zu Ihnen.
-
-Einzelne Arbeiten können Sie natürlich auch separat beauftragen, etwa [Trockenbau](/leistungen/trockenbau) oder einen neuen Boden vom [Bodenleger](/leistungen/bodenleger). Sie planen einen Innenausbau? [Kontaktieren Sie uns](/kontakt) für eine kostenlose Beratung.`,
-    faqRaw: `Was gehört bei GRP Bau zum Innenausbau?
-Der Innenausbau umfasst bei uns Trockenbau für Wände und Decken, Maler- und Tapezierarbeiten, das Verlegen von Bodenbelägen und die Leitungsverlegung mit Kabeln, Leerrohren und Kabelkanälen.
-
-Übernehmen Sie auch die Elektroinstallation?
-Wir verlegen Kabel, Leerrohre und Kabelkanäle. Den Anschluss der Leitungen übernimmt ein zugelassener Elektrofachbetrieb.
-
-Kann ich nur einen Teil des Innenausbaus beauftragen?
-Ja. Sie können einzelne Arbeiten wie Trockenbau, Malerarbeiten oder Bodenbeläge separat beauftragen oder alles miteinander kombinieren.
-
-Wie lange dauert ein Innenausbau?
-Das hängt von Größe und Umfang des Projekts ab. Nach der Beratung nennen wir Ihnen einen realistischen Zeitrahmen, an den wir uns halten.`,
-    metaTitle: 'Innenausbau in Sulingen aus einer Hand | GRP Bau',
-    metaDescription: 'Innenausbau in Sulingen: Trockenbau, Malerarbeiten, Böden und Leitungswege aus einer Hand, sauber abgestimmt. Jetzt kostenlose Beratung bei GRP Bau anfragen!',
-  },
-  pl: {
-    title: 'Wykończenia wnętrz',
-    slug: 'wykonczenia-wnetrz',
-    h1: 'Wykończenia wnętrz w Sulingen',
-    excerpt: 'Wykończenie wnętrz z jednej ręki: ściany, sufity, podłogi, powierzchnie i przewody.',
-    featuresRaw: 'Planowanie i wykonanie z jednej ręki\nŚciany i sufity z płyt g-k\nMalowanie i tapetowanie\nUkładanie podłóg\nPrzygotowanie tras przewodów\nZgrane terminy wszystkich prac',
-    body: `## Wykończenie wnętrz: co dla Państwa robimy
-
-Przy wykończeniu wnętrz ze stanu surowego lub z istniejącego pomieszczenia powstaje gotowa, funkcjonalna przestrzeń do mieszkania lub pracy. GRP Bau łączy w tym celu kilka rodzajów prac: stawiamy ściany i sufity z płyt g-k, przygotowujemy trasy przewodów z kablami, rurami osłonowymi i kanałami kablowymi, wykańczamy ściany i sufity farbą lub tapetą, a na końcu układamy odpowiednią podłogę.
-
-Zaleta: nie muszą Państwo koordynować kilku firm. Planujemy kolejne etapy tak, aby logicznie się ze sobą łączyły, a Państwo mają jedną osobę kontaktową od pierwszej rozmowy aż do odbioru.
-
-## Typowe projekty
-
-- adaptacja poddasza na pokoje mieszkalne lub do pracy
-- nowy podział pomieszczeń z dodatkowymi ściankami działowymi
-- wykończenie pomieszczeń w piwnicy
-- przebudowa i odświeżenie mieszkania przed wprowadzeniem się
-- przygotowanie pomieszczeń biurowych
-
-## Jak przebiega wykończenie wnętrz
-
-Na początku jest bezpłatna wycena. Omawiamy, jak pomieszczenia będą później używane, gdzie powstaną nowe ściany, którędy poprowadzimy przewody oraz jakich powierzchni i podłóg Państwo sobie życzą. Następnie otrzymują Państwo ofertę z opisem zaplanowanych prac.
-
-Podczas realizacji obowiązuje jasna kolejność: najpierw zabudowy g-k i trasy przewodów, potem szpachlowanie i malowanie, na końcu podłoga. Dzięki temu nic nie jest robione podwójnie, a każdy etap zaczyna się na dobrze przygotowanym podłożu. Podłączenia elektryczne wykonuje następnie uprawniony elektryk.
-
-## Dlaczego GRP Bau?
-
-Nasz doświadczony zespół zna przebieg prac wykończeniowych i dba o staranne detale na krawędziach, połączeniach i przejściach. Jesteśmy punktualni i rzetelni, oferujemy wysoką jakość w uczciwych cenach, a w Sulingen i okolicy mamy do Państwa niedaleko.
-
-Poszczególne prace można oczywiście zlecić osobno, na przykład [zabudowy g-k](/pl/uslugi/zabudowy-gk) albo [układanie podłóg](/pl/uslugi/ukladanie-podlog). Planują Państwo wykończenie wnętrza? [Zapraszamy do kontaktu](/pl/kontakt) – wycena jest bezpłatna.`,
-    faqRaw: `Co obejmuje wykończenie wnętrz w GRP Bau?
-U nas wykończenie wnętrz obejmuje zabudowy g-k ścian i sufitów, malowanie i tapetowanie, układanie podłóg oraz układanie przewodów z kablami, rurami osłonowymi i kanałami kablowymi.
-
-Czy wykonują Państwo instalację elektryczną?
-Układamy kable, rury osłonowe i kanały kablowe. Podłączenie przewodów wykonuje uprawniony elektryk.
-
-Czy mogę zlecić tylko część prac?
-Tak. Poszczególne prace, takie jak zabudowy g-k, malowanie czy układanie podłóg, można zlecić osobno albo połączyć.
-
-Ile trwa wykończenie wnętrza?
-To zależy od wielkości i zakresu prac. Po rozmowie podajemy realny harmonogram, którego się trzymamy.`,
-    metaTitle: 'Wykończenia wnętrz w Sulingen z jednej ręki | GRP Bau',
-    metaDescription: 'Wykończenia wnętrz w Sulingen: zabudowy G-K, malowanie, podłogi i trasy przewodów z jednej ręki, dobrze zgrane. Zapraszamy po bezpłatną wycenę do GRP Bau!',
-  },
-  en: {
-    title: 'Interior finishing',
-    slug: 'interior-finishing',
-    h1: 'Interior Finishing in Sulingen',
-    excerpt: 'Interior finishing from one team: walls, ceilings, floors, surfaces and cable routes.',
-    featuresRaw: 'Planning and execution from one team\nDrywall walls and ceilings\nPainting and wallpapering\nFloor laying\nCable routes prepared\nCoordinated scheduling of all work',
-    body: `## Interior finishing: what we do for you
-
-Interior finishing turns a shell or an existing room into a finished, usable space for living or working. GRP Bau brings several jobs together for this: we build walls and ceilings in drywall, prepare cable routes with cables, empty conduits and cable ducts, finish walls and ceilings with paint or wallpaper and, finally, lay the right floor covering.
-
-The advantage: you do not have to coordinate several companies. We plan the steps so that each one builds on the last, and you have one point of contact from the first conversation to the handover.
-
-## Typical projects
-
-- Converting a loft into living or working space
-- Reorganising rooms with additional partition walls
-- Finishing basement rooms
-- Remodelling and refreshing a flat before moving in
-- Fitting out office rooms
-
-## How interior finishing works
-
-It starts with a free consultation. We discuss how the rooms will be used, where new walls will go, where cables will run and which surfaces and floors you would like. You then receive a quote describing the planned work.
-
-During the work, a clear order applies: drywall and cable routes first, then filling and painting, and the floor last. That way nothing is done twice, and every step starts on a properly prepared surface. The electrical connections are then made by a licensed electrician.
-
-## Why GRP Bau?
-
-Our experienced team knows the interior finishing process and pays attention to clean details at edges, joints and transitions. We are punctual and reliable, deliver high quality at fair prices and, being based locally, we are never far away in Sulingen and the surrounding area.
-
-Of course, you can also book individual jobs, such as [drywall](/en/services/drywall) or a new floor from our [flooring](/en/services/flooring) service. Planning an interior project? [Contact us](/en/contact) for a free consultation.`,
-    faqRaw: `What does interior finishing at GRP Bau include?
-With us, interior finishing covers drywall for walls and ceilings, painting and wallpapering, laying floor coverings and cable laying with cables, empty conduits and cable ducts.
-
-Do you also do the electrical installation?
-We lay cables, empty conduits and cable ducts. The connection of the cables is carried out by a licensed electrician.
-
-Can I book only part of the work?
-Yes. You can book individual jobs such as drywall, painting or flooring separately, or combine them.
-
-How long does interior finishing take?
-That depends on the size and scope of the project. After the consultation, we give you a realistic timeframe and stick to it.`,
-    metaTitle: 'Interior Finishing in Sulingen | GRP Bau',
-    metaDescription: 'Interior finishing in Sulingen: drywall, painting, flooring and cable routes from one team, properly coordinated. Ask GRP Bau for a free consultation today!',
-  },
-};
-
-const renovierung = {
-  key: 'renovierung',
-  de: {
-    title: 'Renovierung',
-    slug: 'renovierung',
-    h1: 'Renovierung und Malerarbeiten in Sulingen',
-    excerpt: 'Malerarbeiten, Tapezieren und Renovierung von Innenräumen für ein frisches, gepflegtes Zuhause.',
-    featuresRaw: 'Innenanstrich von Wänden und Decken\nTapezieren, z. B. Raufaser und Vlies\nVorbereitung des Untergrunds\nSpachtel- und Ausbesserungsarbeiten\nKombination mit neuem Boden und Trockenbau',
-    body: `## Renovierung: frische Räume ohne großen Umbau
-
-Manchmal braucht ein Raum keinen Umbau, sondern einfach ein neues Gesicht. Bei der Renovierung bringen wir Wände und Decken wieder in einen gepflegten Zustand: mit Malerarbeiten, neuen Tapeten und bei Bedarf einem neuen Bodenbelag. Ob vor dem Einzug, nach dem Auszug oder weil die Räume in die Jahre gekommen sind, GRP Bau sorgt dafür, dass Ihr Zuhause wieder frisch und einladend wirkt.
-
-## Malerarbeiten und Tapezieren
-
-Ein gleichmäßiger Anstrich steht und fällt mit der Vorbereitung. Wir prüfen den Untergrund, bessern Löcher und Risse aus, spachteln und schleifen, wo es nötig ist, und grundieren, bevor die Farbe aufgetragen wird. So entstehen glatte Flächen und klare Kanten an Decken, Fenstern und Türrahmen.
-
-Beim Tapezieren arbeiten wir zum Beispiel mit Raufaser- oder Vliestapete. Falls nötig, entfernen wir vorher alte Tapeten, damit die neue Tapete sicher auf dem Untergrund hält.
-
-## Typische Renovierungsarbeiten
-
-- Wohnung vor dem Einzug oder nach dem Auszug streichen
-- Einzelne Zimmer neu gestalten, etwa Wohnzimmer, Schlafzimmer oder Flur
-- Treppenhäuser und Flure auffrischen
-- Wände und Decken nach Umbauarbeiten fertigstellen
-- Renovierung in Verbindung mit einem neuen Boden
-
-## So läuft die Renovierung ab
-
-Am Anfang steht eine kostenlose Beratung, in der wir Räume, Flächen und Ihre Wünsche zu Farben und Tapeten besprechen. Danach erhalten Sie ein Angebot. Nach Ihrer Zusage stimmen wir den Termin ab, führen die Arbeiten wie besprochen aus und gehen das Ergebnis zum Schluss gemeinsam mit Ihnen durch.
-
-## Warum GRP Bau?
-
-Wir arbeiten sorgfältig, pünktlich und zuverlässig, mit einem erfahrenen Team und zu fairen Preisen. Weil wir auch [Trockenbau](/leistungen/trockenbau) und [Bodenbeläge](/leistungen/bodenleger) übernehmen, können Sie bei Bedarf mehrere Arbeiten in einem Durchgang erledigen lassen. Sie möchten Ihre Räume in Sulingen und Umgebung renovieren? [Fragen Sie uns an](/kontakt) – die Beratung ist kostenlos.`,
-    faqRaw: `Welche Malerarbeiten übernehmen Sie?
-Wir streichen Wände und Decken in Innenräumen und bereiten den Untergrund dafür vor, zum Beispiel durch Spachteln, Schleifen und Grundieren.
-
-Kann ich Farben und Tapeten selbst aussuchen?
-Ja. Farbtöne und Tapeten wählen Sie nach Ihrem Geschmack aus. In der Beratung helfen wir Ihnen gern bei der Auswahl.
-
-Lohnt es sich, Renovierung und neuen Boden zu kombinieren?
-Oft ja. Zuerst werden Wände und Decken gestrichen, danach wird der Boden verlegt. So bleibt der neue Belag frei von Farbspritzern. Beide Arbeiten planen wir zusammen.
-
-Wann können Sie mit der Renovierung beginnen?
-Den Termin stimmen wir nach Ihrer Zusage gemeinsam mit Ihnen ab, abhängig vom Umfang der Arbeiten und Ihrer Planung.`,
-    metaTitle: 'Renovierung & Malerarbeiten in Sulingen | GRP Bau',
-    metaDescription: 'Renovierung in Sulingen: Malerarbeiten, Tapezieren und Ausbesserungen in Innenräumen, auf Wunsch mit neuem Boden. Jetzt bei GRP Bau kostenlos beraten lassen!',
-  },
-  pl: {
-    title: 'Remonty',
-    slug: 'remonty',
-    h1: 'Remonty i malowanie w Sulingen',
-    excerpt: 'Malowanie, tapetowanie i odświeżanie wnętrz, aby Państwa dom znów był świeży i zadbany.',
-    featuresRaw: 'Malowanie ścian i sufitów\nTapetowanie, np. raufaza i flizelina\nPrzygotowanie podłoża\nSzpachlowanie i drobne naprawy\nPołączenie z nową podłogą i zabudową g-k',
-    body: `## Remont: świeże wnętrza bez dużej przebudowy
-
-Czasem pomieszczenie nie potrzebuje przebudowy, tylko nowego wyglądu. Podczas remontu przywracamy ścianom i sufitom zadbany wygląd: malujemy je, kładziemy nowe tapety, a w razie potrzeby także nową podłogę. Przed wprowadzeniem się, po wyprowadzce albo wtedy, gdy wnętrza się zestarzały, GRP Bau sprawi, że Państwa dom znów będzie świeży i przytulny.
-
-## Malowanie i tapetowanie
-
-Równa, estetyczna powierzchnia zależy przede wszystkim od przygotowania. Sprawdzamy podłoże, naprawiamy dziury i pęknięcia, szpachlujemy i szlifujemy tam, gdzie to konieczne, i gruntujemy przed nałożeniem farby. Dzięki temu powstają gładkie powierzchnie i czyste krawędzie przy sufitach, oknach i ościeżnicach.
-
-Przy tapetowaniu pracujemy na przykład z raufazą lub tapetami flizelinowymi. Jeśli to konieczne, wcześniej usuwamy stare tapety, aby nowe dobrze trzymały się podłoża.
-
-## Typowe prace remontowe
-
-- malowanie mieszkania przed wprowadzeniem się lub po wyprowadzce
-- odświeżenie pojedynczych pokoi, np. salonu, sypialni czy przedpokoju
-- odnowienie klatek schodowych i korytarzy
-- wykończenie ścian i sufitów po pracach budowlanych
-- remont połączony z nową podłogą
-
-## Jak przebiega remont
-
-Na początku jest bezpłatna wycena: omawiamy pomieszczenia, powierzchnie oraz Państwa życzenia dotyczące kolorów i tapet. Następnie otrzymują Państwo ofertę. Po jej akceptacji ustalamy termin, wykonujemy prace zgodnie z ustaleniami, a na koniec wspólnie oglądamy efekt.
-
-## Dlaczego GRP Bau?
-
-Pracujemy starannie, punktualnie i rzetelnie, z doświadczonym zespołem i w uczciwych cenach. Ponieważ wykonujemy także [zabudowy g-k](/pl/uslugi/zabudowy-gk) i [układanie podłóg](/pl/uslugi/ukladanie-podlog), w razie potrzeby można połączyć kilka prac w jednym terminie. Chcą Państwo odnowić wnętrza w Sulingen i okolicy? [Zapraszamy do kontaktu](/pl/kontakt) – wycena jest bezpłatna.`,
-    faqRaw: `Jakie prace malarskie Państwo wykonują?
-Malujemy ściany i sufity wewnątrz pomieszczeń i przygotowujemy pod to podłoże, na przykład przez szpachlowanie, szlifowanie i gruntowanie.
-
-Czy mogę sam wybrać kolory i tapety?
-Tak. Kolory i tapety wybierają Państwo według własnego gustu. Podczas wyceny chętnie pomożemy w wyborze.
-
-Czy warto połączyć remont z nową podłogą?
-Często tak. Najpierw malujemy ściany i sufity, a potem układamy podłogę, dzięki czemu nowa nawierzchnia nie zostanie zabrudzona farbą. Oba etapy planujemy razem.
-
-Kiedy mogą Państwo rozpocząć remont?
-Termin ustalamy wspólnie po akceptacji oferty, zależnie od zakresu prac i Państwa planów.`,
-    metaTitle: 'Remonty i malowanie w Sulingen | GRP Bau',
-    metaDescription: 'Remonty w Sulingen: malowanie ścian i sufitów, tapetowanie i drobne naprawy, w razie potrzeby z nową podłogą. Prosimy o kontakt – wycena jest bezpłatna!',
-  },
-  en: {
-    title: 'Renovation',
-    slug: 'renovation',
-    h1: 'Renovation and Painting in Sulingen',
-    excerpt: 'Interior painting, wallpapering and renovation to make your home look fresh and well kept again.',
-    featuresRaw: 'Painting walls and ceilings\nWallpapering, e.g. woodchip and non-woven\nSurface preparation\nFilling and minor repairs\nCombined with new flooring and drywall',
-    body: `## Renovation: fresh rooms without a major rebuild
-
-Sometimes a room does not need a remodel, just a new look. When renovating, we bring walls and ceilings back into good condition with painting, new wallpaper and, if needed, a new floor covering. Whether before moving in, after moving out or simply because the rooms are showing their age, GRP Bau makes your home look fresh and inviting again.
-
-## Painting and wallpapering
-
-An even finish depends on good preparation. We check the surface, repair holes and cracks, fill and sand where necessary and prime before the paint goes on. The result is smooth surfaces and crisp edges along ceilings, windows and door frames.
-
-For wallpapering, we work with woodchip or non-woven wallpaper, for example. If necessary, we remove old wallpaper first so that the new paper adheres properly.
-
-## Typical renovation work
-
-- Painting a flat before moving in or after moving out
-- Redecorating individual rooms such as the living room, bedroom or hallway
-- Refreshing stairwells and corridors
-- Finishing walls and ceilings after building work
-- Renovation combined with a new floor
-
-## How a renovation works
-
-First comes a free consultation, where we discuss the rooms, the surfaces and your wishes for colours and wallpaper. You then receive a quote. Once you accept it, we agree on a date, carry out the work as discussed and finally walk through the result with you.
-
-## Why GRP Bau?
-
-We work carefully, punctually and reliably, with an experienced team and at fair prices. Because we also offer [drywall](/en/services/drywall) and [flooring](/en/services/flooring), you can have several jobs done in one go if needed. Would you like to renovate your rooms in Sulingen or the surrounding area? [Contact us](/en/contact) for a free consultation.`,
-    faqRaw: `What painting work do you carry out?
-We paint interior walls and ceilings and prepare the surfaces for it, for example by filling, sanding and priming.
-
-Can I choose the colours and wallpaper myself?
-Yes. You choose the colours and wallpaper to suit your taste. We are happy to help you decide during the consultation.
-
-Is it worth combining a renovation with a new floor?
-Often, yes. Walls and ceilings are painted first and the floor is laid afterwards, so the new floor stays free of paint splashes. We plan both steps together.
-
-When can you start the renovation?
-We agree on a date with you once you have accepted the quote, depending on the scope of work and your plans.`,
-    metaTitle: 'Renovation & Painting in Sulingen | GRP Bau',
-    metaDescription: 'Renovation in Sulingen: interior painting, wallpapering and minor repairs, combined with new flooring if you wish. Contact GRP Bau for a free consultation!',
-  },
-};
-
-const trockenbau = {
-  key: 'trockenbau',
-  de: {
-    title: 'Trockenbau',
-    slug: 'trockenbau',
-    h1: 'Trockenbau in Sulingen',
-    excerpt: 'Trennwände, Vorsatzschalen und abgehängte Decken in Trockenbauweise, flexibel und ohne lange Trocknungszeiten.',
-    featuresRaw: 'Trennwände mit Metallständerwerk\nVorsatzschalen und Wandverkleidungen\nAbgehängte Decken und Deckenverkleidungen\nDämmung im Wand- und Deckenaufbau\nVerspachteln bis zur streichfertigen Fläche\nLeerrohre vor dem Schließen der Wände',
-    body: `## Trockenbau: flexibel bauen ohne Nassarbeiten
-
-Im Trockenbau entstehen Wände und Decken aus Gipskartonplatten auf einem Unterbau aus Metallprofilen. Weil dabei kein Mörtel und kein Beton trocknen muss, sind die Räume schnell wieder nutzbar, und Grundrisse lassen sich ohne große Bauarbeiten verändern.
-
-## Was wir im Trockenbau übernehmen
-
-- **Trennwände:** neue Raumaufteilung, zum Beispiel ein zusätzliches Kinderzimmer, ein Arbeitszimmer oder ein abgetrennter Abstellraum.
-- **Vorsatzschalen:** gerade Wandflächen vor unebenem Mauerwerk, dahinter Platz für Leitungen und Dämmung.
-- **Decken:** abgehängte Decken und Deckenverkleidungen, etwa um Leitungen zu verdecken oder die Raumhöhe anzupassen.
-- **Dachschrägen:** Verkleidung im Dachgeschoss als Teil eines [Innenausbaus](/leistungen/innenausbau).
-- **Oberflächen:** Verspachteln der Fugen bis zur streichfertigen Fläche.
-
-## Trockenbau und Leitungen
-
-Ein großer Vorteil des Trockenbaus: Kabel und Leerrohre lassen sich im Hohlraum der Wand führen, bevor die Platten geschlossen werden. Diese Arbeiten übernehmen wir im Rahmen unserer [Leitungsverlegung](/leistungen/leitungsverlegung). Den späteren Anschluss erledigt ein Elektrofachbetrieb.
-
-## So läuft es ab
-
-Nach einer kostenlosen Beratung, in der wir Maße, Nutzung und Ihre Wünsche besprechen, erhalten Sie ein Angebot. Bei der Ausführung stellen wir zuerst das Ständerwerk, legen bei Bedarf Dämmung und Leerrohre ein, beplanken die Konstruktion und verspachteln die Fugen. Anschließend kann direkt gestrichen oder tapeziert werden. Auch das übernehmen wir im Bereich [Renovierung](/leistungen/renovierung).
-
-## Warum GRP Bau?
-
-Unser erfahrenes Team arbeitet präzise, damit Wände gerade stehen und Anschlüsse sauber sind. Wir halten vereinbarte Termine ein und bieten hohe Qualität zu fairen Preisen. Sie planen Trockenbau in Sulingen oder Umgebung? [Kontaktieren Sie uns](/kontakt) für eine kostenlose Beratung.`,
-    faqRaw: `Was lässt sich mit Trockenbau umsetzen?
-Zum Beispiel neue Trennwände, Vorsatzschalen vor unebenen Wänden, abgehängte Decken und Verkleidungen von Dachschrägen. So lassen sich Räume neu aufteilen, ohne massiv zu mauern.
-
-Wie schnell ist eine Trockenbauwand fertig?
-Da keine Trocknungszeiten für Mörtel oder Beton anfallen, geht Trockenbau in der Regel deutlich schneller als Mauerwerksbau. Wie lange Ihr Projekt dauert, sagen wir Ihnen nach der Beratung.
-
-Kann man Trockenbauwände dämmen?
-Ja. In den Hohlraum der Wand kann Dämmmaterial eingelegt werden. Welche Lösung zu Ihrem Vorhaben passt, besprechen wir in der Beratung.
-
-Können in Trockenbauwänden Leitungen verlegt werden?
-Ja. Kabel und Leerrohre werden vor dem Schließen der Wand im Hohlraum verlegt. Den Anschluss übernimmt ein Elektrofachbetrieb.`,
-    metaTitle: 'Trockenbau in Sulingen: Wände & Decken | GRP Bau',
-    metaDescription: 'Trockenbau in Sulingen: Trennwände, Vorsatzschalen und abgehängte Decken, sauber verspachtelt und streichfertig. Kostenlose Beratung bei GRP Bau anfragen!',
-  },
-  pl: {
-    title: 'Zabudowy G-K',
-    slug: 'zabudowy-gk',
-    h1: 'Zabudowy z płyt g-k w Sulingen',
-    excerpt: 'Ścianki działowe, okładziny ścian i sufity podwieszane z płyt g-k, bez długiego schnięcia.',
-    featuresRaw: 'Ścianki działowe na stelażu metalowym\nOkładziny ścian (przedścianki)\nSufity podwieszane i okładziny sufitów\nIzolacja w ścianach i sufitach\nSzpachlowanie pod malowanie\nRury osłonowe przed zamknięciem ścian',
-    body: `## Zabudowy g-k: elastyczna przebudowa bez mokrych prac
-
-W technologii suchej zabudowy ściany i sufity powstają z płyt gipsowo-kartonowych mocowanych do stelaża z profili metalowych. Ponieważ nie trzeba czekać na wyschnięcie zaprawy czy betonu, pomieszczenia szybko nadają się do użytku, a układ wnętrz można zmienić bez dużych prac budowlanych.
-
-## Co wykonujemy
-
-- **Ścianki działowe:** nowy podział pomieszczeń, na przykład dodatkowy pokój dziecięcy, gabinet albo wydzielony schowek.
-- **Okładziny ścian:** równe powierzchnie przed nierównym murem, a za nimi miejsce na przewody i izolację.
-- **Sufity:** sufity podwieszane i okładziny sufitów, na przykład aby ukryć przewody lub zmienić wysokość pomieszczenia.
-- **Skosy dachowe:** zabudowa poddasza w ramach [wykończenia wnętrz](/pl/uslugi/wykonczenia-wnetrz).
-- **Powierzchnie:** szpachlowanie spoin aż do powierzchni gotowej pod malowanie.
-
-## Zabudowy g-k a przewody
-
-Dużą zaletą suchej zabudowy jest to, że kable i rury osłonowe można poprowadzić w przestrzeni wewnątrz ściany, zanim zostanie zamknięta płytami. Zajmujemy się tym w ramach usługi [układanie przewodów](/pl/uslugi/ukladanie-przewodow). Późniejsze podłączenie wykonuje uprawniony elektryk.
-
-## Jak przebiegają prace
-
-Po bezpłatnej wycenie, podczas której omawiamy wymiary, przeznaczenie pomieszczeń i Państwa oczekiwania, otrzymują Państwo ofertę. Podczas realizacji najpierw montujemy stelaż, w razie potrzeby układamy izolację i rury osłonowe, następnie mocujemy płyty i szpachlujemy spoiny. Potem można od razu malować lub tapetować, co również wykonujemy w ramach [remontów](/pl/uslugi/remonty).
-
-## Dlaczego GRP Bau?
-
-Nasz doświadczony zespół pracuje precyzyjnie, aby ściany były proste, a połączenia staranne. Dotrzymujemy terminów i oferujemy wysoką jakość w uczciwych cenach. Planują Państwo zabudowę g-k w Sulingen lub okolicy? [Zapraszamy do kontaktu](/pl/kontakt) – wycena jest bezpłatna.`,
-    faqRaw: `Co można wykonać w technologii g-k?
-Na przykład nowe ścianki działowe, okładziny przed nierównymi ścianami, sufity podwieszane i zabudowę skosów. Pozwala to zmienić układ pomieszczeń bez murowania.
-
-Jak szybko powstaje ścianka z płyt g-k?
-Ponieważ nie trzeba czekać na wyschnięcie zaprawy ani betonu, sucha zabudowa trwa zwykle znacznie krócej niż murowanie. Ile potrwa Państwa projekt, powiemy po wycenie.
-
-Czy ścianki g-k można izolować?
-Tak. W przestrzeń wewnątrz ściany można włożyć materiał izolacyjny. Odpowiednie rozwiązanie omawiamy podczas wyceny.
-
-Czy w ściankach g-k można poprowadzić przewody?
-Tak. Kable i rury osłonowe układamy wewnątrz ściany przed jej zamknięciem. Podłączenie wykonuje uprawniony elektryk.`,
-    metaTitle: 'Zabudowy G-K w Sulingen: ściany i sufity | GRP Bau',
-    metaDescription: 'Zabudowy z płyt G-K w Sulingen: ścianki działowe, okładziny ścian i sufity podwieszane, gotowe pod malowanie. Prosimy o zapytanie – wycena jest bezpłatna!',
-  },
-  en: {
-    title: 'Drywall',
-    slug: 'drywall',
-    h1: 'Drywall Installation in Sulingen',
-    excerpt: 'Partition walls, wall linings and suspended ceilings in drywall, with no long drying times.',
-    featuresRaw: 'Stud partition walls\nWall linings\nSuspended ceilings and ceiling linings\nInsulation within walls and ceilings\nJointing to a paint-ready finish\nEmpty conduits before walls are closed',
-    body: `## Drywall: flexible building without wet trades
-
-In drywall construction, walls and ceilings are built from plasterboard fixed to a frame of metal profiles. As there is no mortar or concrete that needs to dry, rooms can be used again quickly and layouts can be changed without major building work.
-
-## What we do
-
-- **Partition walls:** a new room layout, for example an extra children's room, a home office or a separate storage room.
-- **Wall linings:** straight wall surfaces in front of uneven masonry, with space behind for cables and insulation.
-- **Ceilings:** suspended ceilings and ceiling linings, for example to conceal cables or adjust the room height.
-- **Sloping ceilings:** lining loft spaces as part of [interior finishing](/en/services/interior-finishing).
-- **Surfaces:** jointing and filling to a paint-ready finish.
-
-## Drywall and cables
-
-A big advantage of drywall is that cables and empty conduits can be run inside the wall cavity before the boards are closed. We handle this as part of our [cable laying](/en/services/cable-laying) service. The connection is made later by a licensed electrician.
-
-## How it works
-
-After a free consultation, where we discuss measurements, use and your wishes, you receive a quote. On site, we first build the frame, add insulation and conduits if required, fix the boards and fill the joints. The walls can then be painted or wallpapered straight away, which we also offer as part of [renovation](/en/services/renovation).
-
-## Why GRP Bau?
-
-Our experienced team works precisely so that walls are straight and joints are clean. We keep to agreed dates and deliver high quality at fair prices. Planning drywall work in Sulingen or the surrounding area? [Contact us](/en/contact) for a free consultation.`,
-    faqRaw: `What can be built with drywall?
-For example, new partition walls, linings in front of uneven walls, suspended ceilings and linings for sloping ceilings. This lets you change the layout of rooms without masonry work.
-
-How quickly is a drywall partition finished?
-As there is no mortar or concrete to dry, drywall is usually much quicker than building in masonry. We will tell you how long your project will take after the consultation.
-
-Can drywall partitions be insulated?
-Yes. Insulation material can be placed inside the wall cavity. We discuss the right solution during the consultation.
-
-Can cables be run inside drywall walls?
-Yes. Cables and empty conduits are laid in the cavity before the wall is closed. The connection is made by a licensed electrician.`,
-    metaTitle: 'Drywall Installation in Sulingen | GRP Bau',
-    metaDescription: 'Drywall in Sulingen: partition walls, wall linings and suspended ceilings, neatly jointed and ready to paint. Ask GRP Bau for a free consultation now!',
-  },
-};
-
-const bodenleger = {
-  key: 'bodenleger',
-  de: {
-    title: 'Bodenleger',
-    slug: 'bodenleger',
-    h1: 'Bodenleger in Sulingen: Laminat, Parkett und Vinyl',
-    excerpt: 'Verlegung von Laminat, Parkett, Vinyl- und Designböden, Teppich und PVC, sauber und passgenau.',
-    featuresRaw: 'Laminat\nParkett\nVinyl- und Designböden\nTeppichboden und PVC\nVorbereitung des Untergrunds\nSockelleisten und Übergangsprofile',
-    body: `## Neue Böden für Ihre Räume
-
-Der Boden prägt einen Raum wie kaum ein anderes Element. Als Bodenleger verlegen wir in Sulingen und Umgebung Laminat, Parkett, Vinyl- und Designböden sowie Teppichboden und PVC-Beläge. Ob einzelnes Zimmer oder ganze Wohnung: Wir beraten Sie bei der Auswahl und verlegen den neuen Belag sorgfältig und passgenau.
-
-## Welche Bodenbeläge wir verlegen
-
-- **Laminat:** robust, pflegeleicht und in vielen Holz- und Steinoptiken erhältlich.
-- **Parkett:** ein Naturprodukt aus Holz mit warmer Ausstrahlung, das Räumen einen hochwertigen Charakter gibt.
-- **Vinyl- und Designböden:** strapazierfähig und angenehm fußwarm, je nach Produkt auch für Küche und Flur geeignet.
-- **Teppichboden:** weich und wohnlich, gut geeignet für Schlaf- und Kinderzimmer.
-- **PVC-Beläge:** praktisch und leicht zu reinigen, zum Beispiel für Nebenräume.
-
-## Gute Vorbereitung ist die halbe Arbeit
-
-Ein Boden ist nur so gut wie sein Untergrund. Vor der Verlegung prüfen wir, ob der Untergrund eben, trocken und tragfähig ist, und bereiten ihn bei Bedarf vor. Je nach Belag kommt eine passende Unterlage zum Einsatz. Zum Abschluss sorgen Sockelleisten und Übergangsprofile für saubere Ränder und Übergänge zwischen den Räumen.
-
-## So läuft es ab
-
-In der kostenlosen Beratung besprechen wir Raum, Fläche, Nutzung und Ihre Wünsche zu Material und Optik. Danach erhalten Sie ein Angebot, und den Verlegetermin stimmen wir mit Ihnen ab. Bei einer Renovierung empfiehlt es sich, zuerst Wände und Decken zu streichen und den Boden zuletzt zu verlegen. Beides können Sie bei uns zusammen beauftragen, mehr dazu unter [Renovierung](/leistungen/renovierung).
-
-## Warum GRP Bau?
-
-Unser erfahrenes Team arbeitet genau und achtet auf Details wie Verlegebild, Anschlüsse und Türübergänge. Wir sind pünktlich und zuverlässig und bieten hohe Qualität zu fairen Preisen. Auch im Rahmen eines kompletten [Innenausbaus](/leistungen/innenausbau) verlegen wir Ihren neuen Boden. Sie wünschen sich einen neuen Boden? [Fragen Sie uns an](/kontakt) – die Beratung ist kostenlos.`,
-    faqRaw: `Welche Bodenbeläge verlegen Sie?
-Wir verlegen Laminat, Parkett, Vinyl- und Designböden, Teppichboden und PVC-Beläge.
-
-Muss der alte Boden vorher entfernt werden?
-Das hängt vom vorhandenen Belag und vom neuen Boden ab. Wir prüfen den Untergrund und besprechen mit Ihnen, was nötig ist.
-
-Welcher Boden eignet sich für welchen Raum?
-Das hängt von Nutzung, Optik und Budget ab. Laminat und Vinyl sind pflegeleicht, Parkett wirkt besonders natürlich, Teppich sorgt für eine wohnliche Atmosphäre. In der Beratung helfen wir Ihnen bei der Wahl.
-
-Sollte man zuerst streichen oder zuerst den Boden verlegen?
-In der Regel wird zuerst gestrichen und danach der Boden verlegt, damit der neue Belag nicht verschmutzt. Beides können Sie bei uns kombinieren.`,
-    metaTitle: 'Bodenleger in Sulingen: Laminat, Parkett, Vinyl | GRP Bau',
-    metaDescription: 'Bodenleger in Sulingen: Laminat, Parkett, Vinyl- und Designböden, Teppich und PVC sauber verlegt. Rufen Sie an oder schreiben Sie uns – Beratung kostenlos!',
-  },
-  pl: {
-    title: 'Układanie podłóg',
-    slug: 'ukladanie-podlog',
-    h1: 'Układanie podłóg w Sulingen: laminat, parkiet, winyl',
-    excerpt: 'Starannie układamy laminat, parkiet, panele winylowe, wykładziny dywanowe i PVC.',
-    featuresRaw: 'Laminat\nParkiet\nPanele winylowe i podłogi designerskie\nWykładziny dywanowe i PVC\nPrzygotowanie podłoża\nListwy przypodłogowe i profile przejściowe',
-    body: `## Nowe podłogi w Państwa domu
-
-Podłoga kształtuje charakter pomieszczenia jak mało który element. W Sulingen i okolicy układamy laminat, parkiet, panele winylowe i podłogi designerskie, a także wykładziny dywanowe i PVC. Niezależnie od tego, czy chodzi o jeden pokój, czy o całe mieszkanie, doradzimy przy wyborze i starannie ułożymy nową nawierzchnię.
-
-## Jakie podłogi układamy
-
-- **Laminat:** wytrzymały, łatwy w pielęgnacji i dostępny w wielu wzorach drewna i kamienia.
-- **Parkiet:** naturalny materiał z drewna o ciepłym charakterze, który nadaje wnętrzu szlachetny wygląd.
-- **Panele winylowe i podłogi designerskie:** odporne na ścieranie i przyjemnie ciepłe w dotyku, w zależności od produktu odpowiednie także do kuchni i przedpokoju.
-- **Wykładzina dywanowa:** miękka i przytulna, dobrze sprawdza się w sypialni i pokoju dziecięcym.
-- **PVC:** praktyczne i łatwe do czyszczenia, na przykład w pomieszczeniach gospodarczych.
-
-## Dobre przygotowanie to połowa sukcesu
-
-Podłoga jest tak dobra jak jej podłoże. Przed ułożeniem sprawdzamy, czy podłoże jest równe, suche i nośne, a w razie potrzeby odpowiednio je przygotowujemy. W zależności od rodzaju podłogi stosujemy właściwy podkład. Na koniec listwy przypodłogowe i profile przejściowe zapewniają estetyczne wykończenie krawędzi i przejść między pomieszczeniami.
-
-## Jak przebiegają prace
-
-Podczas bezpłatnej wyceny omawiamy pomieszczenie, powierzchnię, sposób użytkowania oraz Państwa oczekiwania co do materiału i wyglądu. Następnie otrzymują Państwo ofertę, a termin układania ustalamy wspólnie. Przy remoncie warto najpierw pomalować ściany i sufity, a podłogę ułożyć na końcu. Oba zakresy można zlecić nam razem – więcej w zakładce [remonty](/pl/uslugi/remonty).
-
-## Dlaczego GRP Bau?
-
-Nasz doświadczony zespół pracuje dokładnie i dba o szczegóły, takie jak układ paneli, połączenia i przejścia przy drzwiach. Jesteśmy punktualni i rzetelni, a wysoką jakość oferujemy w uczciwych cenach. Nową podłogę ułożymy również w ramach kompleksowego [wykończenia wnętrz](/pl/uslugi/wykonczenia-wnetrz). Potrzebują Państwo nowej podłogi? [Zapraszamy do kontaktu](/pl/kontakt) – wycena jest bezpłatna.`,
-    faqRaw: `Jakie podłogi Państwo układają?
-Układamy laminat, parkiet, panele winylowe i podłogi designerskie, wykładziny dywanowe oraz wykładziny PVC.
-
-Czy starą podłogę trzeba wcześniej usunąć?
-To zależy od obecnej nawierzchni i od nowej podłogi. Sprawdzamy podłoże i omawiamy z Państwem, co będzie potrzebne.
-
-Jaka podłoga sprawdzi się w danym pomieszczeniu?
-To zależy od sposobu użytkowania, wyglądu i budżetu. Laminat i winyl są łatwe w pielęgnacji, parkiet wygląda szczególnie naturalnie, a wykładzina tworzy przytulną atmosferę. Podczas wyceny pomożemy w wyborze.
-
-Najpierw malowanie czy układanie podłogi?
-Zwykle najpierw się maluje, a dopiero potem układa podłogę, aby nowa nawierzchnia się nie zabrudziła. Oba zakresy można u nas połączyć.`,
-    metaTitle: 'Układanie podłóg w Sulingen: laminat, parkiet | GRP Bau',
-    metaDescription: 'Układanie podłóg w Sulingen: starannie kładziemy laminat, parkiet, panele winylowe, wykładziny dywanowe i PVC. Bezpłatna wycena – zapraszamy do kontaktu!',
-  },
-  en: {
-    title: 'Flooring',
-    slug: 'flooring',
-    h1: 'Flooring in Sulingen: Laminate, Parquet and Vinyl',
-    excerpt: 'Laminate, parquet, vinyl and design floors, carpet and PVC, laid carefully and accurately.',
-    featuresRaw: 'Laminate\nParquet\nVinyl and design floors\nCarpet and PVC\nSubfloor preparation\nSkirting boards and transition profiles',
-    body: `## New floors for your rooms
-
-Few things shape a room as much as its floor. In Sulingen and the surrounding area, we lay laminate, parquet, vinyl and design floors as well as carpet and PVC floor coverings. Whether it is a single room or a whole flat, we advise you on your choice and lay the new floor carefully and accurately.
-
-## Floor coverings we lay
-
-- **Laminate:** hard-wearing, easy to clean and available in many wood and stone looks.
-- **Parquet:** a natural wood product with a warm character that gives rooms a high-quality feel.
-- **Vinyl and design floors:** durable and pleasantly warm underfoot; depending on the product, also suitable for kitchens and hallways.
-- **Carpet:** soft and homely, a good choice for bedrooms and children's rooms.
-- **PVC:** practical and easy to clean, for example in utility rooms.
-
-## Good preparation is half the job
-
-A floor is only as good as what lies beneath it. Before laying, we check that the subfloor is level, dry and load-bearing and prepare it where necessary. Depending on the floor covering, a suitable underlay is used. Finally, skirting boards and transition profiles give clean edges and neat transitions between rooms.
-
-## How it works
-
-During the free consultation, we discuss the room, its size and use, and your wishes regarding material and look. You then receive a quote, and we agree on a date for laying. When renovating, it is best to paint walls and ceilings first and lay the floor last. You can book both with us; find out more under [renovation](/en/services/renovation).
-
-## Why GRP Bau?
-
-Our experienced team works accurately and pays attention to details such as the laying pattern, joints and transitions at doorways. We are punctual and reliable and deliver high quality at fair prices. We can also lay your new floor as part of a complete [interior finishing](/en/services/interior-finishing) project. Need a new floor? [Contact us](/en/contact) for a free consultation.`,
-    faqRaw: `Which floor coverings do you lay?
-We lay laminate, parquet, vinyl and design floors, carpet and PVC floor coverings.
-
-Does the old floor have to be removed first?
-That depends on the existing covering and the new floor. We check the subfloor and discuss with you what is needed.
-
-Which floor is right for which room?
-That depends on use, look and budget. Laminate and vinyl are easy to care for, parquet looks particularly natural and carpet creates a cosy atmosphere. We help you choose during the consultation.
-
-Should I paint first or lay the floor first?
-Usually the painting is done first and the floor is laid afterwards so that the new floor does not get dirty. You can combine both with us.`,
-    metaTitle: 'Flooring in Sulingen: Laminate, Parquet, Vinyl | GRP Bau',
-    metaDescription: 'Flooring in Sulingen: laminate, parquet, vinyl and design floors, carpet and PVC, laid with care. Call, message or e-mail GRP Bau for a free consultation!',
-  },
-};
-
-const leitungsverlegung = {
-  key: 'leitungsverlegung',
-  de: {
-    title: 'Leitungsverlegung',
-    slug: 'leitungsverlegung',
-    h1: 'Leitungsverlegung im Hochbau in Sulingen',
-    excerpt: 'Kabel, Leerrohre, Kabelkanäle und Kabeltrassen fachgerecht verlegt. Anschluss durch einen Elektrofachbetrieb.',
-    featuresRaw: 'Verlegen von Kabeln und Leitungen\nLeerrohre für spätere Installationen\nKabelkanäle auf Wand und Decke\nKabeltrassen und Kabelrinnen\nVorbereitung im Trockenbau\nKein Anschluss: erfolgt durch Elektrofachbetrieb',
-    body: `## Leitungsverlegung: Was wir übernehmen
-
-Bei der Leitungsverlegung im Hochbau schaffen wir die Wege für Kabel und Leitungen in Gebäuden. Wir verlegen Kabel, setzen Leerrohre für spätere Installationen, montieren Kabelkanäle auf Wänden und Decken und bauen Kabeltrassen und Kabelrinnen für größere Leitungsmengen. So sind die Leitungen ordentlich geführt, geschützt und für spätere Erweiterungen vorbereitet.
-
-## Wichtig: Anschluss durch einen Elektrofachbetrieb
-
-Wir übernehmen ausschließlich die Verlegearbeiten. Das Anschließen der Leitungen an Verteiler, Schalter, Steckdosen oder Geräte sowie die Prüfung der Anlage gehören nicht zu unseren Leistungen. Diese Arbeiten darf nur ein eingetragener Elektrofachbetrieb ausführen. Wir sagen Ihnen das bewusst von Anfang an, damit Sie Ihr Projekt richtig planen können. Gern stimmen wir unsere Arbeiten zeitlich mit dem Elektriker Ihrer Wahl ab.
-
-## Typische Einsätze
-
-- Leerrohre im Neubau oder bei einem Umbau, bevor Wände geschlossen oder verputzt werden
-- Kabelführung in neuen [Trockenbauwänden](/leistungen/trockenbau)
-- Kabelkanäle für eine saubere Leitungsführung auf der Wand
-- Kabeltrassen und Kabelrinnen in Kellern, Technik- oder Lagerräumen
-- Vorbereitung von Leitungswegen im Rahmen eines [Innenausbaus](/leistungen/innenausbau)
-
-## So läuft es ab
-
-In einer kostenlosen Beratung besprechen wir, welche Leitungen wo verlaufen sollen. Liegt bereits eine Planung Ihres Elektrikers vor, richten wir uns danach. Anschließend erhalten Sie ein Angebot. Wir verlegen die Leitungen wie abgesprochen, danach kann der Elektrofachbetrieb die Anschlüsse vornehmen.
-
-## Warum GRP Bau?
-
-Unser erfahrenes Team arbeitet ordentlich und nachvollziehbar, damit der Elektriker später gut weiterarbeiten kann. Wir sind pünktlich und zuverlässig, bieten hohe Qualität zu fairen Preisen und sind in Sulingen und Umgebung für Sie da. Sie planen eine Leitungsverlegung? [Kontaktieren Sie uns](/kontakt) für eine kostenlose Beratung.`,
-    faqRaw: `Schließen Sie die Leitungen auch an?
-Nein. Wir verlegen Kabel, Leerrohre, Kabelkanäle und Kabeltrassen. Den Anschluss und die Inbetriebnahme übernimmt ein eingetragener Elektrofachbetrieb.
-
-Was ist ein Leerrohr und wofür braucht man es?
-Ein Leerrohr ist ein Schutzrohr, in das Kabel eingezogen werden können. So lassen sich Leitungen später ergänzen oder tauschen, ohne die Wände erneut öffnen zu müssen.
-
-Arbeiten Sie mit meinem Elektriker zusammen?
-Ja. Wenn bereits eine Planung Ihres Elektrikers vorliegt, verlegen wir die Leitungen danach und stimmen die Termine so ab, dass er anschließend die Anschlüsse vornehmen kann.
-
-Verlegen Sie auch Leitungen in Trockenbauwänden?
-Ja. Kabel und Leerrohre verlegen wir vor dem Schließen der Wand im Hohlraum. Den Trockenbau selbst können Sie ebenfalls bei uns beauftragen.`,
-    metaTitle: 'Leitungsverlegung im Hochbau in Sulingen | GRP Bau',
-    metaDescription: 'Leitungsverlegung in Sulingen: Kabel, Leerrohre, Kabelkanäle und Kabeltrassen. Der Anschluss erfolgt durch einen Elektrofachbetrieb. Jetzt anfragen!',
-  },
-  pl: {
-    title: 'Układanie przewodów',
-    slug: 'ukladanie-przewodow',
-    h1: 'Układanie przewodów w budynkach w Sulingen',
-    excerpt: 'Układamy kable, rury osłonowe, kanały i korytka kablowe. Podłączenie wykonuje elektryk.',
-    featuresRaw: 'Układanie kabli i przewodów\nRury osłonowe na przyszłe instalacje\nKanały kablowe na ścianach i sufitach\nKorytka kablowe\nPrzygotowanie tras w zabudowie g-k\nBez podłączania: wykonuje je uprawniony elektryk',
-    body: `## Układanie przewodów: co robimy
-
-W ramach układania przewodów w budynkach przygotowujemy trasy dla kabli i przewodów. Układamy kable, montujemy rury osłonowe na przyszłe instalacje, kanały kablowe na ścianach i sufitach oraz korytka kablowe dla większej liczby przewodów. Dzięki temu przewody są uporządkowane, chronione i przygotowane na późniejszą rozbudowę.
-
-## Ważne: podłączenie wykonuje uprawniony elektryk
-
-Zajmujemy się wyłącznie układaniem. Podłączanie przewodów do rozdzielnic, włączników, gniazdek czy urządzeń oraz pomiary instalacji nie należą do naszych usług. W Niemczech prace te może wykonywać tylko zarejestrowany zakład elektroinstalacyjny (Elektrofachbetrieb). Mówimy o tym świadomie od samego początku, aby mogli Państwo właściwie zaplanować projekt. Chętnie zgramy nasze prace w czasie z wybranym przez Państwa elektrykiem.
-
-## Typowe zlecenia
-
-- rury osłonowe w nowym budynku lub przy przebudowie, zanim ściany zostaną zamknięte lub otynkowane
-- prowadzenie kabli w nowych [ściankach g-k](/pl/uslugi/zabudowy-gk)
-- kanały kablowe do estetycznego prowadzenia przewodów po ścianie
-- korytka kablowe w piwnicach, pomieszczeniach technicznych i magazynowych
-- przygotowanie tras przewodów w ramach [wykończenia wnętrz](/pl/uslugi/wykonczenia-wnetrz)
-
-## Jak przebiegają prace
-
-Podczas bezpłatnej wyceny ustalamy, którędy mają biec przewody. Jeśli istnieje już projekt Państwa elektryka, trzymamy się go. Następnie otrzymują Państwo ofertę. Układamy przewody zgodnie z ustaleniami, a potem elektryk może wykonać podłączenia.
-
-## Dlaczego GRP Bau?
-
-Nasz doświadczony zespół pracuje porządnie i przejrzyście, aby elektryk mógł później sprawnie kontynuować pracę. Jesteśmy punktualni i rzetelni, oferujemy wysoką jakość w uczciwych cenach i działamy w Sulingen i okolicy. Planują Państwo ułożenie przewodów? [Zapraszamy do kontaktu](/pl/kontakt) – wycena jest bezpłatna.`,
-    faqRaw: `Czy podłączają Państwo przewody?
-Nie. Układamy kable, rury osłonowe, kanały i korytka kablowe. Podłączenie i uruchomienie wykonuje zarejestrowany zakład elektroinstalacyjny.
-
-Czym jest rura osłonowa (peszel) i do czego służy?
-To rura ochronna, w którą można wciągnąć kable. Dzięki niej przewody można później dołożyć lub wymienić bez ponownego otwierania ścian.
-
-Czy mogą Państwo współpracować z moim elektrykiem?
-Tak. Jeśli istnieje już projekt Państwa elektryka, układamy przewody zgodnie z nim i ustalamy terminy tak, aby mógł on następnie wykonać podłączenia.
-
-Czy układają Państwo przewody w ściankach g-k?
-Tak. Kable i rury osłonowe układamy wewnątrz ściany przed jej zamknięciem. Samą zabudowę g-k również można u nas zlecić.`,
-    metaTitle: 'Układanie przewodów w Sulingen | GRP Bau',
-    metaDescription: 'Układanie przewodów w Sulingen: kable, rury osłonowe, kanały i korytka kablowe. Podłączenie wykonuje uprawniony elektryk. Zapraszamy do kontaktu!',
-  },
-  en: {
-    title: 'Cable laying',
-    slug: 'cable-laying',
-    h1: 'Cable Laying in Buildings in Sulingen',
-    excerpt: 'We lay cables, empty conduits, cable ducts and cable trays. A licensed electrician makes the connection.',
-    featuresRaw: 'Laying cables and wiring\nEmpty conduits for future installations\nCable ducts on walls and ceilings\nCable trays\nPreparing cable routes in drywall\nNo connection work: done by a licensed electrician',
-    body: `## Cable laying: what we do
-
-When laying cables in buildings, we create the routes for cables and wiring. We lay cables, install empty conduits for future installations, fit cable ducts on walls and ceilings and put up cable trays for larger numbers of cables. This keeps the cables tidy, protected and ready for later extensions.
-
-## Important: connection by a licensed electrician
-
-We carry out the laying work only. Connecting cables to distribution boards, switches, sockets or appliances, as well as testing the installation, is not part of our service. In Germany, this work may only be carried out by a registered electrical contractor. We make this clear from the outset so that you can plan your project properly. We are happy to coordinate our work with the electrician of your choice.
-
-## Typical jobs
-
-- Empty conduits in new builds or during a remodel, before walls are closed or plastered
-- Running cables in new [drywall partitions](/en/services/drywall)
-- Cable ducts for tidy cable routing on walls
-- Cable trays in basements, plant rooms and storage areas
-- Preparing cable routes as part of [interior finishing](/en/services/interior-finishing)
-
-## How it works
-
-During a free consultation, we discuss where the cables should run. If your electrician has already drawn up a plan, we follow it. You then receive a quote. We lay the cables as agreed, after which the electrician can make the connections.
-
-## Why GRP Bau?
-
-Our experienced team works neatly and leaves a clear, well-documented cable layout, so that the electrician can easily carry on afterwards. We are punctual and reliable, deliver high quality at fair prices and work in Sulingen and the surrounding area. Planning cable laying work? [Contact us](/en/contact) for a free consultation.`,
-    faqRaw: `Do you connect the cables?
-No. We lay cables, empty conduits, cable ducts and cable trays. Connection and commissioning are carried out by a registered electrical contractor.
-
-What is an empty conduit and what is it for?
-An empty conduit is a protective pipe into which cables can be pulled. It allows cables to be added or replaced later without opening up the walls again.
-
-Can you work with my electrician?
-Yes. If your electrician has already drawn up a plan, we lay the cables accordingly and agree the dates so that the connections can be made afterwards.
-
-Do you also lay cables in drywall walls?
-Yes. We lay cables and empty conduits in the wall cavity before the wall is closed. You can also book the drywall work itself with us.`,
-    metaTitle: 'Cable Laying in Buildings in Sulingen | GRP Bau',
-    metaDescription: 'Cable laying in Sulingen: cables, empty conduits, cable ducts and cable trays. Connection is made by a licensed electrician. Get in touch with GRP Bau today!',
-  },
-};
-
-const services = [innenausbau, renovierung, trockenbau, bodenleger, leitungsverlegung];
-
-// ---------------------------------------------------------------------------
-// HERO (strona główna) – podmieniane tylko, jeśli w bazie są jeszcze teksty z seeda
-// ---------------------------------------------------------------------------
-const hero = {
-  de: {
-    heroTitle: 'GRP Bau',
-    heroSubOne: 'Innenausbau & Renovierung',
-    heroSubTwo: 'Trockenbau & Bodenleger',
-    heroSubThree: 'Leitungsverlegung im Hochbau',
-  },
-  pl: {
-    heroTitle: 'GRP Bau',
-    heroSubOne: 'Wykończenia wnętrz i remonty',
-    heroSubTwo: 'Zabudowy g-k i podłogi',
-    heroSubThree: 'Układanie przewodów w budynkach',
-  },
-  en: {
-    heroTitle: 'GRP Bau',
-    heroSubOne: 'Interior finishing & renovation',
-    heroSubTwo: 'Drywall & flooring',
-    heroSubThree: 'Cable laying in buildings',
-  },
-};
-
-// ---------------------------------------------------------------------------
-// O NAS (AboutPage) – podmieniane tylko, jeśli w bazie są jeszcze teksty z seeda
-// ---------------------------------------------------------------------------
-const about = {
-  de: {
-    aboutPointsRaw: 'Erfahrenes Team\nPünktlichkeit und Zuverlässigkeit\nHohe Qualität zu fairen Preisen\nKostenlose Beratung',
-  },
-  pl: {
-    aboutPointsRaw: 'Doświadczony zespół\nTerminowość i rzetelność\nWysoka jakość w uczciwych cenach\nBezpłatna wycena',
-  },
-  en: {
-    aboutPointsRaw: 'Experienced team\nPunctuality and reliability\nHigh quality at fair prices\nFree consultation',
-  },
-};
-
 module.exports = {
-  pages: { home, services: servicesPage, gallery, about: aboutPage, contact },
-  services,
-  hero,
-  about,
+  "pages": {
+    "home": {
+      "de": {
+        "h1": "Innenausbau & Renovierung zwischen Bremen und Hannover",
+        "intro": "GRP Bau mit Sitz in Sulingen ist Ihr Ansprechpartner für Innenausbau und Renovierung in Niedersachsen und Bremen. Im Umkreis von rund 100 km bauen wir Räume um, ziehen Trockenbauwände ein, verlegen neue Böden und bringen Wände und Decken mit Malerarbeiten und Tapeten wieder in Form. Außerdem übernehmen wir die Leitungsverlegung im Hochbau: Kabel, Leerrohre und Kabelkanäle, sauber vorbereitet für den Anschluss durch einen Elektrofachbetrieb.\n\nOb einzelnes Zimmer, komplette Wohnung oder ganzes Haus, ob in der Stadt oder auf dem Land: Bei GRP Bau bekommen Sie mehrere Arbeiten aus einer Hand, sinnvoll aufeinander abgestimmt. Unser Leitsatz „Wir sind immer für Sie da“ beschreibt, wie wir arbeiten: erreichbar, pünktlich und zuverlässig. Erzählen Sie uns von Ihrem Vorhaben – die Beratung ist kostenlos.",
+        "body": "## Warum GRP Bau?\n\nBei einem Umbau oder einer Renovierung zählt am Ende, dass die Arbeit gut gemacht ist und der Zeitplan hält. Darauf legen wir Wert:\n\n- **Erfahrenes Team:** Unsere Handwerker kennen den Innenausbau aus der täglichen Praxis. Trockenbau, Böden, Malerarbeiten und Leitungswege planen wir zusammen, damit die einzelnen Schritte sauber ineinandergreifen.\n- **Pünktlichkeit und Zuverlässigkeit:** Vereinbarte Termine halten wir ein. Sie wissen, wann wir kommen und wie lange die Arbeiten geplant sind.\n- **Hohe Qualität zu fairen Preisen:** Wir arbeiten sorgfältig und mit Blick fürs Detail. Den Preis kennen Sie vor dem Start aus unserem Angebot.\n- **Kostenlose Beratung:** Wir besprechen Ihr Vorhaben, zeigen Möglichkeiten auf und helfen Ihnen, die passende Lösung zu finden, ohne dass Ihnen dafür Kosten entstehen.\n\n## So arbeiten wir\n\nJedes Projekt ist anders, der Ablauf bleibt aber übersichtlich:\n\n- **Beratung:** Sie beschreiben uns, was Sie vorhaben – am Telefon, per WhatsApp, per E-Mail oder bei einem Termin vor Ort. Wir klären Wünsche, Maße und offene Fragen.\n- **Angebot:** Auf dieser Grundlage erhalten Sie ein Angebot, das die geplanten Arbeiten beschreibt. So können Sie in Ruhe entscheiden.\n- **Ausführung:** Nach Ihrer Zusage stimmen wir den Termin ab und setzen die Arbeiten wie besprochen um. Bei Fragen sind wir für Sie erreichbar.\n- **Übergabe:** Zum Abschluss gehen wir die Räume gemeinsam mit Ihnen durch, damit alles so ist, wie Sie es sich vorgestellt haben.\n\n## Einsatzgebiet: rund 100 km um Sulingen\n\nUnser Sitz ist In den Feldgärten 11D in 27232 Sulingen. Von hier aus sind wir im Umkreis von etwa 100 km für Sie im Einsatz, in größeren Städten ebenso wie in kleineren Gemeinden. Zu unserem Einsatzgebiet gehören zum Beispiel Bremen, Delmenhorst und Oldenburg im Norden und Nordwesten, Verden (Aller), Nienburg (Weser) und Hannover im Nordosten und Osten, Vechta und Diepholz im Westen sowie Minden und Osnabrück im Süden und Südwesten.\n\nIhr Ort ist nicht genannt? Die Aufzählung ist nur eine Auswahl. Liegt Ihr Projekt ungefähr in diesem Umkreis, fragen Sie einfach nach. Im gesamten Einsatzgebiet gilt: Sie haben einen festen Ansprechpartner, bekommen klare Absprachen und wissen, wann wir vor Ort sind.\n\nEinen Überblick über alle Arbeiten finden Sie unter [Leistungen](/leistungen), Beispiele aus unserer Arbeit in der [Galerie](/galerie). Wenn Sie ein Projekt planen, [schreiben Sie uns](/kontakt) oder rufen Sie an – wir melden uns bei Ihnen.",
+        "faqRaw": "Welche Leistungen bietet GRP Bau an?\nWir übernehmen Innenausbau, Renovierung mit Malerarbeiten und Tapezieren, Trockenbau, Bodenlegerarbeiten mit Laminat, Parkett, Vinyl- und Designböden, Teppich und PVC sowie die Leitungsverlegung im Hochbau.\n\nIn welchem Gebiet sind Sie tätig?\nUnser Sitz ist in Sulingen, unser Einsatzgebiet umfasst einen Umkreis von rund 100 km. Dazu gehören zum Beispiel Bremen, Hannover, Oldenburg und Osnabrück. Wenn Sie nicht sicher sind, ob Ihr Ort dazugehört, fragen Sie einfach kurz nach.\n\nWas kostet die Beratung?\nDie Beratung ist kostenlos. Nachdem wir den Umfang der Arbeiten besprochen haben, erhalten Sie ein Angebot, auf dessen Grundlage Sie in Ruhe entscheiden können.\n\nWie erreiche ich Sie am schnellsten?\nRufen Sie uns an oder schreiben Sie per WhatsApp an +49 1556 1013765, per E-Mail an info@grp-bau.de oder über das Kontaktformular. Fotos der Räume schicken Sie am einfachsten per WhatsApp.",
+        "metaTitle": "Innenausbau & Renovierung: Bremen bis Hannover | GRP Bau",
+        "metaDescription": "Innenausbau, Renovierung, Trockenbau, Böden und Leitungsverlegung im Umkreis von 100 km um Sulingen, von Bremen bis Hannover. Jetzt kostenlos beraten lassen!"
+      },
+      "pl": {
+        "h1": "Wykończenia wnętrz i remonty w Dolnej Saksonii i Bremen",
+        "intro": "GRP Bau to firma z siedzibą w Sulingen. Wykończenia wnętrz i remonty wykonujemy w promieniu około 100 km – zarówno w większych miastach, takich jak Bremen, Hannover czy Osnabrück, jak i w mniejszych miejscowościach Dolnej Saksonii. Stawiamy ścianki działowe i sufity z płyt g-k, układamy podłogi, malujemy i tapetujemy ściany oraz sufity. Wykonujemy też układanie przewodów w budynkach: kable, rury osłonowe i kanały kablowe, przygotowane do późniejszego podłączenia przez uprawnionego elektryka.\n\nJeden pokój, całe mieszkanie czy dom – u nas otrzymują Państwo kilka prac z jednej ręki, dobrze ze sobą zgranych. Nasze motto „Wir sind immer für Sie da”, czyli „Zawsze jesteśmy do Państwa dyspozycji”, opisuje sposób, w jaki pracujemy: jesteśmy dostępni, punktualni i rzetelni. Prosimy opisać nam swój plan – wycena jest bezpłatna.",
+        "body": "## Dlaczego GRP Bau?\n\nPrzy remoncie czy przebudowie najważniejsze jest, żeby praca była dobrze wykonana, a terminy dotrzymane. Na to stawiamy:\n\n- **Doświadczony zespół:** Nasi fachowcy znają wykończenia wnętrz z codziennej praktyki. Zabudowy g-k, podłogi, malowanie i prowadzenie przewodów planujemy razem, aby kolejne etapy dobrze się ze sobą łączyły.\n- **Terminowość i rzetelność:** Dotrzymujemy uzgodnionych terminów. Wiedzą Państwo, kiedy przyjedziemy i ile mają potrwać prace.\n- **Wysoka jakość w uczciwych cenach:** Pracujemy starannie i z dbałością o szczegóły. Cenę znają Państwo z naszej oferty jeszcze przed rozpoczęciem prac.\n- **Bezpłatna wycena:** Omawiamy Państwa plany, pokazujemy możliwe rozwiązania i przygotowujemy wycenę – bez żadnych kosztów po Państwa stronie.\n\n## Jak pracujemy\n\nKażdy projekt jest inny, ale przebieg współpracy pozostaje przejrzysty:\n\n- **Rozmowa:** Opisują nam Państwo swój plan – telefonicznie, przez WhatsApp, e-mailem lub podczas spotkania na miejscu. Ustalamy oczekiwania, wymiary i otwarte kwestie.\n- **Wycena:** Na tej podstawie otrzymują Państwo ofertę z opisem zaplanowanych prac i mogą spokojnie podjąć decyzję.\n- **Realizacja:** Po akceptacji ustalamy termin i wykonujemy prace zgodnie z ustaleniami. W razie pytań jesteśmy do dyspozycji.\n- **Odbiór:** Na koniec wspólnie oglądamy pomieszczenia, aby wszystko wyglądało tak, jak Państwo sobie tego życzyli.\n\n## Obszar działania: około 100 km od Sulingen\n\nNasza siedziba mieści się przy In den Feldgärten 11D w 27232 Sulingen. Stąd realizujemy zlecenia w promieniu około 100 km. W tym zasięgu znajdują się między innymi Bremen, Hannover, Oldenburg, Osnabrück, Delmenhorst, Verden (Aller), Nienburg (Weser), Diepholz, Vechta i Minden, a także wiele mniejszych miejscowości w Dolnej Saksonii.\n\nNiezależnie od tego, czy remont odbywa się w Sulingen, w Bremen czy w Hannover, obowiązują te same zasady: jasne ustalenia, dotrzymane terminy i jedna osoba kontaktowa od pierwszej rozmowy aż do odbioru. Nie widzą Państwo swojej miejscowości na liście? To tylko przykłady – wystarczy krótko zapytać, czy Państwa adres mieści się w naszym obszarze działania.\n\nPrzegląd wszystkich prac znajdą Państwo w zakładce [Usługi](/pl/uslugi), a przykłady naszej pracy w [galerii](/pl/galeria). Planują Państwo remont? [Prosimy o wiadomość](/pl/kontakt) lub telefon – odezwiemy się.",
+        "faqRaw": "Jakie usługi oferuje GRP Bau?\nWykonujemy wykończenia wnętrz, remonty z malowaniem i tapetowaniem, zabudowy z płyt g-k, układanie podłóg (laminat, parkiet, panele winylowe, wykładzina dywanowa i PVC) oraz układanie przewodów w budynkach.\n\nNa jakim obszarze Państwo pracują?\nPracujemy w promieniu około 100 km od naszej siedziby w Sulingen. Obejmuje to między innymi Bremen, Hannover, Oldenburg i Osnabrück, a także mniejsze miejscowości w regionie. Jeśli nie są Państwo pewni, czy Państwa miejscowość leży w tym obszarze, wystarczy krótko zapytać.\n\nIle kosztuje wycena?\nWycena jest bezpłatna. Po omówieniu zakresu prac otrzymują Państwo ofertę, na podstawie której mogą spokojnie podjąć decyzję.\n\nJak najszybciej się z Państwem skontaktować?\nTelefonicznie lub przez WhatsApp pod numerem +49 1556 1013765, e-mailem na adres info@grp-bau.de albo przez formularz kontaktowy. Zdjęcia pomieszczeń najwygodniej przesłać przez WhatsApp.",
+        "metaTitle": "Wykończenia i remonty w Dolnej Saksonii i Bremen | GRP Bau",
+        "metaDescription": "Wykończenia wnętrz, remonty, zabudowy G-K, podłogi i przewody w promieniu ok. 100 km od Sulingen – także w Bremen, Hannover i Osnabrück. Bezpłatna wycena!"
+      },
+      "en": {
+        "h1": "Interior Finishing & Renovation in Lower Saxony and Bremen",
+        "intro": "GRP Bau is your contractor for interior finishing and renovation in Lower Saxony and Bremen. From our base in Sulingen, we work within a radius of about 100 km. We remodel rooms, put up drywall partitions, lay new floors and bring walls and ceilings back into shape with painting and wallpapering. We also lay cables, conduits and cable ducts in buildings, neatly prepared for connection by a licensed electrician.\n\nWhether it is a single room, a whole flat or a house, you get several jobs done by one team, properly coordinated. Our motto, “Wir sind immer für Sie da” (“We are always there for you”), describes how we work: easy to reach, punctual and reliable. Tell us about your project – the consultation is free.",
+        "body": "## Why GRP Bau?\n\nWhen you remodel or renovate, what matters in the end is good workmanship and a schedule that holds. That is what we focus on:\n\n- **Experienced team:** Our tradespeople know interior finishing from everyday practice. We plan drywall, floors, painting and cable routes together so that each step fits neatly into the next.\n- **Punctuality and reliability:** We keep to the dates we agree. You know when we will arrive and how long the work is planned to take.\n- **High quality at fair prices:** We work carefully and with an eye for detail. You know the price from our quote before any work begins.\n- **Free consultation:** We talk through your plans, show you the options and help you find the right solution, at no cost to you.\n\n## How we work\n\nEvery project is different, but the process stays simple:\n\n- **Consultation:** You tell us what you have in mind – by phone, WhatsApp, e-mail or during a visit on site. We clarify your wishes, measurements and any open questions.\n- **Quote:** Based on this, you receive a quote describing the planned work, so you can decide in your own time.\n- **Execution:** Once you give the go-ahead, we agree on a date and carry out the work as discussed. If questions come up, we are easy to reach.\n- **Handover:** Finally, we walk through the rooms with you to make sure everything is as you imagined.\n\n## Where we work: about 100 km around Sulingen\n\nGRP Bau is based at In den Feldgärten 11D, 27232 Sulingen, roughly between Bremen, Hanover and Osnabrück. From here, we take on projects within a radius of about 100 km – in the larger cities as well as in the smaller towns and villages in between.\n\nOur service area includes, for example, Bremen, Hanover, Oldenburg, Osnabrück, Minden, Delmenhorst, Nienburg, Verden, Diepholz and Syke. Is your town not on the list? Just ask us. If it lies within the radius, we will be happy to talk about your project.\n\nYou will find an overview of everything we do under [Services](/en/services) and examples of our work in the [gallery](/en/gallery). Planning a project? [Get in touch](/en/contact) or give us a call and we will get back to you.",
+        "faqRaw": "What services does GRP Bau offer?\nWe offer interior finishing, renovation including interior painting and wallpapering, drywall, flooring (laminate, parquet, vinyl and design floors, carpet and PVC) and cable laying in buildings.\n\nWhich area do you cover?\nWe are based in Sulingen and work within a radius of about 100 km. That includes cities such as Bremen, Hanover, Oldenburg and Osnabrück as well as the towns in between. If you are not sure whether your location is included, just ask us.\n\nDo you also take on projects in smaller towns?\nYes. Within our service area, we work in cities and smaller towns alike, for example around Nienburg, Diepholz or Verden. Wherever your project is, the consultation is free.\n\nHow much does a consultation cost?\nThe consultation is free. Once we have discussed the scope of work, you receive a quote so you can decide in your own time.\n\nWhat is the quickest way to contact you?\nCall us or send a WhatsApp message to +49 1556 1013765, e-mail info@grp-bau.de or use the contact form. Photos of the rooms are easiest to send via WhatsApp.",
+        "metaTitle": "Interior Finishing & Renovation in Lower Saxony | GRP Bau",
+        "metaDescription": "Interior finishing, renovation, drywall, flooring and cable laying in Bremen, Hanover and across Lower Saxony. Free consultation from GRP Bau in Sulingen!"
+      }
+    },
+    "services": {
+      "de": {
+        "h1": "Unsere Leistungen im Innenausbau in Niedersachsen und Bremen",
+        "intro": "Von der neuen Trennwand bis zum fertig gestrichenen Raum: GRP Bau übernimmt die zentralen Arbeiten im Innenausbau aus einer Hand. Hier finden Sie unsere fünf Leistungsbereiche im Überblick, jeweils mit kurzer Beschreibung und einem Link zu allen Details.\n\nVon unserem Sitz in Sulingen aus arbeiten wir im Umkreis von rund 100 km, etwa in Bremen, Hannover oder Osnabrück, und kombinieren die Leistungen so, wie es Ihr Vorhaben verlangt. Manchmal reicht ein frischer Anstrich, bei einem Umbau kommen dagegen Trockenbau, neuer Bodenbelag und Leitungsverlegung zusammen. Sie können jede Leistung einzeln beauftragen oder mehrere miteinander verbinden. Welche Arbeiten bei Ihnen sinnvoll sind, klären wir gemeinsam in einer kostenlosen Beratung. Danach erhalten Sie ein Angebot und wissen, womit Sie rechnen können.",
+        "body": "## Leistungen sinnvoll kombinieren\n\nViele Projekte bestehen aus mehreren Schritten, die in der richtigen Reihenfolge ablaufen sollten. Bei einem Umbau entstehen zuerst neue Wände und Decken im [Trockenbau](/leistungen/trockenbau). Kabel und Leerrohre werden am besten verlegt, bevor die Wände geschlossen werden – dafür gibt es unsere [Leitungsverlegung](/leistungen/leitungsverlegung). Danach folgen Spachtel-, Maler- und Tapezierarbeiten aus dem Bereich [Renovierung](/leistungen/renovierung) und zum Schluss der neue Boden vom [Bodenleger](/leistungen/bodenleger).\n\nWird alles zusammen geplant, sprechen wir vom [Innenausbau](/leistungen/innenausbau). Sie haben einen Ansprechpartner für alle Arbeiten, und die Termine sind von Anfang an aufeinander abgestimmt. [Fragen Sie uns an](/kontakt) – die Beratung ist kostenlos.",
+        "faqRaw": "Kann ich auch nur eine einzelne Leistung beauftragen?\nJa. Jede Leistung können Sie einzeln anfragen, zum Beispiel nur das Streichen eines Zimmers oder nur einen neuen Bodenbelag. Wenn es sinnvoll ist, mehrere Arbeiten zu verbinden, sprechen wir das in der Beratung an.\n\nSchließen Sie die verlegten Leitungen auch an?\nNein. Wir verlegen Kabel, Leerrohre, Kabelkanäle und Kabeltrassen. Den Anschluss übernimmt ein zugelassener Elektrofachbetrieb.\n\nWie bekomme ich ein Angebot?\nMelden Sie sich per Telefon, WhatsApp, E-Mail oder über das Kontaktformular. Nach einer kostenlosen Beratung erhalten Sie ein Angebot für die geplanten Arbeiten.",
+        "metaTitle": "Leistungen: Innenausbau, Trockenbau, Böden & mehr | GRP Bau",
+        "metaDescription": "Leistungen von GRP Bau: Innenausbau, Renovierung, Trockenbau, Böden und Leitungsverlegung in Niedersachsen und Bremen. Jetzt kostenlos beraten lassen!"
+      },
+      "pl": {
+        "h1": "Nasze usługi wykończeniowe w Bremen, Hannover i regionie",
+        "intro": "Od nowej ścianki działowej po świeżo pomalowane pomieszczenie: GRP Bau wykonuje najważniejsze prace wykończeniowe z jednej ręki. Na tej stronie znajdą Państwo przegląd naszych pięciu obszarów usług – z krótkim opisem i linkiem do szczegółów.\n\nWszystkie usługi wykonujemy w promieniu około 100 km od naszej siedziby w Sulingen – w Bremen, Hannover, Osnabrück i w mniejszych miejscowościach pomiędzy nimi. Łączymy je tak, jak wymaga tego Państwa projekt. Czasem wystarczy odświeżenie ścian, a przy przebudowie potrzebne są zabudowy g-k, nowa podłoga i ułożenie przewodów. Każdą usługę można zamówić osobno albo połączyć kilka. Jakie prace mają sens w Państwa przypadku, ustalimy wspólnie przy bezpłatnej wycenie. Potem otrzymują Państwo ofertę i wiedzą, z jakimi kosztami się liczyć.",
+        "body": "## Jak łączyć usługi\n\nWiele projektów składa się z kilku etapów, które powinny następować we właściwej kolejności. Przy przebudowie najpierw powstają nowe ściany i sufity w ramach [zabudowy g-k](/pl/uslugi/zabudowy-gk). Kable i rury osłonowe najlepiej ułożyć, zanim ściany zostaną zamknięte – tym zajmuje się nasze [układanie przewodów](/pl/uslugi/ukladanie-przewodow). Następnie przychodzi czas na szpachlowanie, malowanie i tapetowanie w ramach [remontów](/pl/uslugi/remonty), a na końcu na nową podłogę w ramach usługi [układanie podłóg](/pl/uslugi/ukladanie-podlog).\n\nGdy wszystkie prace są planowane razem, mówimy o [wykończeniu wnętrz](/pl/uslugi/wykonczenia-wnetrz). Mają Państwo jedną osobę kontaktową dla wszystkich etapów, a terminy są od początku do siebie dopasowane. [Zapraszamy do kontaktu](/pl/kontakt) – wycena jest bezpłatna.",
+        "faqRaw": "Czy mogę zlecić tylko jedną usługę?\nTak. Każdą usługę można zamówić osobno, na przykład samo malowanie pokoju albo tylko nową podłogę. Jeśli połączenie kilku prac ma sens, powiemy o tym przy wycenie.\n\nCzy podłączają Państwo ułożone przewody?\nNie. Układamy kable, rury osłonowe, kanały kablowe i korytka kablowe, natomiast podłączenie wykonuje uprawniony elektryk.\n\nCzy wszystkie usługi są dostępne w całym obszarze działania?\nTak. Każdą z pięciu usług wykonujemy w promieniu około 100 km od Sulingen, czyli również w Bremen, Hannover czy Osnabrück. Można je zlecić osobno lub połączyć w jednym projekcie.\n\nJak otrzymać wycenę?\nWystarczy skontaktować się z nami telefonicznie, przez WhatsApp, e-mailem lub przez formularz kontaktowy. Po rozmowie przygotujemy bezpłatną wycenę planowanych prac.",
+        "metaTitle": "Usługi wykończeniowe: Bremen, Hannover, Osnabrück | GRP Bau",
+        "metaDescription": "Przegląd usług GRP Bau: wykończenia wnętrz, remonty, zabudowy G-K, układanie podłóg i przewodów w Bremen, Hannover i okolicach. Bezpłatna wycena!"
+      },
+      "en": {
+        "h1": "Our Interior Services between Bremen, Hanover and Osnabrück",
+        "intro": "From a new partition wall to a freshly painted room: GRP Bau handles the key interior finishing jobs as a single contractor. On this page you will find our five services at a glance, each with a short description and a link to the full details.\n\nFrom our base in Sulingen, we work within a radius of about 100 km – in Bremen and Hanover, for example, as well as in the towns in between. We combine our services to suit your project. Sometimes a fresh coat of paint is all a room needs, while a remodel may bring drywall, new flooring and cable laying together. You can book each service on its own or combine several. We will work out what makes sense for you during a free consultation. You then receive a quote and know exactly what to expect.",
+        "body": "## Combining services the right way\n\nMany projects involve several steps that should happen in the right order. In a remodel, new walls and ceilings are built first using [drywall](/en/services/drywall). Cables and empty conduits are best laid before the walls are closed – that is what our [cable laying](/en/services/cable-laying) service is for. Next come filling, painting and wallpapering as part of a [renovation](/en/services/renovation), and finally the new floor from our [flooring](/en/services/flooring) service.\n\nWhen everything is planned together, we call it [interior finishing](/en/services/interior-finishing). You have one point of contact for every stage, and the dates are coordinated from the start. [Contact us](/en/contact) for a free consultation.",
+        "faqRaw": "Can I book just one service?\nYes. Each service can be booked on its own, for example painting a single room or laying a new floor. If combining several jobs makes sense, we will point this out during the consultation.\n\nDo you connect the cables you lay?\nNo. We lay cables, empty conduits, cable ducts and cable trays. The connection is carried out by a licensed electrician.\n\nDo you offer these services in Bremen and Hanover too?\nYes. We work within a radius of about 100 km of our base in Sulingen, which includes Bremen and Hanover. If you are not sure whether your town is covered, just ask us.\n\nHow do I get a quote?\nContact us by phone, WhatsApp, e-mail or the contact form. After a free consultation, you receive a quote for the planned work.",
+        "metaTitle": "Drywall, Flooring & Renovation in Lower Saxony | GRP Bau",
+        "metaDescription": "All GRP Bau services at a glance: interior finishing, renovation, drywall, flooring and cable laying in Bremen, Hanover and the region. Get a free consultation!"
+      }
+    },
+    "gallery": {
+      "de": {
+        "h1": "Galerie: Einblicke in unsere Arbeiten",
+        "intro": "In unserer Galerie zeigen wir Beispiele aus der Praxis von GRP Bau. Die Fotos zeigen Arbeiten aus unseren Leistungsbereichen, etwa Innenausbau, Renovierung mit Malerarbeiten und Tapezieren, Trockenbau sowie neue Böden und Treppenbeläge.\n\nDie Bilder geben Ihnen einen Eindruck von Oberflächen, Materialien und der Ausführung im Detail. So fällt es leichter, eigene Wünsche zu beschreiben, zum Beispiel welcher Boden zu Ihrem Raum passt oder wie eine neue Trennwand aussehen könnte. Wenn Sie ein ähnliches Vorhaben planen, ob in Bremen, Hannover, Osnabrück oder in einem Ort dazwischen, sprechen Sie uns an. Die Beratung ist kostenlos, und Fotos Ihrer Räume können Sie uns gern per WhatsApp schicken.",
+        "body": "",
+        "faqRaw": "",
+        "metaTitle": "Galerie: Innenausbau & Renovierung | GRP Bau",
+        "metaDescription": "Fotos aus der Praxis von GRP Bau: Innenausbau, Renovierung, Trockenbau, neue Böden und Treppenbeläge – Ideen für Ihr Projekt zwischen Bremen und Hannover."
+      },
+      "pl": {
+        "h1": "Galeria: nasze prace wykończeniowe",
+        "intro": "W galerii pokazujemy przykłady z praktyki GRP Bau. Zdjęcia przedstawiają prace z naszych obszarów usług, między innymi wykończenia wnętrz, remonty z malowaniem i tapetowaniem, zabudowy g-k oraz nowe podłogi i okładziny schodów.\n\nZdjęcia dają wyobrażenie o powierzchniach, materiałach i jakości wykonania. Dzięki nim łatwiej opisać własne oczekiwania, na przykład jaka podłoga pasuje do Państwa pomieszczenia albo jak mogłaby wyglądać nowa ścianka działowa. Jeśli planują Państwo podobny projekt – w Bremen, w Hannover lub w innej miejscowości w promieniu około 100 km od Sulingen – zapraszamy do kontaktu. Wycena jest bezpłatna, a zdjęcia pomieszczeń można przesłać nam przez WhatsApp.",
+        "body": "",
+        "faqRaw": "",
+        "metaTitle": "Galeria: wykończenia wnętrz i remonty | GRP Bau",
+        "metaDescription": "Zdjęcia z realizacji GRP Bau: wykończenia wnętrz, remonty, zabudowy G-K, nowe podłogi i schody. Podobny projekt w Bremen lub Hannover? Prosimy o kontakt!"
+      },
+      "en": {
+        "h1": "Gallery: A Look at Our Work",
+        "intro": "Our gallery shows examples of GRP Bau's work in practice. The photos cover our services, including interior finishing, renovation with painting and wallpapering, drywall, and new floors and stair coverings.\n\nThe pictures give you an idea of surfaces, materials and the quality of the finish. They also make it easier to describe what you want, for example which floor suits your room or how a new partition wall might look. If you are planning a similar project in Bremen, Hanover or elsewhere within about 100 km of Sulingen, get in touch. The consultation is free, and you are welcome to send us photos of your rooms via WhatsApp.",
+        "body": "",
+        "faqRaw": "",
+        "metaTitle": "Gallery: Interior Finishing & Renovation | GRP Bau",
+        "metaDescription": "Photos of GRP Bau projects: interior finishing, renovation, drywall, new floors and stairs. Planning something similar in Bremen or Hanover? Get in touch today!"
+      }
+    },
+    "about": {
+      "de": {
+        "h1": "Über uns: GRP Bau aus Sulingen – Innenausbau im Umkreis von rund 100 km",
+        "intro": "GRP Bau ist ein Unternehmen für Innenausbau mit Sitz in Sulingen in Niedersachsen. Von hier aus arbeiten wir im Umkreis von rund 100 km, zum Beispiel in Bremen, Hannover oder Oldenburg. Wir übernehmen die zentralen Arbeiten im Innenausbau: neue Wände und Decken im Trockenbau, Malerarbeiten und Tapezieren, Bodenbeläge von Laminat bis Teppich sowie das Verlegen von Kabeln, Leerrohren und Kabelkanälen.\n\nUnser Leitsatz lautet „Wir sind immer für Sie da“. Damit meinen wir ganz konkret: Wir sind gut erreichbar, hören zu, bevor wir planen, und halten Termine ein. Hinter GRP Bau steht ein erfahrenes Team, das Wert auf sorgfältige Arbeit zu fairen Preisen legt. Ob kleine Renovierung oder umfangreicher Innenausbau: Sie bekommen eine ehrliche Einschätzung und eine kostenlose Beratung.",
+        "body": "## Unsere Arbeitsweise\n\nGute Arbeit beginnt mit einem klaren Plan. Bevor wir anfangen, besprechen wir mit Ihnen, was gemacht werden soll, welche Materialien infrage kommen und in welcher Reihenfolge die Arbeiten sinnvoll sind. Weil die Arbeiten bei uns in einer Hand liegen, können wir [Trockenbau](/leistungen/trockenbau), [Renovierung](/leistungen/renovierung), [Bodenbeläge](/leistungen/bodenleger) und [Leitungsverlegung](/leistungen/leitungsverlegung) direkt aufeinander abstimmen.\n\nBei der Leitungsverlegung sagen wir offen, wo unsere Arbeit endet: Wir verlegen Kabel, Leerrohre und Kabelkanäle, den Anschluss übernimmt ein Elektrofachbetrieb. Diese klare Aufteilung gehört für uns zu einer ehrlichen Beratung.\n\n## Was uns wichtig ist\n\nZuverlässigkeit ist für uns keine Floskel: Vereinbarte Termine gelten, und wenn sich etwas ändert, sprechen wir es an. Qualität heißt für uns, auch die Details sorgfältig auszuführen, also Anschlüsse, Kanten und Übergänge. Und faire Preise bedeuten, dass Sie vorab wissen, was Sie erwartet.\n\n## Sitz in Sulingen, im Einsatz in der Region\n\nUnser Sitz ist In den Feldgärten 11D in Sulingen. Von hier aus sind wir im Umkreis von rund 100 km für Sie im Einsatz, in Niedersachsen ebenso wie in Bremen. Ob Ihr Projekt in einer größeren Stadt oder in einem kleinen Ort liegt: Sie haben bei uns einen festen Ansprechpartner, der für Sie erreichbar ist. Beispiele unserer Arbeit finden Sie in der [Galerie](/galerie). Wenn Sie uns kennenlernen möchten, [nehmen Sie direkt Kontakt auf](/kontakt).",
+        "faqRaw": "Wo hat GRP Bau seinen Sitz?\nUnser Sitz ist In den Feldgärten 11D, 27232 Sulingen. Von dort aus arbeiten wir im Umkreis von rund 100 km, zum Beispiel auch in Bremen und Hannover.\n\nWas bedeutet „Wir sind immer für Sie da“?\nDas ist unser Leitsatz. Sie erreichen uns per Telefon, WhatsApp, E-Mail oder Kontaktformular, und wir melden uns auf jede Anfrage zurück.\n\nIst die Beratung wirklich kostenlos?\nJa. Wir besprechen Ihr Vorhaben ohne Kosten für Sie. Einen Auftrag erteilen Sie erst, wenn Sie unser Angebot annehmen.",
+        "metaTitle": "Über uns – Innenausbau aus Sulingen für die Region | GRP Bau",
+        "metaDescription": "GRP Bau aus Sulingen: erfahrenes Team für Innenausbau im Umkreis von 100 km, pünktlich und zuverlässig, hohe Qualität zu fairen Preisen. Beratung kostenlos!"
+      },
+      "pl": {
+        "h1": "O nas: GRP Bau z Sulingen – pracujemy w całym regionie",
+        "intro": "GRP Bau to firma zajmująca się wykończeniami wnętrz z siedzibą w Sulingen w Dolnej Saksonii. Zlecenia realizujemy w promieniu około 100 km od siedziby – między innymi w Bremen, Hannover, Oldenburg i Osnabrück. Wykonujemy kluczowe prace wykończeniowe: nowe ściany i sufity z płyt g-k, malowanie i tapetowanie, podłogi od laminatu po wykładzinę oraz układanie kabli, rur osłonowych i kanałów kablowych.\n\nNasze motto brzmi „Wir sind immer für Sie da”, czyli „Zawsze jesteśmy do Państwa dyspozycji”. W praktyce oznacza to, że łatwo się z nami skontaktować, najpierw słuchamy, a dopiero potem planujemy, i dotrzymujemy terminów. GRP Bau to doświadczony zespół, który stawia na staranną pracę w uczciwych cenach. Niezależnie od tego, czy chodzi o drobny remont, czy o kompleksowe wykończenie, otrzymują Państwo rzetelną ocenę i bezpłatną wycenę.",
+        "body": "## Jak pracujemy\n\nDobra praca zaczyna się od jasnego planu. Zanim zaczniemy, omawiamy z Państwem zakres prac, możliwe materiały i sensowną kolejność etapów. Ponieważ wszystkie prace są w jednych rękach, możemy bezpośrednio zgrać ze sobą [zabudowy g-k](/pl/uslugi/zabudowy-gk), [remonty](/pl/uslugi/remonty), [układanie podłóg](/pl/uslugi/ukladanie-podlog) i [układanie przewodów](/pl/uslugi/ukladanie-przewodow).\n\nPrzy układaniu przewodów jasno mówimy, gdzie kończy się nasza praca: układamy kable, rury osłonowe i kanały kablowe, a podłączenie wykonuje uprawniony elektryk. Taki przejrzysty podział jest dla nas częścią uczciwego doradztwa.\n\n## Co jest dla nas ważne\n\nRzetelność to dla nas nie pusty slogan: uzgodnione terminy obowiązują, a jeśli coś się zmienia, mówimy o tym otwarcie. Jakość oznacza staranne wykonanie także szczegółów, czyli połączeń, krawędzi i przejść. A uczciwa cena oznacza, że z góry wiedzą Państwo, czego się spodziewać.\n\n## Nasz obszar działania\n\nNasza siedziba znajduje się przy In den Feldgärten 11D w Sulingen. Stąd dojeżdżamy do klientów w promieniu około 100 km – do dużych miast, takich jak Bremen czy Hannover, i do mniejszych miejscowości w Dolnej Saksonii. Wszędzie pracujemy według tych samych zasad. Przykłady naszej pracy znajdą Państwo w [galerii](/pl/galeria), a najprościej poznać nas przez [formularz kontaktowy](/pl/kontakt) lub rozmowę telefoniczną.",
+        "faqRaw": "Gdzie znajduje się siedziba GRP Bau?\nNasza siedziba mieści się przy In den Feldgärten 11D, 27232 Sulingen w Dolnej Saksonii.\n\nCzy pracują Państwo tylko w najbliższej okolicy?\nNie. Zlecenia realizujemy w promieniu około 100 km od naszej siedziby – także w Bremen, Hannover, Oldenburg czy Osnabrück oraz w mniejszych miejscowościach regionu.\n\nCo oznacza motto „Wir sind immer für Sie da”?\nTo nasza dewiza, po polsku: „Zawsze jesteśmy do Państwa dyspozycji”. Można się z nami skontaktować telefonicznie, przez WhatsApp, e-mailem lub przez formularz, a my odpowiadamy na każde zapytanie.\n\nCzy wycena jest naprawdę bezpłatna?\nTak. Omawiamy Państwa plany i przygotowujemy wycenę bez żadnych kosztów. Zlecenie powstaje dopiero wtedy, gdy zaakceptują Państwo naszą ofertę.",
+        "metaTitle": "O nas: firma wykończeniowa z Dolnej Saksonii | GRP Bau",
+        "metaDescription": "GRP Bau z siedzibą w Sulingen: doświadczony zespół, terminowość i wysoka jakość w uczciwych cenach. Pracujemy w promieniu ok. 100 km, m.in. w Bremen."
+      },
+      "en": {
+        "h1": "About GRP Bau: Based in Sulingen, Working across the Region",
+        "intro": "GRP Bau is an interior finishing company based in Sulingen, Lower Saxony, with customers across the wider region. We handle the key interior finishing jobs: new walls and ceilings in drywall, painting and wallpapering, floor coverings from laminate to carpet, and the laying of cables, empty conduits and cable ducts.\n\nOur motto is “Wir sind immer für Sie da”, which means “We are always there for you”. In practice, this means we are easy to reach, we listen before we plan and we keep to agreed dates. Behind GRP Bau is an experienced team that values careful work at fair prices. Whether it is a small renovation or a larger interior fit-out, you get an honest assessment and a free consultation.",
+        "body": "## How we work\n\nGood work starts with a clear plan. Before we begin, we discuss with you what needs doing, which materials are suitable and in which order the work makes sense. Because all the work is in one pair of hands, we can coordinate [drywall](/en/services/drywall), [renovation](/en/services/renovation), [flooring](/en/services/flooring) and [cable laying](/en/services/cable-laying) directly with each other.\n\nWhen it comes to cable laying, we are open about where our work ends: we lay cables, empty conduits and cable ducts, and a licensed electrician makes the connection. This clear division is part of honest advice.\n\n## What matters to us\n\nReliability is more than a word to us: agreed dates stand, and if something changes, we tell you. Quality means finishing the details carefully too, such as joints, edges and transitions. And fair prices mean you know in advance what to expect.\n\n## From Sulingen across the region\n\nOur base is at In den Feldgärten 11D in Sulingen. From here, we work within a radius of about 100 km, for example in Bremen, Hanover and Osnabrück as well as in the smaller towns in between. Wherever your project is, you can count on the same careful and reliable way of working. You can see examples of our work in the [gallery](/en/gallery) or [contact us](/en/contact) directly to get to know us.",
+        "faqRaw": "Where is GRP Bau based?\nOur base is at In den Feldgärten 11D, 27232 Sulingen. From there, we work for customers within a radius of about 100 km, including Bremen and Hanover.\n\nWhat does “Wir sind immer für Sie da” mean?\nIt is our motto and translates as “We are always there for you”. You can reach us by phone, WhatsApp, e-mail or the contact form, and we reply to every enquiry.\n\nIs the consultation really free?\nYes. We discuss your plans at no cost to you. You only commission us once you have accepted our quote.",
+        "metaTitle": "About Us – From Sulingen to Bremen & Hanover | GRP Bau",
+        "metaDescription": "GRP Bau, based in Sulingen: an experienced, punctual and reliable interior team working across Lower Saxony and Bremen. Get to know us – free consultation!"
+      }
+    },
+    "contact": {
+      "de": {
+        "h1": "Kontakt zu GRP Bau – für Sulingen, Bremen, Hannover und Umgebung",
+        "intro": "Sie planen eine Renovierung, einen Umbau oder einen neuen Boden? Schreiben Sie uns über das Kontaktformular, per E-Mail an info@grp-bau.de oder rufen Sie uns an: +49 1556 1013765. Unter dieser Nummer erreichen Sie uns auch per WhatsApp. Unser Sitz ist in Sulingen, wir arbeiten im Umkreis von rund 100 km.\n\nDamit wir Ihre Anfrage schnell einschätzen können, helfen uns ein paar Angaben: wo sich das Objekt befindet, um welchen Raum es geht, die ungefähre Größe in Quadratmetern, welche Arbeiten gewünscht sind und bis wann sie fertig sein sollen. Fotos der Räume schicken Sie am einfachsten per WhatsApp. Die Beratung ist kostenlos.",
+        "body": "",
+        "faqRaw": "Welche Angaben braucht GRP Bau für ein Angebot?\nHilfreich sind der Ort des Projekts, die Art der Arbeiten, der Raum und seine ungefähre Größe, Ihr Wunschtermin und, wenn möglich, ein paar Fotos. Alles Weitere klären wir in der kostenlosen Beratung.\n\nKann ich Fotos per WhatsApp schicken?\nJa. Unter +49 1556 1013765 erreichen Sie uns per WhatsApp. Fotos der Räume helfen uns, Ihr Vorhaben besser einzuschätzen.\n\nWo befindet sich GRP Bau?\nUnser Sitz ist In den Feldgärten 11D, 27232 Sulingen. Von dort aus arbeiten wir im Umkreis von rund 100 km.\n\nArbeiten Sie auch in meinem Ort?\nIn der Regel ja, wenn Ihr Ort im Umkreis von rund 100 km um Sulingen liegt. Dazu gehören zum Beispiel Bremen, Hannover, Oldenburg und Osnabrück. Sind Sie unsicher, ob Ihr Ort dazugehört, fragen Sie einfach kurz per Telefon, WhatsApp oder E-Mail nach.",
+        "metaTitle": "Kontakt: kostenlose Beratung, 100 km um Sulingen | GRP Bau",
+        "metaDescription": "Kontakt zu GRP Bau: Telefon und WhatsApp +49 1556 1013765, E-Mail info@grp-bau.de. Projekte im Umkreis von 100 km um Sulingen – Beratung kostenlos!"
+      },
+      "pl": {
+        "h1": "Kontakt z GRP Bau – Sulingen, Bremen, Hannover i okolice",
+        "intro": "Planują Państwo remont, przebudowę albo nową podłogę? Prosimy napisać do nas przez formularz kontaktowy, e-mailem na adres info@grp-bau.de lub zadzwonić pod numer +49 1556 1013765. Pod tym numerem jesteśmy dostępni także na WhatsAppie. Pracujemy w promieniu około 100 km od Sulingen, między innymi w Bremen, Hannover i Osnabrück.\n\nAby szybko ocenić zapytanie, przydadzą się nam podstawowe informacje: jakiego pomieszczenia dotyczy, w jakiej miejscowości się znajduje, jaka jest jego przybliżona powierzchnia w metrach kwadratowych, jakie prace są potrzebne i na kiedy mają być gotowe. Zdjęcia pomieszczeń najwygodniej przesłać przez WhatsApp. Wycena jest bezpłatna.",
+        "body": "",
+        "faqRaw": "Jakie informacje są potrzebne do wyceny?\nPomocne są: rodzaj prac, pomieszczenie i jego przybliżona powierzchnia, miejscowość, preferowany termin oraz, jeśli to możliwe, kilka zdjęć. Resztę ustalimy podczas bezpłatnej wyceny.\n\nCzy mogę wysłać zdjęcia przez WhatsApp?\nTak. Pod numerem +49 1556 1013765 jesteśmy dostępni na WhatsAppie. Zdjęcia pomieszczeń pomagają nam lepiej ocenić zakres prac.\n\nCzy pracują Państwo także w mojej miejscowości?\nPracujemy w promieniu około 100 km od Sulingen – w większych miastach, takich jak Bremen, Hannover, Oldenburg czy Osnabrück, i w mniejszych miejscowościach regionu. Jeśli nie są Państwo pewni, czy Państwa adres mieści się w tym obszarze, wystarczy zapytać telefonicznie, przez WhatsApp lub e-mailem.\n\nGdzie znajduje się GRP Bau?\nNasza siedziba mieści się przy In den Feldgärten 11D, 27232 Sulingen. Stąd realizujemy zlecenia w Dolnej Saksonii i w Bremen.",
+        "metaTitle": "Kontakt i bezpłatna wycena w Dolnej Saksonii | GRP Bau",
+        "metaDescription": "Kontakt z GRP Bau: telefon i WhatsApp +49 1556 1013765, e-mail info@grp-bau.de. Pracujemy w promieniu ok. 100 km od Sulingen. Wycena jest bezpłatna!"
+      },
+      "en": {
+        "h1": "Contact GRP Bau: Free Consultation from Bremen to Osnabrück",
+        "intro": "Planning a renovation, a remodel or a new floor? Send us a message via the contact form, e-mail info@grp-bau.de or call us on +49 1556 1013765. You can also reach us on WhatsApp at the same number. We are based in Sulingen and work within a radius of about 100 km, so feel free to get in touch from Bremen, Hanover or elsewhere in the region.\n\nTo assess your enquiry quickly, a few details help: which room it concerns, its approximate size in square metres, what work you need, where the property is located and by when it should be finished. Photos of the rooms are easiest to send via WhatsApp. The consultation is free.",
+        "body": "",
+        "faqRaw": "What information do you need for a quote?\nIt helps to know the type of work, the room and its approximate size, the location of the property, your preferred date and, if possible, a few photos. We clarify everything else during the free consultation.\n\nCan I send photos via WhatsApp?\nYes. You can reach us on WhatsApp at +49 1556 1013765. Photos of the rooms help us assess your project more accurately.\n\nDo you also work in my town?\nIf your town is within about 100 km of Sulingen, yes. That covers cities such as Bremen, Hanover and Osnabrück as well as the many smaller towns in between. If you are not sure, just ask us.\n\nWhere is GRP Bau located?\nOur base is at In den Feldgärten 11D, 27232 Sulingen, in Lower Saxony.",
+        "metaTitle": "Contact & Free Consultation: Bremen to Hanover | GRP Bau",
+        "metaDescription": "Contact GRP Bau: phone and WhatsApp +49 1556 1013765, e-mail info@grp-bau.de. We work within about 100 km of Sulingen. Book your free consultation today!"
+      }
+    }
+  },
+  "services": [
+    {
+      "key": "innenausbau",
+      "de": {
+        "title": "Innenausbau",
+        "slug": "innenausbau",
+        "h1": "Innenausbau in Bremen, Hannover & Umgebung",
+        "excerpt": "Innenausbau aus einer Hand: Wände, Decken, Böden, Oberflächen und Leitungswege.",
+        "featuresRaw": "Planung und Ausführung aus einer Hand\nTrockenbauwände und Decken\nMaler- und Tapezierarbeiten\nBodenbeläge verlegen\nLeitungswege vorbereiten\nAbgestimmte Termine aller Arbeiten",
+        "body": "## Innenausbau: Was wir für Sie übernehmen\n\nBeim Innenausbau wird aus einem Rohbau oder einem bestehenden Raum ein fertiger, nutzbarer Wohn- oder Arbeitsraum. GRP Bau verbindet dafür mehrere Arbeiten: Wir ziehen Wände und Decken im Trockenbau ein, bereiten Leitungswege mit Kabeln, Leerrohren und Kabelkanälen vor, gestalten Wände und Decken mit Farbe oder Tapete und verlegen zum Schluss den passenden Bodenbelag.\n\nDer Vorteil: Sie müssen nicht mehrere Firmen koordinieren. Wir planen die Arbeitsschritte so, dass sie sinnvoll aufeinander aufbauen, und Sie haben einen Ansprechpartner vom ersten Gespräch bis zur Übergabe.\n\n## Typische Projekte\n\n- Ausbau eines Dachgeschosses zu Wohn- oder Arbeitsräumen\n- Neuaufteilung von Räumen mit zusätzlichen Trennwänden\n- Ausbau von Kellerräumen\n- Umgestaltung einer Wohnung vor dem Einzug\n- Herrichten von Büroräumen\n\n## So läuft ein Innenausbau ab\n\nAm Anfang steht eine kostenlose Beratung. Wir besprechen, wie die Räume später genutzt werden sollen, wo neue Wände entstehen, wo Leitungen verlaufen und welche Oberflächen und Böden Sie sich wünschen. Danach erhalten Sie ein Angebot mit den geplanten Arbeiten.\n\nBei der Ausführung gilt eine klare Reihenfolge: zuerst Trockenbau und Leitungswege, dann Spachtel- und Malerarbeiten, zuletzt der Boden. So wird nichts doppelt gemacht, und jeder Arbeitsschritt beginnt auf einem gut vorbereiteten Untergrund. Die elektrischen Anschlüsse übernimmt anschließend ein Elektrofachbetrieb.\n\n## Innenausbau in der Region\n\nUnser Sitz ist in Sulingen, unser Einsatzgebiet reicht rund 100 km weit. Den Innenausbau übernehmen wir in Städten wie Bremen, Hannover oder Verden (Aller) ebenso wie in kleineren Orten dazwischen. Ob Stadtwohnung, Einfamilienhaus oder Büroräume: Der Ablauf bleibt derselbe, mit kostenloser Beratung, einem klaren Angebot, abgestimmten Terminen und einem festen Ansprechpartner, der für Sie erreichbar ist. Fotos der Räume per WhatsApp helfen uns, Ihr Vorhaben schon vor dem ersten Termin einzuschätzen.\n\n## Warum GRP Bau?\n\nUnser erfahrenes Team kennt die Abläufe im Innenausbau und achtet auf saubere Details an Kanten, Anschlüssen und Übergängen. Wir sind pünktlich und zuverlässig und arbeiten in hoher Qualität zu fairen Preisen. Den Preis kennen Sie vor dem Start aus unserem Angebot. Und wenn sich im Laufe der Arbeiten etwas ändert, sprechen wir es offen mit Ihnen an.\n\nEinzelne Arbeiten können Sie natürlich auch separat beauftragen, etwa [Trockenbau](/leistungen/trockenbau) oder einen neuen Boden vom [Bodenleger](/leistungen/bodenleger). Sie planen einen Innenausbau? [Kontaktieren Sie uns](/kontakt) für eine kostenlose Beratung.",
+        "faqRaw": "Was gehört bei GRP Bau zum Innenausbau?\nDer Innenausbau umfasst bei uns Trockenbau für Wände und Decken, Maler- und Tapezierarbeiten, das Verlegen von Bodenbelägen und die Leitungsverlegung mit Kabeln, Leerrohren und Kabelkanälen.\n\nÜbernehmen Sie auch die Elektroinstallation?\nWir verlegen Kabel, Leerrohre und Kabelkanäle. Den Anschluss der Leitungen übernimmt ein zugelassener Elektrofachbetrieb.\n\nKann ich nur einen Teil des Innenausbaus beauftragen?\nJa. Sie können einzelne Arbeiten wie Trockenbau, Malerarbeiten oder Bodenbeläge separat beauftragen oder alles miteinander kombinieren.\n\nWie lange dauert ein Innenausbau?\nDas hängt von Größe und Umfang des Projekts ab. Nach der Beratung nennen wir Ihnen einen realistischen Zeitrahmen, an den wir uns halten.",
+        "metaTitle": "Innenausbau in Bremen, Hannover & Umgebung | GRP Bau",
+        "metaDescription": "Innenausbau in Bremen, Hannover und Umgebung: Trockenbau, Malerarbeiten, Böden und Leitungswege aus einer Hand. Jetzt kostenlose Beratung bei GRP Bau anfragen!"
+      },
+      "pl": {
+        "title": "Wykończenia wnętrz",
+        "slug": "wykonczenia-wnetrz",
+        "h1": "Wykończenia wnętrz w Bremen, Hannover i okolicach",
+        "excerpt": "Wykończenie wnętrz z jednej ręki: ściany, sufity, podłogi, powierzchnie i przewody.",
+        "featuresRaw": "Planowanie i wykonanie z jednej ręki\nŚciany i sufity z płyt g-k\nMalowanie i tapetowanie\nUkładanie podłóg\nPrzygotowanie tras przewodów\nZgrane terminy wszystkich prac",
+        "body": "## Wykończenie wnętrz: co dla Państwa robimy\n\nPrzy wykończeniu wnętrz ze stanu surowego lub z istniejącego pomieszczenia powstaje gotowa, funkcjonalna przestrzeń do mieszkania lub pracy. GRP Bau łączy w tym celu kilka rodzajów prac: stawiamy ściany i sufity z płyt g-k, przygotowujemy trasy przewodów z kablami, rurami osłonowymi i kanałami kablowymi, wykańczamy ściany i sufity farbą lub tapetą, a na końcu układamy odpowiednią podłogę.\n\nZaleta: nie muszą Państwo koordynować kilku firm. Planujemy kolejne etapy tak, aby logicznie się ze sobą łączyły, a Państwo mają jedną osobę kontaktową od pierwszej rozmowy aż do odbioru.\n\n## Typowe projekty\n\n- adaptacja poddasza na pokoje mieszkalne lub do pracy\n- nowy podział pomieszczeń z dodatkowymi ściankami działowymi\n- wykończenie pomieszczeń w piwnicy\n- przebudowa i odświeżenie mieszkania przed wprowadzeniem się\n- przygotowanie pomieszczeń biurowych\n\n## Jak przebiega wykończenie wnętrz\n\nNa początku jest bezpłatna wycena. Omawiamy, jak pomieszczenia będą później używane, gdzie powstaną nowe ściany, którędy poprowadzimy przewody oraz jakich powierzchni i podłóg Państwo sobie życzą. Następnie otrzymują Państwo ofertę z opisem zaplanowanych prac.\n\nPodczas realizacji obowiązuje jasna kolejność: najpierw zabudowy g-k i trasy przewodów, potem szpachlowanie i malowanie, na końcu podłoga. Dzięki temu nic nie jest robione podwójnie, a każdy etap zaczyna się na dobrze przygotowanym podłożu. Podłączenia elektryczne wykonuje następnie uprawniony elektryk.\n\n## Wykończenia wnętrz w Bremen, Hannover i regionie\n\nNasza siedziba mieści się w Sulingen, ale wykończenia wnętrz realizujemy w promieniu około 100 km – w dużych miastach, takich jak Bremen i Hannover, oraz w mniejszych miejscowościach, na przykład w Nienburg (Weser). Przy projekcie, który obejmuje kilka etapów, szczególnie ważne jest dobre zaplanowanie terminów. Dlatego już przy wycenie ustalamy kolejność prac, tak aby poszczególne etapy sprawnie po sobie następowały – niezależnie od tego, gdzie znajduje się Państwa mieszkanie, dom czy biuro.\n\n## Dlaczego GRP Bau?\n\nNasz doświadczony zespół zna przebieg prac wykończeniowych i dba o staranne detale na krawędziach, połączeniach i przejściach. Jesteśmy punktualni i rzetelni, a wysoką jakość oferujemy w uczciwych cenach. Nasze motto „Wir sind immer für Sie da” oznacza, że przez cały czas trwania prac łatwo się z nami skontaktować – telefonicznie, przez WhatsApp lub e-mailem.\n\nPoszczególne prace można oczywiście zlecić osobno, na przykład [zabudowy g-k](/pl/uslugi/zabudowy-gk) albo [układanie podłóg](/pl/uslugi/ukladanie-podlog). Planują Państwo wykończenie wnętrza? [Zapraszamy do kontaktu](/pl/kontakt) – wycena jest bezpłatna.",
+        "faqRaw": "Co obejmuje wykończenie wnętrz w GRP Bau?\nU nas wykończenie wnętrz obejmuje zabudowy g-k ścian i sufitów, malowanie i tapetowanie, układanie podłóg oraz układanie przewodów z kablami, rurami osłonowymi i kanałami kablowymi.\n\nCzy wykonują Państwo instalację elektryczną?\nUkładamy kable, rury osłonowe i kanały kablowe. Podłączenie przewodów wykonuje uprawniony elektryk.\n\nCzy mogę zlecić tylko część prac?\nTak. Poszczególne prace, takie jak zabudowy g-k, malowanie czy układanie podłóg, można zlecić osobno albo połączyć.\n\nIle trwa wykończenie wnętrza?\nTo zależy od wielkości i zakresu prac. Po rozmowie podajemy realny harmonogram, którego się trzymamy.",
+        "metaTitle": "Wykończenia wnętrz w Bremen i Hannover | GRP Bau",
+        "metaDescription": "Wykończenia wnętrz z jednej ręki: zabudowy G-K, malowanie, podłogi i trasy przewodów – w Bremen, Hannover i okolicach. Zapraszamy po bezpłatną wycenę!"
+      },
+      "en": {
+        "title": "Interior finishing",
+        "slug": "interior-finishing",
+        "h1": "Interior Finishing in Bremen, Hanover and the Surrounding Area",
+        "excerpt": "Interior finishing from one team: walls, ceilings, floors, surfaces and cable routes.",
+        "featuresRaw": "Planning and execution from one team\nDrywall walls and ceilings\nPainting and wallpapering\nFloor laying\nCable routes prepared\nCoordinated scheduling of all work",
+        "body": "## Interior finishing: what we do for you\n\nInterior finishing turns a shell or an existing room into a finished, usable space for living or working. GRP Bau brings several jobs together for this: we build walls and ceilings in drywall, prepare cable routes with cables, empty conduits and cable ducts, finish walls and ceilings with paint or wallpaper and, finally, lay the right floor covering.\n\nThe advantage: you do not have to coordinate several companies. We plan the steps so that each one builds on the last, and you have one point of contact from the first conversation to the handover.\n\nThis saves time and effort, especially on larger projects where several trades would otherwise have to wait for one another. Instead of arranging separate appointments for drywall, painting and flooring, you agree the schedule with us, and we coordinate the individual steps.\n\n## Typical projects\n\n- Converting a loft into living or working space\n- Reorganising rooms with additional partition walls\n- Finishing basement rooms\n- Remodelling and refreshing a flat before moving in\n- Fitting out office rooms\n\n## How interior finishing works\n\nIt starts with a free consultation. We discuss how the rooms will be used, where new walls will go, where cables will run and which surfaces and floors you would like. For larger projects, the consultation can also take place on site. You then receive a quote describing the planned work.\n\nDuring the work, a clear order applies: drywall and cable routes first, then filling and painting, and the floor last. That way nothing is done twice, and every step starts on a properly prepared surface. The electrical connections are then made by a licensed electrician.\n\n## Why GRP Bau?\n\nOur experienced team knows the interior finishing process and pays attention to clean details at edges, joints and transitions. We are punctual and reliable and deliver high quality at fair prices. From our base in Sulingen, we take on interior finishing projects within a radius of about 100 km – in Bremen and Hanover as well as in the towns in between.\n\nOf course, you can also book individual jobs, such as [drywall](/en/services/drywall) or a new floor from our [flooring](/en/services/flooring) service. Planning an interior project? [Contact us](/en/contact) for a free consultation.",
+        "faqRaw": "What does interior finishing at GRP Bau include?\nWith us, interior finishing covers drywall for walls and ceilings, painting and wallpapering, laying floor coverings and cable laying with cables, empty conduits and cable ducts.\n\nDo you also do the electrical installation?\nWe lay cables, empty conduits and cable ducts. The connection of the cables is carried out by a licensed electrician.\n\nCan I book only part of the work?\nYes. You can book individual jobs such as drywall, painting or flooring separately, or combine them.\n\nHow long does interior finishing take?\nThat depends on the size and scope of the project. After the consultation, we give you a realistic timeframe and stick to it.",
+        "metaTitle": "Interior Finishing around Bremen & Hanover | GRP Bau",
+        "metaDescription": "Interior finishing in Bremen, Hanover and the region: drywall, painting, flooring and cable routes from one team, properly coordinated. Ask GRP Bau today!"
+      }
+    },
+    {
+      "key": "renovierung",
+      "de": {
+        "title": "Renovierung",
+        "slug": "renovierung",
+        "h1": "Renovierung und Malerarbeiten in Bremen, Oldenburg & Umgebung",
+        "excerpt": "Malerarbeiten, Tapezieren und Renovierung von Innenräumen für ein frisches, gepflegtes Zuhause.",
+        "featuresRaw": "Innenanstrich von Wänden und Decken\nTapezieren, z. B. Raufaser und Vlies\nVorbereitung des Untergrunds\nSpachtel- und Ausbesserungsarbeiten\nKombination mit neuem Boden und Trockenbau",
+        "body": "## Renovierung: frische Räume ohne großen Umbau\n\nManchmal braucht ein Raum keinen Umbau, sondern einfach ein neues Gesicht. Bei der Renovierung bringen wir Wände und Decken wieder in einen gepflegten Zustand: mit Malerarbeiten, neuen Tapeten und bei Bedarf einem neuen Bodenbelag. Ob vor dem Einzug, nach dem Auszug oder weil die Räume in die Jahre gekommen sind, GRP Bau sorgt dafür, dass Ihr Zuhause wieder frisch und einladend wirkt.\n\n## Malerarbeiten und Tapezieren\n\nEin gleichmäßiger Anstrich steht und fällt mit der Vorbereitung. Wir prüfen den Untergrund, bessern Löcher und Risse aus, spachteln und schleifen, wo es nötig ist, und grundieren, bevor die Farbe aufgetragen wird. So entstehen glatte Flächen und klare Kanten an Decken, Fenstern und Türrahmen.\n\nBeim Tapezieren arbeiten wir zum Beispiel mit Raufaser- oder Vliestapete. Falls nötig, entfernen wir vorher alte Tapeten, damit die neue Tapete sicher auf dem Untergrund hält.\n\n## Typische Renovierungsarbeiten\n\n- Wohnung vor dem Einzug oder nach dem Auszug streichen\n- Einzelne Zimmer neu gestalten, etwa Wohnzimmer, Schlafzimmer oder Flur\n- Treppenhäuser und Flure auffrischen\n- Wände und Decken nach Umbauarbeiten fertigstellen\n- Renovierung in Verbindung mit einem neuen Boden\n\n## So läuft die Renovierung ab\n\nAm Anfang steht eine kostenlose Beratung, in der wir Räume, Flächen und Ihre Wünsche zu Farben und Tapeten besprechen. Danach erhalten Sie ein Angebot. Nach Ihrer Zusage stimmen wir den Termin ab, führen die Arbeiten wie besprochen aus und gehen das Ergebnis zum Schluss gemeinsam mit Ihnen durch.\n\n## Renovierung in Bremen, Oldenburg und Umgebung\n\nVon unserem Sitz in Sulingen aus renovieren wir Wohnungen und Häuser im Umkreis von rund 100 km, zum Beispiel in Bremen, Oldenburg oder Delmenhorst. Gerade vor einem Einzug oder nach einem Auszug kommt es darauf an, dass der Termin feststeht und die Räume rechtzeitig fertig sind. Deshalb stimmen wir den Zeitplan vorab mit Ihnen ab und halten uns daran. Fotos der Räume können Sie uns für eine erste Einschätzung gern per WhatsApp schicken.\n\n## Warum GRP Bau?\n\nWir arbeiten sorgfältig, pünktlich und zuverlässig, mit einem erfahrenen Team und zu fairen Preisen. Den Preis kennen Sie vor dem Start aus unserem Angebot. Weil wir auch [Trockenbau](/leistungen/trockenbau) und [Bodenbeläge](/leistungen/bodenleger) übernehmen, können Sie bei Bedarf mehrere Arbeiten in einem Durchgang erledigen lassen. Sie möchten Ihre Räume renovieren lassen? [Fragen Sie uns an](/kontakt) – die Beratung ist kostenlos.",
+        "faqRaw": "Welche Malerarbeiten übernehmen Sie?\nWir streichen Wände und Decken in Innenräumen und bereiten den Untergrund dafür vor, zum Beispiel durch Spachteln, Schleifen und Grundieren.\n\nKann ich Farben und Tapeten selbst aussuchen?\nJa. Farbtöne und Tapeten wählen Sie nach Ihrem Geschmack aus. In der Beratung helfen wir Ihnen gern bei der Auswahl.\n\nLohnt es sich, Renovierung und neuen Boden zu kombinieren?\nOft ja. Zuerst werden Wände und Decken gestrichen, danach wird der Boden verlegt. So bleibt der neue Belag frei von Farbspritzern. Beide Arbeiten planen wir zusammen.\n\nWann können Sie mit der Renovierung beginnen?\nDen Termin stimmen wir nach Ihrer Zusage gemeinsam mit Ihnen ab, abhängig vom Umfang der Arbeiten und Ihrer Planung.",
+        "metaTitle": "Renovierung & Malerarbeiten in Bremen & Oldenburg | GRP Bau",
+        "metaDescription": "Renovierung in Bremen, Oldenburg und Umgebung: Malerarbeiten, Tapezieren und Ausbesserungen in Innenräumen, auf Wunsch mit neuem Boden. GRP Bau berät kostenlos!"
+      },
+      "pl": {
+        "title": "Remonty",
+        "slug": "remonty",
+        "h1": "Remonty i malowanie między Bremen, Hannover a Osnabrück",
+        "excerpt": "Malowanie, tapetowanie i odświeżanie wnętrz, aby Państwa dom znów był świeży i zadbany.",
+        "featuresRaw": "Malowanie ścian i sufitów\nTapetowanie, np. raufaza i flizelina\nPrzygotowanie podłoża\nSzpachlowanie i drobne naprawy\nPołączenie z nową podłogą i zabudową g-k",
+        "body": "## Remont: świeże wnętrza bez dużej przebudowy\n\nCzasem pomieszczenie nie potrzebuje przebudowy, tylko nowego wyglądu. Podczas remontu przywracamy ścianom i sufitom zadbany wygląd: malujemy je, kładziemy nowe tapety, a w razie potrzeby także nową podłogę. Przed wprowadzeniem się, po wyprowadzce albo wtedy, gdy wnętrza się zestarzały, GRP Bau sprawi, że Państwa dom znów będzie świeży i przytulny.\n\n## Malowanie i tapetowanie\n\nRówna, estetyczna powierzchnia zależy przede wszystkim od przygotowania. Sprawdzamy podłoże, naprawiamy dziury i pęknięcia, szpachlujemy i szlifujemy tam, gdzie to konieczne, i gruntujemy przed nałożeniem farby. Dzięki temu powstają gładkie powierzchnie i czyste krawędzie przy sufitach, oknach i ościeżnicach.\n\nPrzy tapetowaniu pracujemy na przykład z raufazą lub tapetami flizelinowymi. Jeśli to konieczne, wcześniej usuwamy stare tapety, aby nowe dobrze trzymały się podłoża.\n\n## Typowe prace remontowe\n\n- malowanie mieszkania przed wprowadzeniem się lub po wyprowadzce\n- odświeżenie pojedynczych pokoi, np. salonu, sypialni czy przedpokoju\n- odnowienie klatek schodowych i korytarzy\n- wykończenie ścian i sufitów po pracach budowlanych\n- remont połączony z nową podłogą\n\n## Jak przebiega remont\n\nNa początku jest bezpłatna wycena: omawiamy pomieszczenia, powierzchnie oraz Państwa życzenia dotyczące kolorów i tapet. Następnie otrzymują Państwo ofertę. Po jej akceptacji ustalamy termin, wykonujemy prace zgodnie z ustaleniami, a na koniec wspólnie oglądamy efekt. Jeśli razem z remontem planują Państwo nową podłogę, uwzględniamy ją od razu w ofercie i w kolejności prac.\n\n## Remonty w Bremen, Hannover, Osnabrück i okolicach\n\nRemonty i malowanie wykonujemy w promieniu około 100 km od naszej siedziby w Sulingen – na przykład w Bremen, Hannover, Osnabrück czy Diepholz, a także w wielu mniejszych miejscowościach regionu. Odświeżamy pojedyncze pokoje, całe mieszkania przed wprowadzeniem się lub po wyprowadzce, a także klatki schodowe i korytarze. Termin ustalamy z Państwem indywidualnie, a zakres prac znają Państwo z naszej oferty jeszcze przed ich rozpoczęciem.\n\n## Dlaczego GRP Bau?\n\nPracujemy starannie, punktualnie i rzetelnie, z doświadczonym zespołem i w uczciwych cenach. Ponieważ wykonujemy także [zabudowy g-k](/pl/uslugi/zabudowy-gk) i [układanie podłóg](/pl/uslugi/ukladanie-podlog), w razie potrzeby można połączyć kilka prac w jednym terminie. Kolory i tapety wybierają Państwo według własnego gustu, a my chętnie doradzimy podczas wyceny. Zdjęcia pomieszczeń, które mają zostać odnowione, najwygodniej przesłać nam przez WhatsApp – to ułatwia pierwszą ocenę zakresu prac. Chcą Państwo odnowić swoje wnętrza? [Zapraszamy do kontaktu](/pl/kontakt) – wycena jest bezpłatna.",
+        "faqRaw": "Jakie prace malarskie Państwo wykonują?\nMalujemy ściany i sufity wewnątrz pomieszczeń i przygotowujemy pod to podłoże, na przykład przez szpachlowanie, szlifowanie i gruntowanie.\n\nCzy mogę sam wybrać kolory i tapety?\nTak. Kolory i tapety wybierają Państwo według własnego gustu. Podczas wyceny chętnie pomożemy w wyborze.\n\nCzy warto połączyć remont z nową podłogą?\nCzęsto tak. Najpierw malujemy ściany i sufity, a potem układamy podłogę, dzięki czemu nowa nawierzchnia nie zostanie zabrudzona farbą. Oba etapy planujemy razem.\n\nKiedy mogą Państwo rozpocząć remont?\nTermin ustalamy wspólnie po akceptacji oferty, zależnie od zakresu prac i Państwa planów.",
+        "metaTitle": "Remonty i malowanie w Bremen i Osnabrück | GRP Bau",
+        "metaDescription": "Remonty i malowanie między Bremen, Hannover a Osnabrück: ściany i sufity, tapetowanie i drobne naprawy, także z nową podłogą. Wycena jest bezpłatna!"
+      },
+      "en": {
+        "title": "Renovation",
+        "slug": "renovation",
+        "h1": "Renovation and Painting in Bremen, Oldenburg and across Lower Saxony",
+        "excerpt": "Interior painting, wallpapering and renovation to make your home look fresh and well kept again.",
+        "featuresRaw": "Painting walls and ceilings\nWallpapering, e.g. woodchip and non-woven\nSurface preparation\nFilling and minor repairs\nCombined with new flooring and drywall",
+        "body": "## Renovation: fresh rooms without a major rebuild\n\nSometimes a room does not need a remodel, just a new look. When renovating, we bring walls and ceilings back into good condition with painting, new wallpaper and, if needed, a new floor covering. Whether before moving in, after moving out or simply because the rooms are showing their age, GRP Bau makes your home look fresh and inviting again.\n\nA renovation is often the quickest way to make a noticeable difference. Fresh walls and ceilings change the feel of a room completely, and the work is usually far less disruptive than a remodel.\n\n## Painting and wallpapering\n\nAn even finish depends on good preparation. We check the surface, repair holes and cracks, fill and sand where necessary and prime before the paint goes on. The result is smooth surfaces and crisp edges along ceilings, windows and door frames. Careful preparation is what makes the difference between a quick coat of paint and a clean, even finish.\n\nFor wallpapering, we work with woodchip or non-woven wallpaper, for example. If necessary, we remove old wallpaper first so that the new paper adheres properly.\n\n## Typical renovation work\n\n- Painting a flat before moving in or after moving out\n- Redecorating individual rooms such as the living room, bedroom or hallway\n- Refreshing stairwells and corridors\n- Repairing holes and cracks before repainting\n- Finishing walls and ceilings after building work\n- Renovation combined with a new floor\n\n## How a renovation works\n\nFirst comes a free consultation, where we discuss the rooms, the surfaces and your wishes for colours and wallpaper. You are welcome to send us photos of the rooms beforehand via WhatsApp. You then receive a quote. Once you accept it, we agree on a date, carry out the work as discussed and finally walk through the result with you.\n\n## Why GRP Bau?\n\nWe work carefully, punctually and reliably, with an experienced team and at fair prices. Because we also offer [drywall](/en/services/drywall) and [flooring](/en/services/flooring), you can have several jobs done in one go if needed. Renovation can also be part of a complete [interior finishing](/en/services/interior-finishing) project, for example after new partition walls have been put up. Would you like to renovate your home in Bremen, Oldenburg or elsewhere in Lower Saxony? [Contact us](/en/contact) for a free consultation.",
+        "faqRaw": "What painting work do you carry out?\nWe paint interior walls and ceilings and prepare the surfaces for it, for example by filling, sanding and priming.\n\nCan I choose the colours and wallpaper myself?\nYes. You choose the colours and wallpaper to suit your taste. We are happy to help you decide during the consultation.\n\nIs it worth combining a renovation with a new floor?\nOften, yes. Walls and ceilings are painted first and the floor is laid afterwards, so the new floor stays free of paint splashes. We plan both steps together.\n\nWhen can you start the renovation?\nWe agree on a date with you once you have accepted the quote, depending on the scope of work and your plans.",
+        "metaTitle": "Renovation & Painting in Bremen and Lower Saxony | GRP Bau",
+        "metaDescription": "Renovation in Bremen, Oldenburg and across Lower Saxony: painting, wallpapering, minor repairs and new flooring if you wish. Free consultation from GRP Bau!"
+      }
+    },
+    {
+      "key": "trockenbau",
+      "de": {
+        "title": "Trockenbau",
+        "slug": "trockenbau",
+        "h1": "Trockenbau zwischen Bremen, Hannover und Osnabrück",
+        "excerpt": "Trennwände, Vorsatzschalen und abgehängte Decken in Trockenbauweise, flexibel und ohne lange Trocknungszeiten.",
+        "featuresRaw": "Trennwände mit Metallständerwerk\nVorsatzschalen und Wandverkleidungen\nAbgehängte Decken und Deckenverkleidungen\nDämmung im Wand- und Deckenaufbau\nVerspachteln bis zur streichfertigen Fläche\nLeerrohre vor dem Schließen der Wände",
+        "body": "## Trockenbau: flexibel bauen ohne Nassarbeiten\n\nIm Trockenbau entstehen Wände und Decken aus Gipskartonplatten auf einem Unterbau aus Metallprofilen. Weil dabei kein Mörtel und kein Beton trocknen muss, sind die Räume schnell wieder nutzbar, und Grundrisse lassen sich ohne große Bauarbeiten verändern.\n\n## Was wir im Trockenbau übernehmen\n\n- **Trennwände:** neue Raumaufteilung, zum Beispiel ein zusätzliches Kinderzimmer, ein Arbeitszimmer oder ein abgetrennter Abstellraum.\n- **Vorsatzschalen:** gerade Wandflächen vor unebenem Mauerwerk, dahinter Platz für Leitungen und Dämmung.\n- **Decken:** abgehängte Decken und Deckenverkleidungen, etwa um Leitungen zu verdecken oder die Raumhöhe anzupassen.\n- **Dachschrägen:** Verkleidung im Dachgeschoss als Teil eines [Innenausbaus](/leistungen/innenausbau).\n- **Oberflächen:** Verspachteln der Fugen bis zur streichfertigen Fläche.\n\n## Trockenbau und Leitungen\n\nEin großer Vorteil des Trockenbaus: Kabel und Leerrohre lassen sich im Hohlraum der Wand führen, bevor die Platten geschlossen werden. Auch hinter einer Vorsatzschale vor einer bestehenden Wand ist Platz für Leitungen. Diese Arbeiten übernehmen wir im Rahmen unserer [Leitungsverlegung](/leistungen/leitungsverlegung). Den späteren Anschluss erledigt ein Elektrofachbetrieb.\n\n## So läuft es ab\n\nNach einer kostenlosen Beratung, in der wir Maße, Nutzung und Ihre Wünsche besprechen, erhalten Sie ein Angebot. Bei der Ausführung stellen wir zuerst das Ständerwerk, legen bei Bedarf Dämmung und Leerrohre ein, beplanken die Konstruktion und verspachteln die Fugen. Anschließend kann direkt gestrichen oder tapeziert werden. Auch das übernehmen wir im Bereich [Renovierung](/leistungen/renovierung).\n\n## Unser Einsatzgebiet im Trockenbau\n\nWir arbeiten von Sulingen aus im Umkreis von rund 100 km. Ob neue Trennwand in einer Wohnung in Hannover, abgehängte Decke in Bremen oder Dachausbau bei Osnabrück: Termine und Arbeitsschritte planen wir so, dass Sie vorab wissen, wann wir kommen und wie lange die Arbeiten geplant sind. Trockenbau ist besonders dann die richtige Wahl, wenn Räume schnell wieder nutzbar sein sollen, im Wohnhaus ebenso wie in Büroräumen.\n\n## Warum GRP Bau?\n\nUnser erfahrenes Team arbeitet präzise, damit Wände gerade stehen und Anschlüsse sauber sind. Wir halten vereinbarte Termine ein und bieten hohe Qualität zu fairen Preisen. Den Preis kennen Sie vor dem Start aus unserem Angebot. Nach dem Trockenbau verlegen wir auf Wunsch auch den neuen Boden, mehr dazu unter [Bodenleger](/leistungen/bodenleger). So haben Sie für mehrere Arbeiten einen Ansprechpartner und abgestimmte Termine. Sie planen Trockenbau in Ihren Räumen? [Kontaktieren Sie uns](/kontakt) für eine kostenlose Beratung.",
+        "faqRaw": "Was lässt sich mit Trockenbau umsetzen?\nZum Beispiel neue Trennwände, Vorsatzschalen vor unebenen Wänden, abgehängte Decken und Verkleidungen von Dachschrägen. So lassen sich Räume neu aufteilen, ohne massiv zu mauern.\n\nWie schnell ist eine Trockenbauwand fertig?\nDa keine Trocknungszeiten für Mörtel oder Beton anfallen, geht Trockenbau in der Regel deutlich schneller als Mauerwerksbau. Wie lange Ihr Projekt dauert, sagen wir Ihnen nach der Beratung.\n\nKann man Trockenbauwände dämmen?\nJa. In den Hohlraum der Wand kann Dämmmaterial eingelegt werden. Welche Lösung zu Ihrem Vorhaben passt, besprechen wir in der Beratung.\n\nKönnen in Trockenbauwänden Leitungen verlegt werden?\nJa. Kabel und Leerrohre werden vor dem Schließen der Wand im Hohlraum verlegt. Den Anschluss übernimmt ein Elektrofachbetrieb.",
+        "metaTitle": "Trockenbau in Bremen, Hannover & Osnabrück | GRP Bau",
+        "metaDescription": "Trockenbau zwischen Bremen, Hannover und Osnabrück: Trennwände, Vorsatzschalen und abgehängte Decken, streichfertig verspachtelt. GRP Bau berät kostenlos!"
+      },
+      "pl": {
+        "title": "Zabudowy G-K",
+        "slug": "zabudowy-gk",
+        "h1": "Zabudowy z płyt g-k w Dolnej Saksonii i Bremen",
+        "excerpt": "Ścianki działowe, okładziny ścian i sufity podwieszane z płyt g-k, bez długiego schnięcia.",
+        "featuresRaw": "Ścianki działowe na stelażu metalowym\nOkładziny ścian (przedścianki)\nSufity podwieszane i okładziny sufitów\nIzolacja w ścianach i sufitach\nSzpachlowanie pod malowanie\nRury osłonowe przed zamknięciem ścian",
+        "body": "## Zabudowy g-k: elastyczna przebudowa bez mokrych prac\n\nW technologii suchej zabudowy ściany i sufity powstają z płyt gipsowo-kartonowych mocowanych do stelaża z profili metalowych. Ponieważ nie trzeba czekać na wyschnięcie zaprawy czy betonu, pomieszczenia szybko nadają się do użytku, a układ wnętrz można zmienić bez dużych prac budowlanych.\n\n## Co wykonujemy\n\n- **Ścianki działowe:** nowy podział pomieszczeń, na przykład dodatkowy pokój dziecięcy, gabinet albo wydzielony schowek.\n- **Okładziny ścian:** równe powierzchnie przed nierównym murem, a za nimi miejsce na przewody i izolację.\n- **Sufity:** sufity podwieszane i okładziny sufitów, na przykład aby ukryć przewody lub zmienić wysokość pomieszczenia.\n- **Skosy dachowe:** zabudowa poddasza w ramach [wykończenia wnętrz](/pl/uslugi/wykonczenia-wnetrz).\n- **Powierzchnie:** szpachlowanie spoin aż do powierzchni gotowej pod malowanie.\n\n## Zabudowy g-k a przewody\n\nDużą zaletą suchej zabudowy jest to, że kable i rury osłonowe można poprowadzić w przestrzeni wewnątrz ściany, zanim zostanie zamknięta płytami. Zajmujemy się tym w ramach usługi [układanie przewodów](/pl/uslugi/ukladanie-przewodow). Późniejsze podłączenie wykonuje uprawniony elektryk.\n\n## Jak przebiegają prace\n\nPo bezpłatnej wycenie, podczas której omawiamy wymiary, przeznaczenie pomieszczeń i Państwa oczekiwania, otrzymują Państwo ofertę. Podczas realizacji najpierw montujemy stelaż, w razie potrzeby układamy izolację i rury osłonowe, następnie mocujemy płyty i szpachlujemy spoiny. Potem można od razu malować lub tapetować, co również wykonujemy w ramach [remontów](/pl/uslugi/remonty).\n\n## Sucha zabudowa w Bremen, Hannover i regionie\n\nZabudowy g-k wykonujemy w promieniu około 100 km od Sulingen – w Bremen, Hannover, Vechta i wielu innych miejscowościach regionu. Sucha zabudowa sprawdza się w mieszkaniach i domach, ale też przy przygotowaniu pomieszczeń biurowych, gdy trzeba wydzielić nowe pomieszczenie lub ukryć przewody pod sufitem. Wymiary i przeznaczenie pomieszczeń omawiamy podczas bezpłatnej wyceny, a następnie dopasowujemy konstrukcję do Państwa potrzeb. Jeśli w nowych ścianach mają biec przewody, układamy rury osłonowe jeszcze przed zamknięciem ścian płytami.\n\n## Dlaczego GRP Bau?\n\nNasz doświadczony zespół pracuje precyzyjnie, aby ściany były proste, a połączenia staranne. Dotrzymujemy terminów i oferujemy wysoką jakość w uczciwych cenach. Przy większych projektach zabudowę g-k łączymy z pozostałymi pracami: najpierw ściany i sufity razem z trasami przewodów, potem malowanie, a na końcu podłoga. Dzięki temu mają Państwo jedną osobę kontaktową dla wszystkich etapów. Zapytanie można wysłać telefonicznie, przez WhatsApp, e-mailem lub przez formularz kontaktowy. Planują Państwo zabudowę g-k? [Zapraszamy do kontaktu](/pl/kontakt) – wycena jest bezpłatna.",
+        "faqRaw": "Co można wykonać w technologii g-k?\nNa przykład nowe ścianki działowe, okładziny przed nierównymi ścianami, sufity podwieszane i zabudowę skosów. Pozwala to zmienić układ pomieszczeń bez murowania.\n\nJak szybko powstaje ścianka z płyt g-k?\nPonieważ nie trzeba czekać na wyschnięcie zaprawy ani betonu, sucha zabudowa trwa zwykle znacznie krócej niż murowanie. Ile potrwa Państwa projekt, powiemy po wycenie.\n\nCzy ścianki g-k można izolować?\nTak. W przestrzeń wewnątrz ściany można włożyć materiał izolacyjny. Odpowiednie rozwiązanie omawiamy podczas wyceny.\n\nCzy w ściankach g-k można poprowadzić przewody?\nTak. Kable i rury osłonowe układamy wewnątrz ściany przed jej zamknięciem. Podłączenie wykonuje uprawniony elektryk.",
+        "metaTitle": "Zabudowy G-K w Bremen, Hannover i okolicy | GRP Bau",
+        "metaDescription": "Zabudowy z płyt G-K: ścianki działowe, okładziny ścian i sufity podwieszane gotowe pod malowanie – w Bremen, Hannover i regionie. Wycena jest bezpłatna!"
+      },
+      "en": {
+        "title": "Drywall",
+        "slug": "drywall",
+        "h1": "Drywall Installation in Bremen, Hanover, Osnabrück and Nearby Towns",
+        "excerpt": "Partition walls, wall linings and suspended ceilings in drywall, with no long drying times.",
+        "featuresRaw": "Stud partition walls\nWall linings\nSuspended ceilings and ceiling linings\nInsulation within walls and ceilings\nJointing to a paint-ready finish\nEmpty conduits before walls are closed",
+        "body": "## Drywall: flexible building without wet trades\n\nIn drywall construction, walls and ceilings are built from plasterboard fixed to a frame of metal profiles. As there is no mortar or concrete that needs to dry, rooms can be used again quickly and layouts can be changed without major building work.\n\nDrywall is a good choice in many situations: in older buildings, uneven walls can be straightened with linings; in lofts, sloping ceilings can be lined; and in larger rooms, partition walls create separate spaces exactly where you need them.\n\n## What we do\n\n- **Partition walls:** a new room layout, for example an extra children's room, a home office or a separate storage room.\n- **Wall linings:** straight wall surfaces in front of uneven masonry, with space behind for cables and insulation.\n- **Ceilings:** suspended ceilings and ceiling linings, for example to conceal cables or adjust the room height.\n- **Sloping ceilings:** lining loft spaces as part of [interior finishing](/en/services/interior-finishing).\n- **Surfaces:** jointing and filling to a paint-ready finish.\n\n## Drywall and cables\n\nA big advantage of drywall is that cables and empty conduits can be run inside the wall cavity before the boards are closed. We handle this as part of our [cable laying](/en/services/cable-laying) service. Planning these routes early saves you from having to open up finished walls later on. The connection is then made by a licensed electrician.\n\n## How it works\n\nAfter a free consultation, where we discuss measurements, use and your wishes, you receive a quote. On site, we first build the frame, add insulation and conduits if required, fix the boards and fill the joints. The walls can then be painted or wallpapered straight away, which we also offer as part of [renovation](/en/services/renovation). Because there is no long drying time, the next steps, such as laying a new [floor](/en/services/flooring), can follow soon after.\n\n## Why GRP Bau?\n\nOur experienced team works precisely so that walls are straight and joints are clean. We keep to agreed dates and deliver high quality at fair prices. If drywall is just one part of your plans, we coordinate it with the other work, from cable routes to painting. Planning drywall work in Bremen, Hanover, Osnabrück or a town in between? [Contact us](/en/contact) for a free consultation.",
+        "faqRaw": "What can be built with drywall?\nFor example, new partition walls, linings in front of uneven walls, suspended ceilings and linings for sloping ceilings. This lets you change the layout of rooms without masonry work.\n\nHow quickly is a drywall partition finished?\nAs there is no mortar or concrete to dry, drywall is usually much quicker than building in masonry. We will tell you how long your project will take after the consultation.\n\nCan drywall partitions be insulated?\nYes. Insulation material can be placed inside the wall cavity. We discuss the right solution during the consultation.\n\nCan cables be run inside drywall walls?\nYes. Cables and empty conduits are laid in the cavity before the wall is closed. The connection is made by a licensed electrician.",
+        "metaTitle": "Drywall Installation: Bremen, Hanover, Osnabrück | GRP Bau",
+        "metaDescription": "Drywall in Bremen, Hanover and Osnabrück: partition walls, wall linings and suspended ceilings, jointed and ready to paint. Free consultation from GRP Bau!"
+      }
+    },
+    {
+      "key": "bodenleger",
+      "de": {
+        "title": "Bodenleger",
+        "slug": "bodenleger",
+        "h1": "Bodenleger im Raum Bremen und Hannover: Laminat, Parkett und Vinyl",
+        "excerpt": "Verlegung von Laminat, Parkett, Vinyl- und Designböden, Teppich und PVC, sauber und passgenau.",
+        "featuresRaw": "Laminat\nParkett\nVinyl- und Designböden\nTeppichboden und PVC\nVorbereitung des Untergrunds\nSockelleisten und Übergangsprofile",
+        "body": "## Neue Böden für Ihre Räume\n\nDer Boden prägt einen Raum wie kaum ein anderes Element. Als Bodenleger verlegen wir Laminat, Parkett, Vinyl- und Designböden sowie Teppichboden und PVC-Beläge. Ob einzelnes Zimmer oder ganze Wohnung: Wir beraten Sie bei der Auswahl und verlegen den neuen Belag sorgfältig und passgenau.\n\n## Welche Bodenbeläge wir verlegen\n\n- **Laminat:** robust, pflegeleicht und in vielen Holz- und Steinoptiken erhältlich.\n- **Parkett:** ein Naturprodukt aus Holz mit warmer Ausstrahlung, das Räumen einen hochwertigen Charakter gibt.\n- **Vinyl- und Designböden:** strapazierfähig und angenehm fußwarm, je nach Produkt auch für Küche und Flur geeignet.\n- **Teppichboden:** weich und wohnlich, gut geeignet für Schlaf- und Kinderzimmer.\n- **PVC-Beläge:** praktisch und leicht zu reinigen, zum Beispiel für Nebenräume.\n\n## Gute Vorbereitung ist die halbe Arbeit\n\nEin Boden ist nur so gut wie sein Untergrund. Vor der Verlegung prüfen wir, ob der Untergrund eben, trocken und tragfähig ist, und bereiten ihn bei Bedarf vor. Je nach Belag kommt eine passende Unterlage zum Einsatz. Zum Abschluss sorgen Sockelleisten und Übergangsprofile für saubere Ränder und Übergänge zwischen den Räumen.\n\n## So läuft es ab\n\nIn der kostenlosen Beratung besprechen wir Raum, Fläche, Nutzung und Ihre Wünsche zu Material und Optik. Danach erhalten Sie ein Angebot, und den Verlegetermin stimmen wir mit Ihnen ab. Bei einer Renovierung empfiehlt es sich, zuerst Wände und Decken zu streichen und den Boden zuletzt zu verlegen. Beides können Sie bei uns zusammen beauftragen, mehr dazu unter [Renovierung](/leistungen/renovierung).\n\n## Bodenleger für Bremen, Hannover und Umgebung\n\nNeue Böden verlegen wir im Umkreis von rund 100 km um unseren Sitz in Sulingen, in Bremen und Hannover ebenso wie zum Beispiel in Delmenhorst oder Vechta. Für die Beratung kommen wir auf Wunsch zu einem Termin vor Ort und sehen uns Raum und Untergrund an. Fotos per WhatsApp helfen uns schon vorab bei einer ersten Einschätzung.\n\n## Warum GRP Bau?\n\nUnser erfahrenes Team arbeitet genau und achtet auf Details wie Verlegebild, Anschlüsse und Türübergänge. Wir sind pünktlich und zuverlässig und bieten hohe Qualität zu fairen Preisen. Den Preis kennen Sie vor dem Start aus unserem Angebot. Auch im Rahmen eines kompletten [Innenausbaus](/leistungen/innenausbau) verlegen wir Ihren neuen Boden. Sie wünschen sich einen neuen Boden? [Fragen Sie uns an](/kontakt) – die Beratung ist kostenlos.",
+        "faqRaw": "Welche Bodenbeläge verlegen Sie?\nWir verlegen Laminat, Parkett, Vinyl- und Designböden, Teppichboden und PVC-Beläge.\n\nMuss der alte Boden vorher entfernt werden?\nDas hängt vom vorhandenen Belag und vom neuen Boden ab. Wir prüfen den Untergrund und besprechen mit Ihnen, was nötig ist.\n\nWelcher Boden eignet sich für welchen Raum?\nDas hängt von Nutzung, Optik und Budget ab. Laminat und Vinyl sind pflegeleicht, Parkett wirkt besonders natürlich, Teppich sorgt für eine wohnliche Atmosphäre. In der Beratung helfen wir Ihnen bei der Wahl.\n\nSollte man zuerst streichen oder zuerst den Boden verlegen?\nIn der Regel wird zuerst gestrichen und danach der Boden verlegt, damit der neue Belag nicht verschmutzt. Beides können Sie bei uns kombinieren.",
+        "metaTitle": "Bodenleger in Bremen & Hannover: Laminat, Parkett | GRP Bau",
+        "metaDescription": "Bodenleger im Raum Bremen und Hannover: Laminat, Parkett, Vinyl- und Designböden, Teppich und PVC sauber verlegt. Rufen Sie an – die Beratung ist kostenlos!"
+      },
+      "pl": {
+        "title": "Układanie podłóg",
+        "slug": "ukladanie-podlog",
+        "h1": "Układanie podłóg w Bremen i Oldenburg: laminat, parkiet, winyl",
+        "excerpt": "Starannie układamy laminat, parkiet, panele winylowe, wykładziny dywanowe i PVC.",
+        "featuresRaw": "Laminat\nParkiet\nPanele winylowe i podłogi designerskie\nWykładziny dywanowe i PVC\nPrzygotowanie podłoża\nListwy przypodłogowe i profile przejściowe",
+        "body": "## Nowe podłogi w Państwa domu\n\nPodłoga kształtuje charakter pomieszczenia jak mało który element. Układamy laminat, parkiet, panele winylowe i podłogi designerskie, a także wykładziny dywanowe i PVC. Niezależnie od tego, czy chodzi o jeden pokój, czy o całe mieszkanie, doradzimy przy wyborze i starannie ułożymy nową nawierzchnię.\n\n## Jakie podłogi układamy\n\n- **Laminat:** wytrzymały, łatwy w pielęgnacji i dostępny w wielu wzorach drewna i kamienia.\n- **Parkiet:** naturalny materiał z drewna o ciepłym charakterze, który nadaje wnętrzu szlachetny wygląd.\n- **Panele winylowe i podłogi designerskie:** odporne na ścieranie i przyjemnie ciepłe w dotyku, w zależności od produktu odpowiednie także do kuchni i przedpokoju.\n- **Wykładzina dywanowa:** miękka i przytulna, dobrze sprawdza się w sypialni i pokoju dziecięcym.\n- **PVC:** praktyczne i łatwe do czyszczenia, na przykład w pomieszczeniach gospodarczych.\n\n## Dobre przygotowanie to połowa sukcesu\n\nPodłoga jest tak dobra jak jej podłoże. Przed ułożeniem sprawdzamy, czy podłoże jest równe, suche i nośne, a w razie potrzeby odpowiednio je przygotowujemy. W zależności od rodzaju podłogi stosujemy właściwy podkład. Na koniec listwy przypodłogowe i profile przejściowe zapewniają estetyczne wykończenie krawędzi i przejść między pomieszczeniami.\n\n## Jak przebiegają prace\n\nPodczas bezpłatnej wyceny omawiamy pomieszczenie, powierzchnię, sposób użytkowania oraz Państwa oczekiwania co do materiału i wyglądu. Następnie otrzymują Państwo ofertę, a termin układania ustalamy wspólnie. Przy remoncie warto najpierw pomalować ściany i sufity, a podłogę ułożyć na końcu. Oba zakresy można zlecić nam razem – więcej w zakładce [remonty](/pl/uslugi/remonty).\n\n## Podłogi w Bremen, Oldenburg, Delmenhorst i okolicach\n\nZ siedziby w Sulingen dojeżdżamy do klientów w promieniu około 100 km. Nowe podłogi układamy między innymi w Bremen, Oldenburg, Delmenhorst i Hannover – w mieszkaniach, domach i pomieszczeniach biurowych. Jeśli nie są Państwo pewni, który materiał najlepiej sprawdzi się w danym pomieszczeniu, doradzimy podczas bezpłatnej wyceny i pomożemy porównać laminat, parkiet, winyl czy wykładzinę pod kątem codziennego użytkowania.\n\n## Dlaczego GRP Bau?\n\nNasz doświadczony zespół pracuje dokładnie i dba o szczegóły, takie jak układ paneli, połączenia i przejścia przy drzwiach. Jesteśmy punktualni i rzetelni, a wysoką jakość oferujemy w uczciwych cenach. Nową podłogę ułożymy również w ramach kompleksowego [wykończenia wnętrz](/pl/uslugi/wykonczenia-wnetrz). Zdjęcia pomieszczenia i obecnej podłogi najwygodniej przesłać nam przez WhatsApp – to ułatwia pierwszą ocenę prac. Potrzebują Państwo nowej podłogi? [Zapraszamy do kontaktu](/pl/kontakt) – wycena jest bezpłatna.",
+        "faqRaw": "Jakie podłogi Państwo układają?\nUkładamy laminat, parkiet, panele winylowe i podłogi designerskie, wykładziny dywanowe oraz wykładziny PVC.\n\nCzy starą podłogę trzeba wcześniej usunąć?\nTo zależy od obecnej nawierzchni i od nowej podłogi. Sprawdzamy podłoże i omawiamy z Państwem, co będzie potrzebne.\n\nJaka podłoga sprawdzi się w danym pomieszczeniu?\nTo zależy od sposobu użytkowania, wyglądu i budżetu. Laminat i winyl są łatwe w pielęgnacji, parkiet wygląda szczególnie naturalnie, a wykładzina tworzy przytulną atmosferę. Podczas wyceny pomożemy w wyborze.\n\nNajpierw malowanie czy układanie podłogi?\nZwykle najpierw się maluje, a dopiero potem układa podłogę, aby nowa nawierzchnia się nie zabrudziła. Oba zakresy można u nas połączyć.",
+        "metaTitle": "Układanie podłóg w Bremen i Oldenburg | GRP Bau",
+        "metaDescription": "Układanie podłóg w Bremen, Oldenburg, Delmenhorst i okolicach: laminat, parkiet, panele winylowe, wykładziny dywanowe i PVC. Bezpłatna wycena GRP Bau!"
+      },
+      "en": {
+        "title": "Flooring",
+        "slug": "flooring",
+        "h1": "Flooring from Oldenburg to Hanover: Laminate, Parquet and Vinyl",
+        "excerpt": "Laminate, parquet, vinyl and design floors, carpet and PVC, laid carefully and accurately.",
+        "featuresRaw": "Laminate\nParquet\nVinyl and design floors\nCarpet and PVC\nSubfloor preparation\nSkirting boards and transition profiles",
+        "body": "## New floors for your rooms\n\nFew things shape a room as much as its floor. From Oldenburg and Bremen to Hanover and Minden, and in the towns in between, we lay laminate, parquet, vinyl and design floors as well as carpet and PVC floor coverings. Whether it is a single room or a whole flat, we advise you on your choice and lay the new floor carefully and accurately.\n\n## Floor coverings we lay\n\n- **Laminate:** hard-wearing, easy to clean and available in many wood and stone looks.\n- **Parquet:** a natural wood product with a warm character that gives rooms a high-quality feel.\n- **Vinyl and design floors:** durable and pleasantly warm underfoot; depending on the product, also suitable for kitchens and hallways.\n- **Carpet:** soft and homely, a good choice for bedrooms and children's rooms.\n- **PVC:** practical and easy to clean, for example in utility rooms.\n\nNot every floor suits every room, so we look at how the room is used before recommending a covering.\n\n## Good preparation is half the job\n\nA floor is only as good as what lies beneath it. Before laying, we check that the subfloor is level, dry and load-bearing and prepare it where necessary. Depending on the floor covering, a suitable underlay is used. Finally, skirting boards and transition profiles give clean edges and neat transitions between rooms.\n\n## How it works\n\nDuring the free consultation, we discuss the room, its size and use, and your wishes regarding material and look. If you are still undecided, photos of floors you like are a good starting point. You then receive a quote, and we agree on a date for laying. When renovating, it is best to paint walls and ceilings first and lay the floor last. You can book both with us; find out more under [renovation](/en/services/renovation).\n\n## Why GRP Bau?\n\nOur experienced team works accurately and pays attention to details such as the laying pattern, joints and transitions at doorways. We are punctual and reliable and deliver high quality at fair prices, wherever your home is within our service area. We can also lay your new floor as part of a complete [interior finishing](/en/services/interior-finishing) project. Need a new floor? [Contact us](/en/contact) for a free consultation.",
+        "faqRaw": "Which floor coverings do you lay?\nWe lay laminate, parquet, vinyl and design floors, carpet and PVC floor coverings.\n\nDoes the old floor have to be removed first?\nThat depends on the existing covering and the new floor. We check the subfloor and discuss with you what is needed.\n\nWhich floor is right for which room?\nThat depends on use, look and budget. Laminate and vinyl are easy to care for, parquet looks particularly natural and carpet creates a cosy atmosphere. We help you choose during the consultation.\n\nShould I paint first or lay the floor first?\nUsually the painting is done first and the floor is laid afterwards so that the new floor does not get dirty. You can combine both with us.",
+        "metaTitle": "Laminate, Parquet & Vinyl Flooring near Bremen | GRP Bau",
+        "metaDescription": "Flooring from Oldenburg and Bremen to Hanover: laminate, parquet, vinyl and design floors, carpet and PVC, laid with care. Ask GRP Bau for a free consultation!"
+      }
+    },
+    {
+      "key": "leitungsverlegung",
+      "de": {
+        "title": "Leitungsverlegung",
+        "slug": "leitungsverlegung",
+        "h1": "Leitungsverlegung im Hochbau in Hannover, Bremen und Umgebung",
+        "excerpt": "Kabel, Leerrohre, Kabelkanäle und Kabeltrassen fachgerecht verlegt. Anschluss durch einen Elektrofachbetrieb.",
+        "featuresRaw": "Verlegen von Kabeln und Leitungen\nLeerrohre für spätere Installationen\nKabelkanäle auf Wand und Decke\nKabeltrassen und Kabelrinnen\nVorbereitung im Trockenbau\nKein Anschluss: erfolgt durch Elektrofachbetrieb",
+        "body": "## Leitungsverlegung: Was wir übernehmen\n\nBei der Leitungsverlegung im Hochbau schaffen wir die Wege für Kabel und Leitungen in Gebäuden. Wir verlegen Kabel, setzen Leerrohre für spätere Installationen, montieren Kabelkanäle auf Wänden und Decken und bauen Kabeltrassen und Kabelrinnen für größere Leitungsmengen. So sind die Leitungen ordentlich geführt, geschützt und für spätere Erweiterungen vorbereitet.\n\n## Wichtig: Anschluss durch einen Elektrofachbetrieb\n\nWir übernehmen ausschließlich die Verlegearbeiten. Das Anschließen der Leitungen an Verteiler, Schalter, Steckdosen oder Geräte sowie die Prüfung der Anlage gehören nicht zu unseren Leistungen. Diese Arbeiten darf nur ein eingetragener Elektrofachbetrieb ausführen. Wir sagen Ihnen das bewusst von Anfang an, damit Sie Ihr Projekt richtig planen können. Gern stimmen wir unsere Arbeiten zeitlich mit dem Elektriker Ihrer Wahl ab.\n\n## Typische Einsätze\n\n- Leerrohre im Neubau oder bei einem Umbau, bevor Wände geschlossen oder verputzt werden\n- Kabelführung in neuen [Trockenbauwänden](/leistungen/trockenbau)\n- Kabelkanäle für eine saubere Leitungsführung auf der Wand\n- Kabeltrassen und Kabelrinnen in Kellern, Technik- oder Lagerräumen\n- Vorbereitung von Leitungswegen im Rahmen eines [Innenausbaus](/leistungen/innenausbau)\n\n## So läuft es ab\n\nIn einer kostenlosen Beratung besprechen wir, welche Leitungen wo verlaufen sollen. Liegt bereits eine Planung Ihres Elektrikers vor, richten wir uns danach. Gibt es noch keine Planung, stimmen wir die Leitungswege gemeinsam mit Ihnen und Ihrem Elektriker ab. Anschließend erhalten Sie ein Angebot. Wir verlegen die Leitungen wie abgesprochen, danach kann der Elektrofachbetrieb die Anschlüsse vornehmen.\n\n## Leitungsverlegung in der Region\n\nLeitungen verlegen wir im Umkreis von rund 100 km um Sulingen, etwa in Hannover, Bremen, Minden oder Nienburg (Weser). Ob Neubau oder Umbau: Die Termine stimmen wir so ab, dass unsere Arbeiten in den Bauablauf passen und der Elektrofachbetrieb Ihrer Wahl direkt im Anschluss weitermachen kann. Die Leitungswege bereiten wir passend zur späteren Nutzung der Räume vor, etwa bei einem Dachausbau, bei der Neuaufteilung von Räumen oder beim Ausbau von Kellerräumen.\n\n## Warum GRP Bau?\n\nUnser erfahrenes Team arbeitet ordentlich und nachvollziehbar, damit der Elektriker später gut weiterarbeiten kann. Wir sind pünktlich und zuverlässig und bieten hohe Qualität zu fairen Preisen. Den Preis kennen Sie vor dem Start aus unserem Angebot. Weil wir auch Trockenbau und Innenausbau übernehmen, lassen sich Leitungswege und Wände in einem Ablauf planen. Sie planen eine Leitungsverlegung? [Kontaktieren Sie uns](/kontakt) für eine kostenlose Beratung.",
+        "faqRaw": "Schließen Sie die Leitungen auch an?\nNein. Wir verlegen Kabel, Leerrohre, Kabelkanäle und Kabeltrassen. Den Anschluss und die Inbetriebnahme übernimmt ein eingetragener Elektrofachbetrieb.\n\nWas ist ein Leerrohr und wofür braucht man es?\nEin Leerrohr ist ein Schutzrohr, in das Kabel eingezogen werden können. So lassen sich Leitungen später ergänzen oder tauschen, ohne die Wände erneut öffnen zu müssen.\n\nArbeiten Sie mit meinem Elektriker zusammen?\nJa. Wenn bereits eine Planung Ihres Elektrikers vorliegt, verlegen wir die Leitungen danach und stimmen die Termine so ab, dass er anschließend die Anschlüsse vornehmen kann.\n\nVerlegen Sie auch Leitungen in Trockenbauwänden?\nJa. Kabel und Leerrohre verlegen wir vor dem Schließen der Wand im Hohlraum. Den Trockenbau selbst können Sie ebenfalls bei uns beauftragen.",
+        "metaTitle": "Leitungsverlegung im Hochbau: Hannover & Bremen | GRP Bau",
+        "metaDescription": "Leitungsverlegung im Raum Hannover und Bremen: Kabel, Leerrohre, Kabelkanäle und Kabeltrassen. Den Anschluss übernimmt ein Elektrofachbetrieb. Jetzt anfragen!"
+      },
+      "pl": {
+        "title": "Układanie przewodów",
+        "slug": "ukladanie-przewodow",
+        "h1": "Układanie przewodów w budynkach – Hannover, Bremen i region",
+        "excerpt": "Układamy kable, rury osłonowe, kanały i korytka kablowe. Podłączenie wykonuje elektryk.",
+        "featuresRaw": "Układanie kabli i przewodów\nRury osłonowe na przyszłe instalacje\nKanały kablowe na ścianach i sufitach\nKorytka kablowe\nPrzygotowanie tras w zabudowie g-k\nBez podłączania: wykonuje je uprawniony elektryk",
+        "body": "## Układanie przewodów: co robimy\n\nW ramach układania przewodów w budynkach przygotowujemy trasy dla kabli i przewodów. Układamy kable, montujemy rury osłonowe na przyszłe instalacje, kanały kablowe na ścianach i sufitach oraz korytka kablowe dla większej liczby przewodów. Dzięki temu przewody są uporządkowane, chronione i przygotowane na późniejszą rozbudowę. Pracujemy zarówno w nowych budynkach, jak i przy przebudowie istniejących.\n\n## Ważne: podłączenie wykonuje uprawniony elektryk\n\nZajmujemy się wyłącznie układaniem. Podłączanie przewodów do rozdzielnic, włączników, gniazdek czy urządzeń oraz pomiary instalacji nie należą do naszych usług. W Niemczech prace te może wykonywać tylko zarejestrowany zakład elektroinstalacyjny (Elektrofachbetrieb). Mówimy o tym świadomie od samego początku, aby mogli Państwo właściwie zaplanować projekt. Chętnie zgramy nasze prace w czasie z wybranym przez Państwa elektrykiem.\n\n## Typowe zlecenia\n\n- rury osłonowe w nowym budynku lub przy przebudowie, zanim ściany zostaną zamknięte lub otynkowane\n- prowadzenie kabli w nowych [ściankach g-k](/pl/uslugi/zabudowy-gk)\n- kanały kablowe do estetycznego prowadzenia przewodów po ścianie\n- korytka kablowe w piwnicach, pomieszczeniach technicznych i magazynowych\n- przygotowanie tras przewodów w ramach [wykończenia wnętrz](/pl/uslugi/wykonczenia-wnetrz)\n\n## Jak przebiegają prace\n\nPodczas bezpłatnej wyceny ustalamy, którędy mają biec przewody. Jeśli istnieje już projekt Państwa elektryka, trzymamy się go. Następnie otrzymują Państwo ofertę. Układamy przewody zgodnie z ustaleniami, a potem elektryk może wykonać podłączenia. Przy przebudowie trasy przewodów planujemy razem z zabudową g-k, aby kable i rury osłonowe znalazły się w ścianie, zanim zostanie zamknięta.\n\n## Układanie przewodów w Hannover, Bremen i okolicach\n\nPrace przy układaniu przewodów wykonujemy w promieniu około 100 km od Sulingen, na przykład w Hannover, Bremen, Minden czy Osnabrück. Dotyczy to domów i mieszkań, ale też piwnic, pomieszczeń technicznych czy magazynowych. Niezależnie od miejsca obowiązuje ta sama zasada: my przygotowujemy trasy i układamy przewody, a podłączenie wykonuje uprawniony elektryk. Jeśli współpracują Państwo już z elektrykiem ze swojej okolicy, chętnie zgramy z nim terminy, tak aby jedne prace płynnie przechodziły w drugie.\n\n## Dlaczego GRP Bau?\n\nNasz doświadczony zespół pracuje porządnie i przejrzyście, aby elektryk mógł później sprawnie kontynuować pracę. Jesteśmy punktualni i rzetelni, a wysoką jakość oferujemy w uczciwych cenach. Jeśli Państwa elektryk przygotował już projekt, prosimy przesłać go razem z zapytaniem – na jego podstawie przygotujemy wycenę i zaproponujemy termin dopasowany do dalszych prac. Planują Państwo ułożenie przewodów? [Zapraszamy do kontaktu](/pl/kontakt) – wycena jest bezpłatna.",
+        "faqRaw": "Czy podłączają Państwo przewody?\nNie. Układamy kable, rury osłonowe, kanały i korytka kablowe. Podłączenie i uruchomienie wykonuje zarejestrowany zakład elektroinstalacyjny.\n\nCzym jest rura osłonowa (peszel) i do czego służy?\nTo rura ochronna, w którą można wciągnąć kable. Dzięki niej przewody można później dołożyć lub wymienić bez ponownego otwierania ścian.\n\nCzy mogą Państwo współpracować z moim elektrykiem?\nTak. Jeśli istnieje już projekt Państwa elektryka, układamy przewody zgodnie z nim i ustalamy terminy tak, aby mógł on następnie wykonać podłączenia.\n\nCzy układają Państwo przewody w ściankach g-k?\nTak. Kable i rury osłonowe układamy wewnątrz ściany przed jej zamknięciem. Samą zabudowę g-k również można u nas zlecić.",
+        "metaTitle": "Układanie przewodów w Hannover i Bremen | GRP Bau",
+        "metaDescription": "Układanie przewodów w Hannover, Bremen i okolicach: kable, rury osłonowe, kanały i korytka kablowe. Podłączenie wykonuje uprawniony elektryk. Zapraszamy!"
+      },
+      "en": {
+        "title": "Cable laying",
+        "slug": "cable-laying",
+        "h1": "Cable Laying in Buildings – Hanover, Bremen and the Region",
+        "excerpt": "We lay cables, empty conduits, cable ducts and cable trays. A licensed electrician makes the connection.",
+        "featuresRaw": "Laying cables and wiring\nEmpty conduits for future installations\nCable ducts on walls and ceilings\nCable trays\nPreparing cable routes in drywall\nNo connection work: done by a licensed electrician",
+        "body": "## Cable laying: what we do\n\nWhen laying cables in buildings, we create the routes for cables and wiring. We lay cables, install empty conduits for future installations, fit cable ducts on walls and ceilings and put up cable trays for larger numbers of cables. This keeps the cables tidy, protected and ready for later extensions.\n\nPlanning the routes early pays off: once walls have been closed, plastered or painted, adding cables usually means opening them up again.\n\n## Important: connection by a licensed electrician\n\nWe carry out the laying work only. Connecting cables to distribution boards, switches, sockets or appliances, as well as testing the installation, is not part of our service. In Germany, this work may only be carried out by a registered electrical contractor. We make this clear from the outset so that you can plan your project properly. The same applies to small jobs: we lay the cables, and the connection always remains with the electrician. We are happy to coordinate our work with the electrician of your choice.\n\n## Typical jobs\n\n- Empty conduits in new builds or during a remodel, before walls are closed or plastered\n- Running cables in new [drywall partitions](/en/services/drywall)\n- Surface-mounted cable ducts for tidy routing where walls should not be opened up\n- Cable trays in basements, plant rooms and storage areas\n- Preparing cable routes as part of [interior finishing](/en/services/interior-finishing)\n\n## How it works\n\nDuring a free consultation, we discuss where the cables should run. If your electrician has already drawn up a plan, we follow it. You then receive a quote. If drywall is part of your project, we coordinate the timing so that conduits are in place before the boards are closed. We lay the cables as agreed, after which the electrician can make the connections.\n\n## Why GRP Bau?\n\nOur experienced team works neatly and leaves a clear, well-documented cable layout, so that the electrician can easily carry on afterwards. Clear routes and tidy ducts make the next step simpler for everyone involved. We are punctual and reliable and deliver high quality at fair prices. From Sulingen, we work within a radius of about 100 km, including Hanover, Bremen and Minden. Planning cable laying work? [Contact us](/en/contact) for a free consultation.",
+        "faqRaw": "Do you connect the cables?\nNo. We lay cables, empty conduits, cable ducts and cable trays. Connection and commissioning are carried out by a registered electrical contractor.\n\nWhat is an empty conduit and what is it for?\nAn empty conduit is a protective pipe into which cables can be pulled. It allows cables to be added or replaced later without opening up the walls again.\n\nCan you work with my electrician?\nYes. If your electrician has already drawn up a plan, we lay the cables accordingly and agree the dates so that the connections can be made afterwards.\n\nDo you also lay cables in drywall walls?\nYes. We lay cables and empty conduits in the wall cavity before the wall is closed. You can also book the drywall work itself with us.",
+        "metaTitle": "Cable Laying in Buildings: Hanover & Bremen | GRP Bau",
+        "metaDescription": "Cable laying in Hanover, Bremen and the region: cables, empty conduits, cable ducts and cable trays. Connection by a licensed electrician. Ask GRP Bau today!"
+      }
+    }
+  ],
+  "hero": {
+    "de": {
+      "heroTitle": "GRP Bau",
+      "heroSubOne": "Renovierung & Trockenbau",
+      "heroSubTwo": "Böden & Leitungsverlegung",
+      "heroSubThree": "Von Bremen bis Hannover für Sie da"
+    },
+    "pl": {
+      "heroTitle": "GRP Bau",
+      "heroSubOne": "Wykończenia wnętrz i remonty",
+      "heroSubTwo": "Zabudowy g-k, podłogi i przewody",
+      "heroSubThree": "Dolna Saksonia i Bremen"
+    },
+    "en": {
+      "heroTitle": "GRP Bau",
+      "heroSubOne": "Interior finishing & renovation",
+      "heroSubTwo": "Drywall, flooring & cable laying",
+      "heroSubThree": "Serving Lower Saxony & Bremen"
+    }
+  },
+  "about": {
+    "de": {
+      "aboutPointsRaw": "Erfahrenes Team\nPünktlichkeit und Zuverlässigkeit\nHohe Qualität zu fairen Preisen\nKostenlose Beratung"
+    },
+    "pl": {
+      "aboutPointsRaw": "Doświadczony zespół\nTerminowość i rzetelność\nWysoka jakość w uczciwych cenach\nBezpłatna wycena"
+    },
+    "en": {
+      "aboutPointsRaw": "Experienced team\nPunctuality and reliability\nHigh quality at fair prices\nFree consultation"
+    }
+  }
 };

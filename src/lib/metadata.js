@@ -5,7 +5,8 @@ import defaults from '../../prisma/content/seo-content';
 import { SITE_NAME, LOCALES, DEFAULT_LOCALE, pageUrls, serviceUrls } from './seo';
 
 const OG_LOCALES = { de: 'de_DE', pl: 'pl_PL', en: 'en_GB' };
-const IN_CITY = { de: 'in', pl: 'w', en: 'in' };
+// zapasowy dopisek do tytułu usługi (gdy meta title w CMS jest pusty)
+const REGION = { de: 'in Bremen, Hannover & Umgebung', pl: 'w Bremie, Hanowerze i okolicy', en: 'in Bremen, Hanover & area' };
 const OG_IMAGE = { url: '/grp-logo.png', width: 1437, height: 1225, alt: SITE_NAME };
 
 function build({ title, description, urls, lang, ogImage }) {
@@ -60,7 +61,7 @@ export function buildPageMetadata(page, lang, content, ogImage) {
 export function buildServiceMetadata(service, lang, ogImage) {
   const name = service.title.rendered;
   return build({
-    title: service.metaTitle || `${name} ${IN_CITY[lang] || 'in'} Sulingen | ${SITE_NAME}`,
+    title: service.metaTitle || `${name} ${REGION[lang] || REGION.de} | ${SITE_NAME}`,
     description: service.metaDescription || service.acf.leistung_excerpt || '',
     urls: serviceUrls(service.slugs),
     lang,

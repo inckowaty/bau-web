@@ -13,5 +13,12 @@ export const COMPANY = {
   phoneDisplay: '+49 1556 1013765',
   whatsapp: 'https://wa.me/4915561013765',
   email: 'info@grp-bau.de',
-  areaServed: ['Sulingen'],
+  // obszar działania: Sulingen i okolica w promieniu ok. 100 km
+  serviceRadiusKm: 100,
+  // środek Sulingen (do danych strukturalnych GeoCircle)
+  geo: { latitude: 52.6833, longitude: 8.8 },
+  areaServed: [
+    'Sulingen', 'Bremen', 'Hannover', 'Oldenburg', 'Osnabrück', 'Minden',
+    'Nienburg (Weser)', 'Diepholz', 'Vechta', 'Verden (Aller)', 'Delmenhorst', 'Syke',
+  ],
 };
