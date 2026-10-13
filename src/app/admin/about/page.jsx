@@ -46,15 +46,10 @@ export default function AboutEditor() {
           </button>
         ))}
       </div>
+      <div className={styles.notice}>
+        Nagłówek H1, wprowadzenie i tekst strony edytujesz w zakładce <a href="/admin/pages">Treści i SEO</a> → O nas.
+      </div>
       <form onSubmit={save} className={styles.form}>
-        <div className={styles.field}>
-          <label>Tytuł</label>
-          <input value={data.aboutTitle || ""} onChange={(e) => setData({ ...data, aboutTitle: e.target.value })} />
-        </div>
-        <div className={styles.field}>
-          <label>Wprowadzenie (HTML)</label>
-          <textarea value={data.aboutIntro || ""} onChange={(e) => setData({ ...data, aboutIntro: e.target.value })} rows={5} />
-        </div>
         <div className={styles.field}>
           <label>Punkty (jeden na linię)</label>
           <textarea value={data.aboutPointsRaw || ""} onChange={(e) => setData({ ...data, aboutPointsRaw: e.target.value })} rows={6} />

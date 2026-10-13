@@ -44,7 +44,7 @@ export async function fetchAbout(lang = 'de') {
 export async function fetchNav(lang = 'de') {
   const rows = await prisma.navItem.findMany({
     where: { lang },
-    orderBy: { sortOrder: 'asc' },
+    orderBy: [{ sortOrder: 'asc' }, { id: 'asc' }],
   });
   return rows.map(r => ({
     id: r.id,
@@ -56,27 +56,68 @@ export async function fetchNav(lang = 'de') {
 }
 
 /*──────────────── SERVICES  ──────────────────*/
-export async function fetchLeistungen(lang = 'de') {
-  const rows = await prisma.service.findMany({
-    where: { lang },
-    orderBy: { sortOrder: 'asc' },
-  });
-  return rows.map(r => ({
+function mapService(r) {
+  return {
     id: r.id,
+    key: r.key,
+    slug: r.slug,
+    h1: r.h1,
+    body: r.body,
+    faqRaw: r.faqRaw,
+    metaTitle: r.metaTitle,
+    metaDescription: r.metaDescription,
+    iconUrl: fileUrl(r.iconUrl),
     title: { rendered: r.title },
     acf: {
       leistung_icon: { url: fileUrl(r.iconUrl) },
       leistung_excerpt: r.excerpt,
       leistung_features_raw: r.featuresRaw,
     },
-  }));
+  };
+}
+
+export async function fetchLeistungen(lang = 'de') {
+  const rows = await prisma.service.findMany({
+    where: { lang },
+    orderBy: [{ sortOrder: 'asc' }, { id: 'asc' }],
+  });
+  return rows.map(mapService);
+}
+
+// podstrona usługi + adresy jej tłumaczeń ({ de: 'trockenbau', pl: 'zabudowy-g-k', ... })
+export async function fetchServiceBySlug(lang, slug) {
+  if (!slug) return null;
+  const row = await prisma.service.findFirst({ where: { lang, slug } });
+  if (!row) return null;
+  const siblings = row.key
+    ? await prisma.service.findMany({ where: { key: row.key }, select: { lang: true, slug: true } })
+    : [{ lang: row.lang, slug: row.slug }];
+  const slugs = Object.fromEntries(siblings.filter(x => x.slug).map(x => [x.lang, x.slug]));
+  return { ...mapService(row), slugs };
+}
+
+// wszystkie podstrony usług pogrupowane po key – dla sitemap.xml
+export async function fetchServiceSlugGroups() {
+  const rows = await prisma.service.findMany({
+    where: { NOT: [{ slug: '' }, { key: '' }] },
+    select: { key: true, lang: true, slug: true },
+    orderBy: [{ sortOrder: 'asc' }, { id: 'asc' }],
+  });
+  const groups = {};
+  for (const r of rows) (groups[r.key] ??= {})[r.lang] = r.slug;
+  return Object.entries(groups).map(([key, slugs]) => ({ key, slugs }));
+}
+
+/*──────────────── PAGE CONTENT (treść + SEO stron) ──────────────────*/
+export async function fetchPageContent(page, lang = 'de') {
+  return prisma.pageContent.findUnique({ where: { page_lang: { page, lang } } });
 }
 
 /*──────────────── GALLERY  ──────────────────*/
-export async function fetchGallery(lang = 'de') {
+export async function fetchGallery(lang = 'de', category) {
   const rows = await prisma.galleryImage.findMany({
-    where: { lang },
-    orderBy: { sortOrder: 'asc' },
+    where: category ? { lang, category } : { lang },
+    orderBy: [{ sortOrder: 'asc' }, { id: 'asc' }],
   });
   // Return as flat array of image objects (simplifies page.jsx processing)
   return rows.map(r => ({
@@ -84,6 +125,9 @@ export async function fetchGallery(lang = 'de') {
     url: fileUrl(r.url),
     width: r.width,
     height: r.height,
+    alt: r.alt,
+    caption: r.caption,
+    category: r.category,
   }));
 }
 

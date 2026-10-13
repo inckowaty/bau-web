@@ -1,203 +1,230 @@
 .about {
-    position: relative;
-    padding: 4rem 2rem;
-    background: var(--neutral-100);
-    color: var(--primary-900);
-    overflow: hidden;
-    min-height: 61vh;
-  }
-  
-  /* Subtelne tło gradientowe */
-  .about::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to bottom right,
-      var(--primary) 0%,
-      transparent 100%
-    );
-    opacity: 0.05;
-    pointer-events: none;
-    z-index: 0;
-  }
-  
-  .title {
-    position: relative;
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    font-size: clamp(2rem, 5vw, 3rem);
-    margin-bottom: 0.5rem;
-    z-index: 1;
-  }
-  
-  .title::after {
-    content: "";
-    display: block;
-    width: 33%;
-    height: 0.25rem;
-    background: var(--accent);
-    margin-top: 0.5rem;
-  }
-  
-  /* WYSIWYG - stylowanie paragrafów i list w intro */
-  .intro {
-    position: relative;
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
-    line-height: 1.6;
-    margin: 1.5rem 0 2rem;
-    max-width: 700px;
-    z-index: 1;
-  }
-  
-  .intro p {
-    margin-bottom: 1rem;
-  }
-  
-  .intro ul {
-    list-style: disc inside;
-    margin: 1rem 0;
-  }
-  
-  .intro ul li {
-    margin-bottom: 0.5rem;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1rem 4rem;
+  color: var(--neutral);
+  min-height: 61vh;
+}
+
+/* ---------- GÓRA: nagłówek + intro | „Warum wir?” ---------- */
+.top {
+  display: grid;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.title::after {
+  content: "";
+  display: block;
+  width: 5rem;
+  height: 0.25rem;
+  margin-top: 0.75rem;
+  border-radius: 2px;
+  background: var(--accent);
+}
+
+/* intro: Markdown z CMS albo stary HTML */
+.intro {
+  margin-top: 1.75rem;
+  font-size: clamp(1rem, 2.2vw, 1.15rem);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.intro p {
+  margin-bottom: 1rem;
+}
+
+.intro > :last-child {
+  margin-bottom: 0;
+}
+
+.intro ul {
+  list-style: disc;
+  margin: 1rem 0 1rem 1.25rem;
+}
+
+.intro ul li {
+  margin-bottom: 0.5rem;
+}
+
+.intro a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+/* karta z listą zalet – ta sama poświata co karty usług */
+.why {
+  padding: 2rem 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 6px var(--accent);
+  background: linear-gradient(180deg, rgba(254, 184, 26, 0.06) 0%, rgba(254, 184, 26, 0) 70%);
+  transition: box-shadow 0.3s ease;
+}
+
+.why:hover {
+  box-shadow: 0 0 12px var(--accent);
+}
+
+.listHeading {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.3rem, 2.8vw, 1.6rem);
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+}
+
+.list {
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+}
+
+.listItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.icon {
+  flex-shrink: 0;
+  color: var(--accent);
+}
+
+.pointText {
+  line-height: 1.45;
+  padding-top: 0.05rem;
+}
+
+/* ---------- TREŚĆ (body z CMS) ---------- */
+.body {
+  max-width: 860px;
+  margin: 4rem auto 0;
+}
+
+.body .bodyText h2 {
+  padding-left: 0.9rem;
+  border-left: 4px solid var(--accent);
+  line-height: 1.25;
+}
+
+.body .bodyText > :first-child {
+  margin-top: 0;
+}
+
+.body .bodyText p,
+.body .bodyText li {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.body .bodyText ul {
+  list-style: none;
+  margin-left: 0;
+}
+
+.body .bodyText li {
+  position: relative;
+  padding-left: 1.4rem;
+}
+
+.body .bodyText li::before {
+  content: "";
+  position: absolute;
+  left: 0.2rem;
+  top: 0.7em;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 1px;
+  background: var(--accent);
+  transform: rotate(45deg);
+}
+
+/* ---------- CTA ---------- */
+.aboutCtaWrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 3.5rem;
+}
+
+.cta {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding: 0.75rem 2rem;
+  background: var(--accent);
+  color: var(--primary);
+  font-weight: 900;
+  border-radius: 0.375rem;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta:hover,
+.cta:focus-visible {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 0 18px rgba(254, 184, 26, 0.5);
+}
+
+.cta:focus-visible {
+  outline: 2px solid var(--neutral);
+  outline-offset: 3px;
+}
+
+/* ===================== DESKTOP (>=768px) ===================== */
+@media (min-width: 768px) {
+  .about {
+    padding: 4rem 2rem 5rem;
   }
 
-  /* nagłówek nad listą */
-  .listHeading {
-    position: relative;
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-    margin: 2rem 0 1rem;
-    color: white;
-    z-index: 1;
-  }
-  
-  .list {
-    position: relative;
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-    z-index: 1;
-  }
-  
-  .listItem {
-    display: flex;
-    align-items: flex-start;
-    max-width: 25rem;
-  }
-  
-  .icon {
-    flex-shrink: 0;
-    margin-right: 0.75rem;
-    color: var(--accent);
-  }
-  
-  .pointText {
-    line-height: 1.4;
+  /* treść i przycisk wyrównane do lewej krawędzi nagłówka */
+  .body {
+    margin: 4rem 0 0;
   }
 
   .aboutCtaWrapper {
-    grid-area: cta;
-    width: 100%;
-    justify-content: center;
-    align-self: center;
-    display: flex;
+    justify-content: flex-start;
   }
-  
-  .cta {
-    position: relative;
-    display: inline-block;
-    padding: 0.75rem 2rem;
-    background: var(--accent);
-    color: var(--primary);
-    font-weight: 900;
-    border-radius: 0.375rem;
-    text-decoration: none;
-    transition: transform 0.2s ease;
-    z-index: 1;
-  }
-  
-  .cta:hover {
-    transform: scale(1.05);
-  }
-  
-/* ===================== DESKTOP (>=768px) ===================== */
-@media (min-width: 768px) {
-    .about {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto auto;
-        grid-template-areas:
-          /* tytuł nad lewą, nagłówek listy nad prawą */
-          "title      listHeading"
-          /* intro w lewej, sama lista w prawej */
-          "intro      list"
-          /* pełna szerokość przycisku */
-          "cta        cta";
-        gap: 1rem 2rem;
-        padding: 3rem 2rem;
-      }
-    
-      .title {
-        grid-area: title;
-        padding-left: 3rem;
-        align-self: center;
-      }
-    
-      .listHeading {
-        grid-area: listHeading;
-        align-self: end;    /* wypchnij lekko w dół, by było bliżej tytułu */
-        font-size: clamp(1.5rem, 3vw, 2rem);
-        color: white;
-        margin: 0;          /* usuń marginesy */
-        padding-bottom: 2rem;
-      }
-    
-      .intro {
-        grid-area: intro;
-        margin: 0;
-        padding-left: 5rem;
-      }
-    
-      .list {
-        grid-area: list;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-        margin: 0;
-        width: 100%;
-      }
-    
-      .cta {
-        grid-area: cta;
-        justify-self: center;
-        margin-top: 3rem;
-        position: static;
-        width: auto;
-        height: min-content;
-      }
-    }
-  
-  /* ===================== MOBILE (<768px) ===================== */
-  @media (max-width: 767px) {
-    .cta {
-      width: auto;
-      left: 0;
-      right: 0;
-      margin: 1rem auto 0;
-      transform: none;
-    }
 
-    .aboutCtaWrapper {
-        grid-area: cta;
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        justify-content: center;
-    }
+  .why {
+    padding: 2.25rem 2rem;
   }
-  
+}
+
+@media (min-width: 960px) {
+  .top {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: 4rem;
+  }
+
+  .why {
+    margin-top: 0.5rem;
+  }
+}
+
+/* ===================== MOBILE (<768px) ===================== */
+@media (max-width: 767px) {
+  .cta {
+    width: 100%;
+    max-width: 22rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta,
+  .why {
+    transition: none;
+  }
+}

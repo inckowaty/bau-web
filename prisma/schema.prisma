@@ -49,6 +49,14 @@ model Service {
   excerpt     String
   featuresRaw String
   sortOrder   Int    @default(0)
+  // grupa tłumaczeń tej samej usługi (np. "trockenbau") i treść podstrony
+  key             String @default("")
+  slug            String @default("")
+  h1              String @default("")
+  body            String @default("")
+  faqRaw          String @default("")
+  metaTitle       String @default("")
+  metaDescription String @default("")
 
   @@map("services")
 }
@@ -60,6 +68,9 @@ model GalleryImage {
   width     Int?
   height    Int?
   sortOrder Int    @default(0)
+  alt       String @default("")
+  caption   String @default("")
+  category  String @default("")
 
   @@map("gallery_images")
 }
@@ -83,4 +94,28 @@ model ContactMessage {
   createdAt DateTime @default(now())
 
   @@map("contact_messages")
+}
+
+// Treści i SEO poszczególnych stron (home, services, gallery, about, contact)
+model PageContent {
+  id              Int    @id @default(autoincrement())
+  page            String
+  lang            String
+  h1              String @default("")
+  intro           String @default("")
+  body            String @default("")
+  faqRaw          String @default("")
+  metaTitle       String @default("")
+  metaDescription String @default("")
+
+  @@unique([page, lang])
+  @@map("page_contents")
+}
+
+// Jednorazowe migracje treści (scripts/content-migrations.js)
+model ContentMigration {
+  id        String   @id
+  appliedAt DateTime @default(now())
+
+  @@map("content_migrations")
 }

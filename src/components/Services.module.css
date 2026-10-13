@@ -1,64 +1,343 @@
 /* Services.module.css */
 
 .services {
-    position: relative;
-    padding: 2rem 2rem;
-    background: var(--neutral-100);
-    color: var(--primary-900);
-    overflow: hidden;
-    min-height: 61vh;
-  }
-  
-  .title {
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    font-size: clamp(2rem, 5vw, 3rem);
-    margin-bottom: 3rem;
-    text-align: center;
-  }
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 3rem 1rem 4rem;
+  color: var(--neutral);
+  overflow: hidden;
+  min-height: 61vh;
+}
 
-  .imgTitleWrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 2rem;
-    margin-bottom: 2rem;
-    /* line-height: 25px; */
-    align-items: center;
-  }
-  
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 10% 50px;
-  }
-  
-  .card {
-    /* background: var(--primary-900); */
-    padding: 2rem;
-    margin-bottom: 4rem;
-    border-radius: 0.5rem;
-    color: var(--neutral-100);
-    height: 100%;
-    box-shadow: 0 0px 6px var(--accent);
-    transition: box-shadow 0.2s ease;   
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-    transition: 0.5s;
-    background: transparent;
-  }
+/* ---------- NAGŁÓWEK + INTRO ---------- */
+.header {
+  max-width: 860px;
+  margin: 0 auto 3rem;
+}
 
-  .card:hover {
-    box-shadow: 0 0 12px var(--accent);
-  }
+.title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.15;
+  text-align: center;
+  text-wrap: balance;
+}
 
-  .card span {
-    position: absolute;
-    display: block;
-  }
+.title::after {
+  content: "";
+  display: block;
+  width: 4rem;
+  height: 0.25rem;
+  margin: 0.75rem auto 0;
+  border-radius: 2px;
+  background: var(--accent);
+}
 
-  .card:hover > span:nth-child(1) {
+.header .intro {
+  margin-top: 2rem;
+  padding-left: 1.5rem;
+  border-left: 3px solid var(--accent);
+  font-size: clamp(1rem, 2.2vw, 1.15rem);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.header .intro > :last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- KARTY ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: 2.5rem 2rem;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.75rem 1.75rem;
+  border-radius: 0.5rem;
+  color: var(--neutral);
+  box-shadow: 0 0 6px var(--accent);
+  overflow: hidden;
+  transition: box-shadow 0.5s ease;
+  background: linear-gradient(180deg, rgba(254, 184, 26, 0.04) 0%, rgba(254, 184, 26, 0) 55%);
+}
+
+.card:hover {
+  box-shadow: 0 0 12px var(--accent);
+}
+
+.card:focus-within {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.card > span {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+}
+
+.card:hover > span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent));
+  animation: btn-anim1 1s linear infinite;
+  animation-delay: 0s;
+}
+
+@keyframes btn-anim1 {
+  0% { left: -100%; }
+  50%, 100% { left: 100%; }
+}
+
+.card:hover > span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, var(--accent));
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+
+@keyframes btn-anim2 {
+  0% { top: -100%; }
+  50%, 100% { top: 100%; }
+}
+
+.card:hover > span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, var(--accent));
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes btn-anim3 {
+  0% { right: -100%; }
+  50%, 100% { right: 100%; }
+}
+
+.card:hover > span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, var(--accent));
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+
+@keyframes btn-anim4 {
+  0% { bottom: -100%; }
+  50%, 100% { bottom: 100%; }
+}
+
+.imgTitleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.iconBadge {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(254, 184, 26, 0.4);
+  background: rgba(254, 184, 26, 0.1);
+  color: var(--accent);
+}
+
+.icon {
+  display: block;
+  object-fit: contain;
+  color: var(--accent);
+}
+
+.name {
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.nameLink {
+  color: inherit;
+  transition: color 0.2s ease;
+}
+
+.nameLink:hover {
+  color: var(--accent);
+}
+
+.excerpt {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.features {
+  list-style: none;
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  line-height: 1.45;
+}
+
+.check {
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+  color: var(--accent);
+}
+
+.more {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 0.25rem 0;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.more svg {
+  transition: transform 0.2s ease;
+}
+
+.more:hover svg,
+.more:focus-visible svg {
+  transform: translateX(4px);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- TREŚĆ POD KARTAMI ---------- */
+.body {
+  max-width: 860px;
+  margin: 4rem auto 0;
+}
+
+.body .bodyText h2 {
+  padding-left: 0.9rem;
+  border-left: 4px solid var(--accent);
+  line-height: 1.25;
+}
+
+.body .bodyText > :first-child {
+  margin-top: 0;
+}
+
+.body .bodyText p,
+.body .bodyText li {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.body .bodyText ul {
+  list-style: none;
+  margin-left: 0;
+}
+
+.body .bodyText li {
+  position: relative;
+  padding-left: 1.4rem;
+}
+
+.body .bodyText li::before {
+  content: "";
+  position: absolute;
+  left: 0.2rem;
+  top: 0.7em;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 1px;
+  background: var(--accent);
+  transform: rotate(45deg);
+}
+
+/* ---------- CTA ---------- */
+.ctaDiv {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 4rem;
+}
+
+.cta {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0.75rem 2.25rem;
+  background: var(--accent);
+  color: var(--primary);
+  font-weight: 900;
+  border-radius: 0.375rem;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta:hover,
+.cta:focus-visible {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 0 18px rgba(254, 184, 26, 0.5);
+}
+
+.cta:focus-visible {
+  outline: 2px solid var(--neutral);
+  outline-offset: 3px;
+}
+
+/* Desktop: większe paddingi */
+@media (min-width: 768px) {
+  .services {
+    padding: 4rem 2rem 5rem;
+  }
+}
+
+/* ----------------------------------- */
+/* neonowa obwódka – mobilnie na scroll */
+/* ----------------------------------- */
+
+/* tylko na urządzeniach <768px */
+@media (max-width: 767px) {
+  .card:hover > span { display: none; } /* wyłącz hover–ramkę */
+  .card.active > span { display: block; }
+  .card.active > span:nth-child(1) {
     top: 0;
     left: -100%;
     width: 100%;
@@ -67,13 +346,7 @@
     animation: btn-anim1 1s linear infinite;
     animation-delay: 0s;
   }
-  
-  @keyframes btn-anim1 {
-    0% { left: -100%; }
-    50%,100% { left: 100%; }
-  }
-  
-  .card:hover > span:nth-child(2) {
+  .card.active > span:nth-child(2) {
     top: -100%;
     right: 0;
     width: 2px;
@@ -82,13 +355,7 @@
     animation: btn-anim2 1s linear infinite;
     animation-delay: 0.25s;
   }
-  
-  @keyframes btn-anim2 {
-    0% { top: -100%; }
-    50%,100% { top: 100%; }
-  }
-  
-  .card:hover > span:nth-child(3) {
+  .card.active > span:nth-child(3) {
     bottom: 0;
     right: -100%;
     width: 100%;
@@ -97,13 +364,7 @@
     animation: btn-anim3 1s linear infinite;
     animation-delay: 0.5s;
   }
-  
-  @keyframes btn-anim3 {
-    0% { right: -100%; }
-    50%,100% { right: 100%; }
-  }
-  
-  .card:hover > span:nth-child(4) {
+  .card.active > span:nth-child(4) {
     bottom: -100%;
     left: 0;
     width: 2px;
@@ -112,156 +373,23 @@
     animation: btn-anim4 1s linear infinite;
     animation-delay: 0.75s;
   }
-  
-  @keyframes btn-anim4 {
-    0% { bottom: -100%; }
-    50%,100% { bottom: 100%; }
-  }
-  
-  .icon {
-    /* margin-bottom: 1rem; */
-    color: var(--accent);
-  }
-  
-  .name {
-    font-size: 1.25rem;
-    font-weight: 500;
-    /* margin-bottom: 0.5rem; */
-  }
-  
-  .name span {
-    max-width: 12rem;
+
+  .card {
+    padding: 1.75rem 1.25rem 1.5rem;
   }
 
-  .excerpt {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-  }
-  
-  .features {
-    list-style: disc inside;
-    margin-bottom: 1rem;
-    flex-grow: 1;
-  }
-  
-  .more {
-    position: absolute;
-    bottom: 30;
-    margin-top: auto;
-    text-decoration: none;
-    color: var(--accent);
-    font-weight: 500;
-    transition: color 0.2s ease;
-  }
-  
-  .more:hover {
-    color: var(--accent);
-  }
-  
-  .ctaDiv {
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-
+  .header .intro {
+    padding-left: 1rem;
   }
 
   .cta {
-    display: inline-block;
-    margin: 10rem auto 0;
-    padding: 0.75rem 2rem;
-    background: var(--accent);
-    color: var(--primary);
-    font-weight: 900;
-    border-radius: 0.375rem;
-    text-decoration: none;
-    text-align: center;
-    transition: transform 0.2s ease;
-    transform: translateX(-50%);
-    z-index: 1;
+    width: 100%;
+    max-width: 22rem;
   }
-  
-  /* Desktop: większe paddingi i statyczne CTA */
-  @media (min-width: 768px) {
-    .services {
-      padding: 3rem 3rem;
-    }
-  
-    .cta {
-      transform: none;
-    }
-  }
+}
 
-/* ----------------------------------- */
-/* neonowa obwódka – mobilnie na scroll */
-/* ----------------------------------- */
-
-/* tylko na urządzeniach <768px */
-@media (max-width: 767px) {
-    .card:hover > span { display: none; } /* wyłącz hover–ramkę */
-    .card.active > span:nth-child(1) {
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--accent));
-      animation: btn-anim1 1s linear infinite;
-      animation-delay: 0s;
-    }
-    .card.active > span:nth-child(2) {
-      top: -100%;
-      right: 0;
-      width: 2px;
-      height: 100%;
-      background: linear-gradient(180deg, transparent, var(--accent));
-      animation: btn-anim2 1s linear infinite;
-      animation-delay: 0.25s;
-    }
-    .card.active > span:nth-child(3) {
-      bottom: 0;
-      right: -100%;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(270deg, transparent, var(--accent));
-      animation: btn-anim3 1s linear infinite;
-      animation-delay: 0.5s;
-    }
-    .card.active > span:nth-child(4) {
-      bottom: -100%;
-      left: 0;
-      width: 2px;
-      height: 100%;
-      background: linear-gradient(360deg, transparent, var(--accent));
-      animation: btn-anim4 1s linear infinite;
-      animation-delay: 0.75s;
-    }
-  
-    @keyframes btn-anim1 {
-      0%   { left: -100%; }
-      50%,
-      100% { left: 100%; }
-    }
-    @keyframes btn-anim2 {
-      0%   { top: -100%; }
-      50%,
-      100% { top: 100%; }
-    }
-    @keyframes btn-anim3 {
-      0%   { right: -100%; }
-      50%,
-      100% { right: 100%; }
-    }
-    @keyframes btn-anim4 {
-      0%   { bottom: -100%; }
-      50%,
-      100% { bottom: 100%; }
-    }
-    .grid {
-        gap: 5rem;
-    }
-    .cta {
-      width: 70%;
-      margin-top: 5rem;
-      transform: translateX(0%);
-    }
-  }
-  
+@media (prefers-reduced-motion: reduce) {
+  .card > span { display: none !important; }
+  .more svg,
+  .cta { transition: none; }
+}
